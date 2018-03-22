@@ -1,0 +1,195 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-12 18:01+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#. Name of the plugin
+#: index.php:178 index.php:178
+msgid "Libraries"
+msgstr ""
+
+#: index.php:182
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: index.php:194
+msgid "Settings"
+msgstr ""
+
+#: library.php:21
+msgid "CSS grid from bootstrap 4 + styles needed for owlCarousel."
+msgstr ""
+
+#: library.php:31
+msgid "Let's learn that HTML5 and CSS3 are user-friendly"
+msgstr ""
+
+#: library.php:41
+msgid "Eliminating the need to specify prefixes in styles."
+msgstr ""
+
+#: library.php:51
+msgid ""
+"Automatic page loading indicator for the site with tracking of ajax-requests "
+"and the status of page loading (readyState)."
+msgstr ""
+
+#: library.php:61
+msgid "Allows you to do input fields with a mask."
+msgstr ""
+
+#: library.php:71
+msgid "Library for progressive loading of images."
+msgstr ""
+
+#: library.php:81
+msgid ""
+"A library for building blocks of different sizes one after another both "
+"horizontally and vertically with no spaces."
+msgstr ""
+
+#: library.php:91
+msgid "Additional library to Isotope.js with the system of objects location."
+msgstr ""
+
+#: library.php:101
+msgid "Alpha version of the library to preserve the aspect ratio for objects."
+msgstr ""
+
+#: library.php:110
+msgid ""
+"Alpha version of the library, which sets the width of the images to 100%, "
+"and the height of the auto. <br/> It takes into account the maximum width of "
+"the image from the width attribute, and if it is not set loads naturalWidth "
+"with ImagesLoaded.js"
+msgstr ""
+
+#: library.php:119
+msgid ""
+"The Alpha version of the library, operates by opening windows on top of "
+"everything based on styles and allows an additional function of the window's "
+"properties."
+msgstr ""
+
+#: library.php:128
+msgid "Slider for images."
+msgstr ""
+
+#: library.php:138
+msgid "The animation styles used by owlCarousel (can be used separately)."
+msgstr ""
+
+#: library.php:148
+msgid "A library that allows you to group markers on a map."
+msgstr ""
+
+#: library.php:159
+msgid "Pop-ups when clicking on the marker."
+msgstr ""
+
+#: options.php:97
+msgid "Additional libraries"
+msgstr ""
+
+#: options.php:106
+msgid "Styles"
+msgstr ""
+
+#: options.php:121
+msgid "Load justbenice.css styles, in WYSIWYG-editor."
+msgstr ""
+
+#: options.php:128
+msgid "JS Libraries"
+msgstr ""
+
+#: options.php:142
+msgid ""
+"Allows you to check the loading of the image in the specified places. Now "
+"included in the list of basic wordpress scripts."
+msgstr ""
+
+#: options.php:146
+msgid "Libraries based on jQuery"
+msgstr ""
+
+#: options.php:162 options.php:193
+msgid "Code example"
+msgstr ""
+
+#: options.php:209
+msgid "owlCarousel slider"
+msgstr ""
+
+#: options.php:220
+msgid "Google Libraries"
+msgstr ""
+
+#: options.php:223
+msgid "Google Maps"
+msgstr ""
+
+#: options.php:223
+msgid "Loads remote API, so you can create google maps on your website."
+msgstr ""
+
+#: options.php:229
+msgid "API Key"
+msgstr ""
+
+#: options.php:230
+msgid "Get key"
+msgstr ""
+
+#: options.php:236
+msgid "Page IDs divided by comma"
+msgstr ""
+
+#: options.php:238
+msgid "Limit pages where to load the remote library. Leave empty if not needed"
+msgstr ""
+
+#: options.php:262
+msgid "Google Analytics"
+msgstr ""
+
+#: options.php:262
+msgid "A script to track visitor statistics in Google Analytics."
+msgstr ""
+
+#: options.php:268
+msgid "UA-#######-##"
+msgstr ""
+
+#: options.php:275
+msgid ""
+"Plugin to make work easier. Developed by Igor Kiselev in <a href=\"//www."
+"justbenice.ru/\">Just Be Nice</a>"
+msgstr ""
+
+#. Description of the plugin
+msgid "Plugin for using different js and css libraries"
+msgstr ""
+
+#. URI of the plugin
+msgid "http://www.igorkiselev.com/wp-plugin/libraries/"
+msgstr ""
+
+#. Author of the plugin
+msgid "Igor Kiselev"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "http://www.igorkiselev.com/"
+msgstr ""

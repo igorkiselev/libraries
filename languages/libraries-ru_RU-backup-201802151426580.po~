@@ -1,0 +1,214 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Libraries\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-12 18:01+0000\n"
+"PO-Revision-Date: 2017-12-12 18:03+0000\n"
+"Last-Translator: Игорь Киселев <igor@justbenice.ru>\n"
+"Language-Team: Russian\n"
+"Language: ru-RU\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
+"n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#: library.php:21
+msgid "CSS grid from bootstrap 4 + styles needed for owlCarousel."
+msgstr "CSS сетка от bootstrap 4 + стили необходимые для owlCarousel."
+
+#: library.php:31
+msgid "Let's learn that HTML5 and CSS3 are user-friendly"
+msgstr "Узнаём, что из HTML5 и CSS3 умеет браузер пользователя."
+
+#: library.php:41
+msgid "Eliminating the need to specify prefixes in styles."
+msgstr "Избавляющий от необходимости указывать префиксы в стилях."
+
+#: library.php:51
+msgid ""
+"Automatic page loading indicator for the site with tracking of ajax-requests "
+"and the status of page loading (readyState)."
+msgstr ""
+"Автоматический индикатор загрузки страницы для сайта с отслеживанием ajax-"
+"запросов и состояния загрузки страницы (readyState)."
+
+#: library.php:61
+msgid "Allows you to do input fields with a mask."
+msgstr "Позволяет делать поля ввода с маской."
+
+#: library.php:71
+msgid "Library for progressive loading of images."
+msgstr "Библиотека для прогрессивной загрузки изображений."
+
+#: library.php:81
+msgid ""
+"A library for building blocks of different sizes one after another both "
+"horizontally and vertically with no spaces."
+msgstr ""
+"Библиотека для постройки блоков разных размеров друг за другом как "
+"горизонтально так и вертикально без пробелов."
+
+#: library.php:91
+msgid "Additional library to Isotope.js with the system of objects location."
+msgstr ""
+"Дополнительная библиотека к Isotope.js c системой расположения объектов."
+
+#: library.php:101
+msgid "Alpha version of the library to preserve the aspect ratio for objects."
+msgstr ""
+"Альфа версия библиотеки для сохранения соотношения сторон для объектов."
+
+#: library.php:110
+msgid ""
+"Alpha version of the library, which sets the width of the images to 100%, "
+"and the height of the auto. <br/> It takes into account the maximum width of "
+"the image from the width attribute, and if it is not set loads naturalWidth "
+"with ImagesLoaded.js"
+msgstr ""
+"Альфа версия библиотеки, которая проставляет у&nbsp;картинок ширину 100%, "
+"а&nbsp;высоту &laquo;auto&raquo;. <br/>Учитывает максимальную ширину "
+"изображения из&nbsp;атрибута width, и&nbsp;если он&nbsp;не&nbsp;задан "
+"то&nbsp;прогружает naturalWidth при помощи ImagesLoaded.js"
+
+#: library.php:119
+msgid ""
+"The Alpha version of the library, operates by opening windows on top of "
+"everything based on styles and allows an additional function of the window's "
+"properties."
+msgstr ""
+"Альфа версия библиотеки, оперирует открытием окон поверх всего на основании "
+"стилей и позволяет дополнительной функцией меня свойства окна."
+
+#: library.php:128
+msgid "Slider for images."
+msgstr "Слайдер для изображений."
+
+#: library.php:138
+msgid "The animation styles used by owlCarousel (can be used separately)."
+msgstr ""
+"Стили для анимации используемые owlCarousel (можно искользовать отдельно)"
+
+#: library.php:148
+msgid "A library that allows you to group markers on a map."
+msgstr "Библиотека, которая позволяет объеденять в группы маркеры на карте."
+
+#: library.php:159
+msgid "Pop-ups when clicking on the marker."
+msgstr "Всплывающие окна при нажатии на маркер."
+
+#: options.php:146
+msgid "Libraries based on jQuery"
+msgstr "Библиотеки использующие jQuery"
+
+#: options.php:162 options.php:193
+msgid "Code example"
+msgstr "Пример кода"
+
+#: options.php:268
+msgid "UA-#######-##"
+msgstr ""
+
+#: options.php:275
+msgid ""
+"Plugin to make work easier. Developed by Igor Kiselev in <a href=\"//www."
+"justbenice.ru/\">Just Be Nice</a>"
+msgstr ""
+
+#. Description of the plugin
+msgid "Plugin for using different js and css libraries"
+msgstr ""
+
+#. URI of the plugin
+msgid "http://www.igorkiselev.com/wp-plugin/libraries/"
+msgstr ""
+
+#. Author of the plugin
+msgid "Igor Kiselev"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "http://www.igorkiselev.com/"
+msgstr ""
+
+#. Name of the plugin
+#: index.php:178 index.php:178
+msgid "Libraries"
+msgstr "Библиотеки"
+
+#: index.php:182
+msgid "You do not have sufficient permissions to access this page."
+msgstr "У вас недостаточно прав для доступа к этой странице."
+
+#: index.php:194
+msgid "Settings"
+msgstr "Настройки"
+
+#: options.php:97
+msgid "Additional libraries"
+msgstr "Дополнительные библиотеки"
+
+#: options.php:106
+msgid "Styles"
+msgstr "Стили"
+
+#: options.php:121
+msgid "Load justbenice.css styles, in WYSIWYG-editor."
+msgstr "Загрузить стили Justbenice.css, в WYSIWYG-редактор сайта."
+
+#: options.php:128
+msgid "JS Libraries"
+msgstr "JS Библиотеки"
+
+#: options.php:142
+msgid ""
+"Allows you to check the loading of the image in the specified places. Now "
+"included in the list of basic wordpress scripts."
+msgstr ""
+"Позволяет проверять загрузку изображения в указанных местах. Теперь включен "
+"в список базовых скриптов wordpress."
+
+#: options.php:209
+msgid "owlCarousel slider"
+msgstr "Слайдер owlCarousel"
+
+#: options.php:220
+msgid "Google Libraries"
+msgstr "Библиотеки Google"
+
+#: options.php:223
+msgid "Google Maps"
+msgstr "Карты Google"
+
+#: options.php:223
+msgid "Loads remote API, so you can create google maps on your website."
+msgstr ""
+"Загружает удаленный API, с которым можно создавать карты Google на своем веб-"
+"сайте."
+
+#: options.php:229
+msgid "API Key"
+msgstr "Ключ для API"
+
+#: options.php:230
+msgid "Get key"
+msgstr "Получить ключ"
+
+#: options.php:236
+msgid "Page IDs divided by comma"
+msgstr "ID страниц, разделенные запятой"
+
+#: options.php:238
+msgid "Limit pages where to load the remote library. Leave empty if not needed"
+msgstr ""
+"Ограничьте страницы, на которых загружается удаленная библиотека. Оставьте "
+"пустым, если не нужно."
+
+#: options.php:262
+msgid "Google Analytics"
+msgstr "Аналитика Google"
+
+#: options.php:262
+msgid "A script to track visitor statistics in Google Analytics."
+msgstr "Скрипт для отслеживания статистики посещения в Google Analytics."
