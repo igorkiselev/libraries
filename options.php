@@ -367,19 +367,125 @@ if( ! defined( 'ABSPATH' ) ) exit;
 				</tr>
 			</table>
 			
-			<table class="form-table form-table-custome"><tr>
-				<th scope="row">&nbsp;</th>
-				<td>
+			<table class="form-table form-table-custome">
+				<tr>
+					<th scope="row">&nbsp;</th>
+					<td>
 					<?php _custom_checkbox('filenames',__('Filename prefix', 'libraries'),__('Set prefix for filenames that are uploaded to wordpress.','libraries')); ?>
-			</td>
-			</tr>
-			<tr>
+					</td>
+				</tr>
+				<tr>
 				<th scope="row">&nbsp;</th>
 				<td>
 					<input type="text" class="regular-text code" name="libraries-filenames-slug" <?php disabled( 1, !get_option( 'libraries-filenames' ), true ); ?> value="<?php echo get_option( 'libraries-filenames-slug' ); ?>" placeholder=""  />
 				</td>
 			</tr>
+			
+			<table class="form-table form-table-border">
+					<tr>
+						<th scope="row"><?php _e('Functions', 'libraries'); ?></th>
+						<td>
+							<?php _custom_checkbox('disable-emoji',__('Remove emoji support', 'libraries'),__('Убирать из <head/> стили и скрипты для обработки emoji на сайте.','libraries')); ?>
+					</td>
+					</tr>
+					<tr>
+						<th scope="row">&nbsp;</th>
+						<td>
+							<?php _custom_checkbox('disable-adminbar',__('Remove administrator bar', 'libraries'),__('Скрывать панель администратора на сайте.','libraries')); ?>
+					</td>
+					</tr>
+					<tr>
+						<th scope="row">&nbsp;</th>
+						<td>
+							<?php _custom_checkbox('disable-generator',__('Remove generator meta', 'libraries'),__('Убирать из <head/> информацию про систему администрирования и версию.','libraries')); ?></td>
+					</tr>
+					<tr>
+						<th scope="row">&nbsp;</th>
+						<td>
+							<?php _custom_checkbox('disable-rsslinks',__('RSS фиды', 'libraries'),__('Убирать из <head/> ссылки на RSS фиды сайта (будут продажлать работать если просто дописать /feed), а также xml для блог-клиентов.','libraries')); ?></td>
+					</tr>
+					<tr>
+						<th scope="row">&nbsp;</th>
+						<td>
+							<?php _custom_checkbox('disable-rellinks',__('REL ссылки', 'libraries'),__('Убирать из <head/> ссылки на главную страницу, на первую запись, на предыдущую и следующую запись, связь с родительской записью и короткую ссылку к текущей странице.','libraries')); ?></td>
+					</tr>
+					<tr>
+						<th scope="row">&nbsp;</th>
+						<td>
+							<?php _custom_checkbox('enable-navmenus',__('Переместить пункт меню в основное меню', 'libraries'),__('','libraries')); ?></td>
+					</tr>
+					
+					<tr>
+						<th scope="row">&nbsp;</th>
+						<td>
+							<?php _custom_checkbox('content-the_title',__('«Нет заголовка»', 'libraries'),__('Отображать фразу «Нет заголовка» в the_title, когда заголовок у поста или страницы пуст.','libraries')); ?></td>
+					</tr>
+					
+					<tr>
+						<th scope="row">&nbsp;</th>
+						<td>
+							<?php _custom_checkbox('
+					header-wp_title',__('Название сайта в заголовке', 'libraries'),__('Отображать название сайта (компании) в заголовке после назнваия страницы (wp_title).','libraries')); ?></td>
+					</tr>
+					
+					<tr>
+						<th scope="row">&nbsp;</th>
+						<td>
+							<?php _custom_checkbox('
+					featured-rss',__('Featured to RSS', 'libraries'),__('Добавить в начале каждой записи RSS потока изображение поста','libraries')); ?></td>
+					</tr>
+					
+					<tr>
+						<th scope="row">&nbsp;</th>
+						<td>
+							<?php _custom_checkbox('
+					functions-html5',__('HTML5 разметка', 'libraries'),__('Включает поддержку html5 разметки для списка комментариев, формы комментариев, формы поиска, галереи и т.д.','libraries')); ?></td>
+					</tr>
+					
+					<tr>
+						<th scope="row">&nbsp;</th>
+						<td>
+							<?php _custom_checkbox('
+					functions-post-thumbnails',__('Миниатюра к посту', 'libraries'),__('Позволяет устанавливать миниатюру посту.','libraries')); ?></td>
+					</tr>
+					
+					<tr>
+						<th scope="row">&nbsp;</th>
+						<td>
+							<?php _custom_checkbox('
+					functions-ischild',__('Функция is_child()', 'libraries'),__('Дополнительная сверка является ли страница, подстраницей кого-то.','libraries')); ?></td>
+					</tr>
+					
+					<tr>
+						<th scope="row">&nbsp;</th>
+						<td>
+							<?php _custom_checkbox('
+					functions-bodyclass',__('Класс в <body/>', 'libraries'),__('Указывать в классах страницы ее название (slug).','libraries')); ?></td>
+					</tr>
+					
+					<tr>
+						<th scope="row">&nbsp;</th>
+						<td>
+							<?php _custom_checkbox('
+					functions-nav-description',__('Описание пункта меню', 'libraries'),__('Показывать в параграфе описание ссылки в wp_nav_menu.','libraries')); ?></td>
+					</tr>
+					
+					<tr>
+						<th scope="row">&nbsp;</th>
+						<td>
+							<?php _custom_checkbox('
+					functions-escapekey',__('Редактор при нажатии ESC', 'libraries'),__('Открывать редактирование страницы при нажатии ESC.','libraries')); ?></td>
+					</tr>
+					
+					<tr>
+						<th scope="row">&nbsp;</th>
+						<td>
+							<?php _custom_checkbox('
+					editor-css-normalize',__('Normalize.css, в WYSIWYG-редактор', 'libraries'),__('','libraries')); ?></td>
+					</tr>
+					
 			</table>
+			
 			
 			<?php do_settings_sections("theme-options"); ?>
 			
