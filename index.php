@@ -20,6 +20,8 @@ add_action('admin_init', function () {
 	
 	global $library;
 	
+	register_setting( 'libraries', 'additional_libraries' );
+	
 	foreach ($library as $key => $value){
 		register_setting( 'libraries', 'libraries-'.$key );
 	}

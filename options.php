@@ -4,123 +4,65 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-    global $library;
+	global $library;
 
         // Функции для корректной работы плагина
 
-        function _builtin_size($path)
-        {
-            if (file_exists(plugin_dir_path(__FILE__).$path)) {
-                return round(filesize(plugin_dir_path(__FILE__).$path) / 1024, 2).' KB';
-            }
-        }
+		function _builtin_size($path){
+			if (file_exists(plugin_dir_path(__FILE__).$path)) {
+				return round(filesize(plugin_dir_path(__FILE__).$path) / 1024, 2).' KB';
+			}
+		}
 
-        function _checkbox($name)
-        {
-            global $library;
+		function _checkbox($name) {
+			global $library;
+			$settings = get_option('additional_libraries');
 
-            if (property_exists($library, $name)) {
-                $obj = $library->$name;
-
-                $id = 'libraries-'.$obj->name;
-
-                ?>
-				
-				<label for="<?php echo $id;
-                ?>">
+			if (property_exists($library, $name)) {
+				$obj = $library->$name; $id = $obj->name; ?>
+					<label>
+						<input name="additional_libraries[<?php echo $id; ?>]" type="checkbox" value="1" <?php (!empty($settings[$id]) ? checked('1', $settings[$id]) : false); ?> />
+						<strong><?php echo $obj->title;?></strong>
+						<small>(<?php if (property_exists($obj, 'src')) { ?>+<?php echo _builtin_size($obj->src); } ?>, <?php if (property_exists($obj, 'ver')) { ?>v <?php echo $obj->ver; } ?>)</small>
 					
-					<input id="<?php echo $id;
-                ?>" name="<?php echo $id;
-                ?>" type="checkbox" value="1" <?php checked('1', get_option($id));
-                ?> />
+						<?php if (property_exists($obj, 'description')) { ?>
+							<p class="description">
+								<?php echo $obj->description; ?>
+								<?php if (property_exists($obj, 'link')) { ?>
+									<a href="<?php echo $obj->link; ?>" class="dashicons dashicons-editor-help" target="_blank"></a>
+								<?php  }  ?>
+							</p>
+						<?php  }  ?>
 					
-					<strong><?php echo $obj->title;
-                ?></strong> <small>(<?php if (property_exists($obj, 'src')) {
-    ?>+<?php echo _builtin_size($obj->src);
-}
-                ?>, <?php if (property_exists($obj, 'ver')) {
-    ?>v <?php echo $obj->ver;
-}
-                ?>)</small>
-					
-					<?php if (property_exists($obj, 'description')) {
-    ?>
-						
-					<p class="description">
-					
-						<?php echo $obj->description;
-    ?>
-					
-						<?php if (property_exists($obj, 'link')) {
-    ?>
-					
-							<a href="<?php echo $obj->link;
-    ?>" class="dashicons dashicons-editor-help" target="_blank"></a>
-					
-						<?php 
-}
-    ?>
-					
-					</p>
-					
-					<?php 
-}
-                ?>
-					
-				</label>
+					</label>
 				
 				<?php 
-            } else {
-                echo 'Error';
-            }
-        }
+			}
+		}
 
-        function _custom_checkbox($key, $title = '', $description = '', $link = '')
-        {
-            $id = 'libraries-'.$key;
-
-            ?>
+		function _custom_checkbox($key, $title = '', $description = '', $link = '') {
+			$settings = get_option('additional_libraries');
+			?>
 			
-			<label for="<?php echo $id;
-            ?>">
+			<label>
+				<input name="additional_libraries[<?php echo $key; ?>]" type="checkbox" value="1" <?php (!empty($settings[$key]) ? checked('1', $settings[$key]) : false); ?> />
+				<strong><?php echo $title; ?></strong> 
 				
-				<input id="<?php echo $id;
-            ?>" name="<?php echo $id;
-            ?>" type="checkbox" value="1" <?php checked('1', get_option($id));
-            ?> />
-				
-				<strong><?php echo $title;
-            ?></strong> 
-				
-				<?php if ($description) {
-    ?>
-					
+				<?php if ($description) { ?>	
 				<p class="description">
-				
-					<?php echo $description;
-    ?>
-				
-					<?php if ($link) {
-    ?>
-				
-						<a href="<?php echo $link;
-    ?>" class="dashicons dashicons-editor-help" target="_blank"></a>
-				
-					<?php 
-}
-    ?>
-				
+					<?php echo $description; ?>
+					<?php if ($link) { ?>
+						<a href="<?php echo $link; ?>" class="dashicons dashicons-editor-help" target="_blank"></a>
+					<?php  } ?>
 				</p>
-				
-				<?php 
-}
-            ?>
+				<?php  } ?>
 				
 			</label>
-			<?php 
-        }
-
-        ?><div class="wrap">
+		<?php } ?>
+		
+		
+		
+		<div class="wrap">
 		
 			<style>
 				.form-table.form-table-border{
@@ -138,6 +80,11 @@ if (!defined('ABSPATH')) {
 				
 			<?php settings_fields('libraries'); ?>
 			
+			<?php
+			$settings = get_option('additional_libraries');
+			
+			print_r($settings); ?>
+			
 			<table class="form-table">
 				<tr>
 					<th scope="row">
@@ -148,14 +95,9 @@ if (!defined('ABSPATH')) {
 				<tr>
 					<th scope="row">&nbsp;</th>
 					<td>
-						<label for="libraries-editor-css-normalize">
-							<input id="libraries-editor-css-normalize" name="libraries-editor-css-normalize" type="checkbox" value="1" <?php checked('1', get_option('libraries-editor-css-normalize')); ?> />
-							<?php _e('Load Normalize.css styles, in WYSIWYG-editor.', 'libraries')?>
-						</label>
+						<?php _custom_checkbox('editor-css-normalize', __('Normalize.css, в WYSIWYG-редактор', 'libraries'), __('', 'libraries')); ?>
 					</td>
 				</tr>
-								<?php _custom_checkbox('
-						editor-css-normalize', __('Normalize.css, в WYSIWYG-редактор', 'libraries'), __('', 'libraries')); ?>
 				<tr>
 					<th scope="row">
 						&nbsp;
@@ -165,10 +107,7 @@ if (!defined('ABSPATH')) {
 				<tr>
 					<th scope="row">&nbsp;</th>
 					<td>
-						<label for="libraries-justbenice-editor">
-							<input id="libraries-justbenice-editor" name="libraries-justbenice-editor" type="checkbox" value="1" <?php checked('1', get_option('libraries-justbenice-editor')); ?> />
-							<?php _e('Load justbenice.css styles, in WYSIWYG-editor.', 'libraries')?>
-						</label>
+						<?php _custom_checkbox('justbenice-editor', __('Load justbenice.css styles, in WYSIWYG-editor', 'libraries'), __('', 'libraries')); ?>
 					</td>
 				</tr>
 			</table>
@@ -229,21 +168,18 @@ if (!defined('ABSPATH')) {
 					<th scope="row">&nbsp;</th>
 					<td><?php _custom_checkbox('lazy-brakepoints', 'Additional brakepoints', __('Add custom set of sizes to srcset in images.', 'libraries')); ?></td>
 				</tr>
-				<tr<?php if (!get_option('libraries-lazy-brakepoints')) {
-    ?> style="opacity:.3"<?php 
-} ?>>
+				<tr<?php if (empty($settings['lazy-brakepoints'])) { ?> style="opacity:.3"<?php  } ?>>
 					<th scope="row">&nbsp;</th>
 					<td>
-						<input type="text" class="regular-text code" name="libraries-lazy-brakepoints-sizes" <?php disabled(1, !get_option('libraries-lazy-brakepoints'), true); ?> value="<?php echo get_option('libraries-lazy-brakepoints-sizes'); ?>" placeholder="<?php _e('Sizes divided by comma', 'libraries'); ?>" />
+						<input type="text" class="regular-text code" name="additional_libraries[lazy-brakepoints-sizes]"
+						<?php disabled(1, empty($settings['lazy-brakepoints']), true); ?>
+						<?php if (!empty($settings['lazy-brakepoints-sizes'])) { ?>value="<?php echo $settings['lazy-brakepoints-sizes']; ?>"<?php } ?>
+						placeholder="<?php _e('Sizes divided by comma', 'libraries'); ?>" />
 						<p class="description">
 							<?php _e('Add image sizes you want to be generated and displayed in srcset.', 'libraries'); ?>
 						</p>
 						<p class="description"><small> <b><?php _e('Currently egistered sizes:', 'libraries'); ?></b> 
-								<?php
-                                    foreach (get_intermediate_image_sizes() as $key) {
-                                        echo '<span>'.$key.'</span> ';
-                                    }
-                                ?>
+								<?php foreach (get_intermediate_image_sizes() as $key) { echo '<span>'.$key.'</span> '; } ?>
 							</small>
 						</p>
 					</td>
@@ -347,21 +283,26 @@ if (!defined('ABSPATH')) {
 						<?php _custom_checkbox('google-map', __('Google Maps', 'libraries'), __('Loads remote API, so you can create google maps on your website.', 'libraries'), ''); ?>
 					</td>
 				</tr>
-				<tr<?php if (!get_option('libraries-google-map')) {
-    ?> style="opacity:.3"<?php 
-} ?>>
+				<tr<?php if (empty($settings['google-map'])) { ?> style="opacity:.3"<?php } ?>>
 					<th scope="row">&nbsp;</th>
 					<td>
-						<input type="text" class="regular-text code" name="libraries-google-map-key" <?php disabled(1, !get_option('libraries-google-map'), true); ?> value="<?php echo get_option('libraries-google-map-key'); ?>" placeholder="<?php _e('API Key', 'libraries'); ?>"  />
+						<input type="text" class="regular-text code"
+							name="additional_libraries[google-map-key]"
+							
+							<?php disabled(1, empty($settings['google-map']), true); ?>
+							<?php if (!empty($settings['google-map-key'])) { ?>value="<?php echo $settings['google-map-key']; ?>"<?php } ?>
+							placeholder="<?php _e('API Key', 'libraries'); ?>" />
 						<span class="description"><a href="https://developers.google.com/maps/documentation/javascript/"><?php _e('Get key', 'libraries'); ?></a></span>
 					</td>
 				</tr>
-				<tr<?php if (!get_option('libraries-google-map')) {
-    ?> style="opacity:.3"<?php 
-} ?>>
+				<tr<?php if (empty($settings['google-map'])) { ?> style="opacity:.3"<?php } ?>>
 					<th scope="row">&nbsp;</th>
 					<td>
-						<input type="text" class="regular-text code" name="libraries-google-map-limit" <?php disabled(1, !get_option('libraries-google-map'), true); ?> value="<?php echo get_option('libraries-google-map-limit'); ?>" placeholder="<?php _e('Page IDs divided by comma', 'libraries'); ?>" />
+						<input type="text" class="regular-text code"
+							name="additional_libraries[google-map-limit]"
+							<?php disabled(1, empty($settings['google-map']), true); ?>
+							<?php if (!empty($settings['google-map-limit'])) { ?>value="<?php echo $settings['google-map-limit']; ?>"<?php } ?>
+							placeholder="<?php _e('Page IDs divided by comma', 'libraries'); ?>" />
 						<p class="description">
 							<?php _e('Limit pages where to load the remote library. Leave empty if not needed', 'libraries'); ?>
 						</p>
@@ -393,7 +334,13 @@ if (!defined('ABSPATH')) {
 				<tr>
 					<th scope="row">&nbsp;</th>
 					<td>
-						<input type="text" class="regular-text code" name="libraries-google-analytics-key" <?php disabled(1, !get_option('libraries-google-analytics'), true); ?> value="<?php echo get_option('libraries-google-analytics-key'); ?>" placeholder="<?php _e('UA-#######-##', 'libraries'); ?>"  />
+						<input type="text" class="regular-text code"
+						name="additional_libraries[google-analytics-key]"
+						
+						<?php disabled(1, empty($settings['google-analytics']), true); ?>
+						<?php if (!empty($settings['google-analytics-key'])) { ?>value="<?php echo $settings['google-analytics-key']; ?>"<?php } ?>
+						
+						placeholder="<?php _e('UA-#######-##', 'libraries'); ?>"  />
 					</td>
 				</tr>
 			</table>
@@ -407,7 +354,13 @@ if (!defined('ABSPATH')) {
 				<tr>
 					<th scope="row">&nbsp;</th>
 					<td>
-						<input type="text" class="regular-text code" name="libraries-yandex-metrics-key" <?php disabled(1, !get_option('libraries-yandex-metrics'), true); ?> value="<?php echo get_option('libraries-yandex-metrics-key'); ?>" placeholder="<?php _e('########', 'libraries'); ?>"  />
+						<input type="text" class="regular-text code"
+						name="additional_libraries[yandex-metrics-key]"
+						
+						<?php disabled(1, empty($settings['yandex-metrics']), true); ?>
+						<?php if (!empty($settings['yandex-metrics-key'])) { ?>value="<?php echo $settings['yandex-metrics-key']; ?>"<?php } ?>
+						
+						placeholder="<?php _e('########', 'libraries'); ?>"  />
 					</td>
 				</tr>
 			</table>
@@ -422,7 +375,14 @@ if (!defined('ABSPATH')) {
 				<tr>
 					<th scope="row">&nbsp;</th>
 					<td>
-						<input type="text" class="regular-text code" name="libraries-filenames-slug" <?php disabled(1, !get_option('libraries-filenames'), true); ?> value="<?php echo get_option('libraries-filenames-slug'); ?>" placeholder=""  />
+						<input type="text" class="regular-text code"
+						name="additional_libraries[filenames-slug]"
+						
+						<?php disabled(1, empty($settings['filenames']), true); ?>
+						<?php if (!empty($settings['filenames-slug'])) { ?>value="<?php echo $settings['filenames-slug']; ?>"<?php } ?>
+						
+						placeholder="" />
+						
 					</td>
 				</tr>
 			</table>
@@ -466,77 +426,57 @@ if (!defined('ABSPATH')) {
 				</tr>
 			</table>
 			<table class="form-table form-table-border">
-					<tr>
-						<th scope="row">Обработка контента</th>
-						<td>
-							<?php _custom_checkbox('content-the_title', __('«Нет заголовка»', 'libraries'), __('Отображать фразу «Нет заголовка» в the_title, когда заголовок у поста или страницы пуст.', 'libraries')); ?></td>
-					</tr>
-					
-					<tr>
-						<th scope="row">&nbsp;</th>
-						<td>
-							<?php _custom_checkbox('
-					header-wp_title', __('Название сайта в заголовке', 'libraries'), __('Отображать название сайта (компании) в заголовке после назнваия страницы (wp_title).', 'libraries')); ?></td>
-					</tr>
-				</table>
-				<table class="form-table form-table-border">
-					<tr>
-						<th scope="row">RSS</th>
-						<td>
-							<?php _custom_checkbox('
-					featured-rss', __('Featured to RSS', 'libraries'), __('Добавить в начале каждой записи RSS потока изображение поста', 'libraries')); ?></td>
-					</tr>
-				</table>
-				<table class="form-table form-table-border">
-					<tr>
-						<th scope="row">Поддержка для тем</th>
-						<td>
-							<?php _custom_checkbox('
-					functions-html5', __('HTML5 разметка', 'libraries'), __('Включает поддержку html5 разметки для списка комментариев, формы комментариев, формы поиска, галереи и т.д.', 'libraries')); ?></td>
-					</tr>
-					
-					<tr>
-						<th scope="row">&nbsp;</th>
-						<td>
-							<?php _custom_checkbox('
-					functions-post-thumbnails', __('Миниатюра к посту', 'libraries'), __('Позволяет устанавливать миниатюру посту.', 'libraries')); ?></td>
-					</tr>
-				</table>
-				<table class="form-table form-table-border">
-					<tr>
-						<th scope="row">Functions</th>
-						<td>
-							<?php _custom_checkbox('
-					functions-ischild', __('Функция is_child()', 'libraries'), __('Дополнительная сверка является ли страница, подстраницей кого-то.', 'libraries')); ?></td>
-					</tr>
-					
-					<tr>
-						<th scope="row">&nbsp;</th>
-						<td>
-							<?php _custom_checkbox('
-					functions-bodyclass', __('Класс в <body/>', 'libraries'), __('Указывать в классах страницы ее название (slug).', 'libraries')); ?></td>
-					</tr>
-					
-					<tr>
-						<th scope="row">&nbsp;</th>
-						<td>
-							<?php _custom_checkbox('
-					functions-nav-description', __('Описание пункта меню', 'libraries'), __('Показывать в параграфе описание ссылки в wp_nav_menu.', 'libraries')); ?></td>
-					</tr>
-					
-					<tr>
-						<th scope="row">&nbsp;</th>
-						<td>
-							<?php _custom_checkbox('
-					functions-escapekey', __('Редактор при нажатии ESC', 'libraries'), __('Открывать редактирование страницы при нажатии ESC.', 'libraries')); ?></td>
-					</tr>
-					
-					<tr>
-						<th scope="row">&nbsp;</th>
-						<td>
-						</td>
-					</tr>
-					
+				<tr>
+					<th scope="row">Обработка контента</th>
+					<td>
+						<?php _custom_checkbox('content-the_title', __('«Нет заголовка»', 'libraries'), __('Отображать фразу «Нет заголовка» в the_title, когда заголовок у поста или страницы пуст.', 'libraries')); ?></td>
+				</tr>
+				<tr>
+					<th scope="row">&nbsp;</th>
+					<td>
+						<?php _custom_checkbox('header-wp_title', __('Название сайта в заголовке', 'libraries'), __('Отображать название сайта (компании) в заголовке после назнваия страницы (wp_title).', 'libraries')); ?></td>
+				</tr>
+			</table>
+			<table class="form-table form-table-border">
+				<tr>
+					<th scope="row">RSS</th>
+					<td>
+						<?php _custom_checkbox('featured-rss', __('Featured to RSS', 'libraries'), __('Добавить в начале каждой записи RSS потока изображение поста', 'libraries')); ?></td>
+				</tr>
+			</table>
+			<table class="form-table form-table-border">
+				<tr>
+					<th scope="row">Поддержка для тем</th>
+					<td>
+						<?php _custom_checkbox('functions-html5', __('HTML5 разметка', 'libraries'), __('Включает поддержку html5 разметки для списка комментариев, формы комментариев, формы поиска, галереи и т.д.', 'libraries')); ?></td>
+				</tr>
+				<tr>
+					<th scope="row">&nbsp;</th>
+					<td>
+						<?php _custom_checkbox('functions-post-thumbnails', __('Миниатюра к посту', 'libraries'), __('Позволяет устанавливать миниатюру посту.', 'libraries')); ?></td>
+				</tr>
+			</table>
+			<table class="form-table form-table-border">
+				<tr>
+					<th scope="row">Functions</th>
+					<td>
+						<?php _custom_checkbox('functions-ischild', __('Функция is_child()', 'libraries'), __('Дополнительная сверка является ли страница, подстраницей кого-то.', 'libraries')); ?></td>
+				</tr>
+				<tr>
+					<th scope="row">&nbsp;</th>
+					<td>
+						<?php _custom_checkbox('functions-bodyclass', __('Класс в <body/>', 'libraries'), __('Указывать в классах страницы ее название (slug).', 'libraries')); ?></td>
+				</tr>
+				<tr>
+					<th scope="row">&nbsp;</th>
+					<td>
+						<?php _custom_checkbox('functions-nav-description', __('Описание пункта меню', 'libraries'), __('Показывать в параграфе описание ссылки в wp_nav_menu.', 'libraries')); ?></td>
+				</tr>
+				<tr>
+					<th scope="row">&nbsp;</th>
+					<td>
+						<?php _custom_checkbox('functions-escapekey', __('Редактор при нажатии ESC', 'libraries'), __('Открывать редактирование страницы при нажатии ESC.', 'libraries')); ?></td>
+				</tr>
 			</table>
 			
 			
