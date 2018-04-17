@@ -80,10 +80,7 @@ if (!defined('ABSPATH')) {
 				
 			<?php settings_fields('libraries'); ?>
 			
-			<?php
-			$settings = get_option('additional_libraries');
-			
-			print_r($settings); ?>
+			<?php $settings = get_option('additional_libraries'); ?>
 			
 			<table class="form-table">
 				<tr>
@@ -111,6 +108,7 @@ if (!defined('ABSPATH')) {
 					</td>
 				</tr>
 			</table>
+			
 			<table class="form-table form-table-border">
 				<tr>
 					<th scope="row"><?php _e('JS Libraries', 'libraries'); ?></th>
@@ -131,6 +129,7 @@ if (!defined('ABSPATH')) {
 					</td>
 				</tr>
 			</table>
+			
 			<table class="form-table form-table-border">
 				<tr>
 					<th scope="row"><?php _e('Libraries based on jQuery', 'libraries'); ?></th>
@@ -141,6 +140,7 @@ if (!defined('ABSPATH')) {
 					<td><?php _checkbox('jquery_ui_touch_punch'); ?></td>
 				</tr>
 			</table>
+			
 			<table class="form-table form-table-border">
 				<tr>
 					<th scope="row"><?php _e('.lazy js library', 'libraries'); ?></th>
@@ -185,6 +185,7 @@ if (!defined('ABSPATH')) {
 					</td>
 				</tr>
 			</table>
+			
 			<table class="form-table form-table-border">
 				<tr>
 					<th scope="row"><?php _e('Fullpage scroller', 'libraries'); ?></th>
@@ -195,6 +196,7 @@ if (!defined('ABSPATH')) {
 					<td><?php _checkbox('fullpage_scrolloverflow'); ?></td>
 				</tr>
 			</table>
+			
 			<table class="form-table form-table-border">
 				<tr>
 					<th scope="row"><?php _e('Isotope block builder', 'libraries'); ?></th>
@@ -225,22 +227,24 @@ if (!defined('ABSPATH')) {
 					<td><?php _checkbox('isotope_packery'); ?></td>
 				</tr>
 			</table>
+			
 			<table class="form-table form-table-border">
-					<tr>
-						<th scope="row"><?php _e('owlCarousel slider', 'libraries'); ?></th>
-						<td><?php _checkbox('owlcarousel'); ?></td>
-					</tr>
-					<tr>
-						<th scope="row">&nbsp;</th>
-						<td><?php _checkbox('animate'); ?></td>
-					</tr>
-					<tr>
-						<th scope="row">&nbsp;</th>
-						<td>
-							<?php _custom_checkbox('owlcarousel-gallery', __('Change default gallery to owl', 'libraries'), __('Function that changes the default wordpress gallery layout to owlcarousel.', 'libraries')); ?>
-					</td>
-					</tr>
+				<tr>
+					<th scope="row"><?php _e('owlCarousel slider', 'libraries'); ?></th>
+					<td><?php _checkbox('owlcarousel'); ?></td>
+				</tr>
+				<tr>
+					<th scope="row">&nbsp;</th>
+					<td><?php _checkbox('animate'); ?></td>
+				</tr>
+				<tr>
+					<th scope="row">&nbsp;</th>
+					<td>
+						<?php _custom_checkbox('owlcarousel-gallery', __('Change default gallery to owl', 'libraries'), __('Function that changes the default wordpress gallery layout to owlcarousel.', 'libraries')); ?>
+				</td>
+				</tr>
 			</table>
+			
 			<table class="form-table form-table-border">
 				<tr>
 					<th scope="row"><?php _e('Beta libraries by Just Be Nice', 'libraries'); ?></th>
@@ -274,6 +278,7 @@ if (!defined('ABSPATH')) {
 					</td>
 				</tr>
 			</table>
+			
 			<table class="form-table form-table-google" >
 				<tr>
 					<th scope="row">
@@ -344,6 +349,7 @@ if (!defined('ABSPATH')) {
 					</td>
 				</tr>
 			</table>
+			
 			<table class="form-table form-table-yandex" >
 				<tr>
 					<th scope="row"><?php _e('Yandex', 'libraries'); ?></th>
@@ -386,31 +392,33 @@ if (!defined('ABSPATH')) {
 					</td>
 				</tr>
 			</table>
+			
 			<table class="form-table form-table-border">
 				<tr>
 					<th scope="row">
-						<?php _e('Убираем из <head/>', 'libraries'); ?>
+						<?php _e('Убираем из &#60;head&#47;&#62;', 'libraries'); ?>
 					</th>
 					<td>
-						<?php _custom_checkbox('disable-emoji', __('Remove emoji support', 'libraries'), __('Убирать из <head/> стили и скрипты для обработки emoji на сайте.', 'libraries')); ?>
+						<?php _custom_checkbox('disable-emoji', __('Remove emoji support', 'libraries'), __('Убирать из &#60;head&#47;&#62; стили и скрипты для обработки emoji на сайте.', 'libraries')); ?>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">&nbsp;</th>
 					<td>
-						<?php _custom_checkbox('disable-generator', __('Remove generator meta', 'libraries'), __('Убирать из <head/> информацию про систему администрирования и версию.', 'libraries')); ?></td>
+						<?php _custom_checkbox('disable-generator', __('Remove generator meta', 'libraries'), __('Убирать из &#60;head&#47;&#62; информацию про систему администрирования и версию.', 'libraries')); ?></td>
 				</tr>
 				<tr>
 					<th scope="row">&nbsp;</th>
 					<td>
-						<?php _custom_checkbox('disable-rsslinks', __('RSS фиды', 'libraries'), __('Убирать из <head/> ссылки на RSS фиды сайта (будут продажлать работать если просто дописать /feed), а также xml для блог-клиентов.', 'libraries')); ?></td>
+						<?php _custom_checkbox('disable-rsslinks', __('RSS фиды', 'libraries'), __('Убирать из &#60;head&#47;&#62; ссылки на RSS фиды сайта (будут продажлать работать если просто дописать /feed), а также xml для блог-клиентов.', 'libraries')); ?></td>
 				</tr>
 				<tr>
 					<th scope="row">&nbsp;</th>
 					<td>
-						<?php _custom_checkbox('disable-rellinks', __('REL ссылки', 'libraries'), __('Убирать из <head/> ссылки на главную страницу, на первую запись, на предыдущую и следующую запись, связь с родительской записью и короткую ссылку к текущей странице.', 'libraries')); ?></td>
+						<?php _custom_checkbox('disable-rellinks', __('REL ссылки', 'libraries'), __('Убирать из &#60;head&#47;&#62; ссылки на главную страницу, на первую запись, на предыдущую и следующую запись, связь с родительской записью и короткую ссылку к текущей странице.', 'libraries')); ?></td>
 				</tr>
 			</table>
+			
 			<table class="form-table form-table-border">
 				<tr>
 					<th scope="row"><?php _e('Интерфейс вордпресса', 'libraries'); ?></th>
@@ -418,13 +426,13 @@ if (!defined('ABSPATH')) {
 						<?php _custom_checkbox('disable-adminbar', __('Remove administrator bar', 'libraries'), __('Скрывать панель администратора на сайте.', 'libraries')); ?>
 				</td>
 				</tr>
-				
 				<tr>
 					<th scope="row">&nbsp;</th>
 					<td>
 						<?php _custom_checkbox('enable-navmenus', __('Переместить пункт меню в основное меню', 'libraries'), __('', 'libraries')); ?></td>
 				</tr>
 			</table>
+			
 			<table class="form-table form-table-border">
 				<tr>
 					<th scope="row">Обработка контента</th>
@@ -437,6 +445,7 @@ if (!defined('ABSPATH')) {
 						<?php _custom_checkbox('header-wp_title', __('Название сайта в заголовке', 'libraries'), __('Отображать название сайта (компании) в заголовке после назнваия страницы (wp_title).', 'libraries')); ?></td>
 				</tr>
 			</table>
+			
 			<table class="form-table form-table-border">
 				<tr>
 					<th scope="row">RSS</th>
@@ -444,6 +453,7 @@ if (!defined('ABSPATH')) {
 						<?php _custom_checkbox('featured-rss', __('Featured to RSS', 'libraries'), __('Добавить в начале каждой записи RSS потока изображение поста', 'libraries')); ?></td>
 				</tr>
 			</table>
+			
 			<table class="form-table form-table-border">
 				<tr>
 					<th scope="row">Поддержка для тем</th>
@@ -456,6 +466,7 @@ if (!defined('ABSPATH')) {
 						<?php _custom_checkbox('functions-post-thumbnails', __('Миниатюра к посту', 'libraries'), __('Позволяет устанавливать миниатюру посту.', 'libraries')); ?></td>
 				</tr>
 			</table>
+			
 			<table class="form-table form-table-border">
 				<tr>
 					<th scope="row">Functions</th>
@@ -465,7 +476,7 @@ if (!defined('ABSPATH')) {
 				<tr>
 					<th scope="row">&nbsp;</th>
 					<td>
-						<?php _custom_checkbox('functions-bodyclass', __('Класс в <body/>', 'libraries'), __('Указывать в классах страницы ее название (slug).', 'libraries')); ?></td>
+						<?php _custom_checkbox('functions-bodyclass', __('Класс в &#60;body&#47;&#62;', 'libraries'), __('Указывать в классах страницы ее название (slug).', 'libraries')); ?></td>
 				</tr>
 				<tr>
 					<th scope="row">&nbsp;</th>

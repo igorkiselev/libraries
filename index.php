@@ -22,32 +22,32 @@ add_action('admin_init', function () {
 	
 	register_setting( 'libraries', 'additional_libraries' );
 	
-	foreach ($library as $key => $value){
-		register_setting( 'libraries', 'libraries-'.$key );
-	}
-	
-	register_setting( 'libraries', 'libraries-justbenice-editor' );
-	
-	register_setting( 'libraries', 'libraries-imagesloaded' );
-	
-	register_setting( 'libraries', 'libraries-google-map' );
-	register_setting( 'libraries', 'libraries-google-map-key' );
-	register_setting( 'libraries', 'libraries-google-map-limit' );
-	
-	register_setting( 'libraries', 'libraries-google-analytics' );
-	register_setting( 'libraries', 'libraries-google-analytics-key' );
-	
-	register_setting( 'libraries', 'libraries-lazy-srcset');
-	register_setting( 'libraries', 'libraries-lazy-brakepoints' );
-	register_setting( 'libraries', 'libraries-lazy-brakepoints-sizes');
-	
-	register_setting( 'libraries', 'libraries-yandex-metrics' );
-	register_setting( 'libraries', 'libraries-yandex-metrics-key' );
-	
-	register_setting( 'libraries', 'libraries-filenames' );
-	register_setting( 'libraries', 'libraries-filenames-slug' );
-	
-	register_setting( 'libraries', 'libraries-owlcarousel-gallery' );
+	// foreach ($library as $key => $value){
+// 		register_setting( 'libraries', 'libraries-'.$key );
+// 	}
+		//
+	// register_setting( 'libraries', 'libraries-justbenice-editor' );
+	//
+	// register_setting( 'libraries', 'libraries-imagesloaded' );
+	//
+	// register_setting( 'libraries', 'libraries-google-map' );
+	// register_setting( 'libraries', 'libraries-google-map-key' );
+	// register_setting( 'libraries', 'libraries-google-map-limit' );
+	//
+	// register_setting( 'libraries', 'libraries-google-analytics' );
+	// register_setting( 'libraries', 'libraries-google-analytics-key' );
+	//
+	// register_setting( 'libraries', 'libraries-lazy-srcset');
+	// register_setting( 'libraries', 'libraries-lazy-brakepoints' );
+	// register_setting( 'libraries', 'libraries-lazy-brakepoints-sizes');
+	//
+	// register_setting( 'libraries', 'libraries-yandex-metrics' );
+	// register_setting( 'libraries', 'libraries-yandex-metrics-key' );
+	//
+	// register_setting( 'libraries', 'libraries-filenames' );
+	// register_setting( 'libraries', 'libraries-filenames-slug' );
+	//
+	// register_setting( 'libraries', 'libraries-owlcarousel-gallery' );
 	
 	function change_option($a,$b){
 		
@@ -74,9 +74,11 @@ add_action('wp_enqueue_scripts', function () {
 	
 	wp_enqueue_script('jquery');
 	
+	$settings = get_option('additional_libraries');
+	
 	foreach ($library as $key => $value){
 		
-		if(get_option( 'libraries-'.$key )){
+		if(!empty( $settings[$key])){
 			
 			if(property_exists($value, 'type' ) && property_exists($value, 'src' ) && property_exists($value, 'name' ) && property_exists($value, 'depend' )){
 				
