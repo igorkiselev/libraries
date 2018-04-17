@@ -1,35 +1,29 @@
 <?php 
-
 if (!defined('ABSPATH')) {
-    exit;
+	exit;
 }
 
-	global $library;
-
+	global $lib;
         // Функции для корректной работы плагина
-
 		function _builtin_size($path){
 			if (file_exists(plugin_dir_path(__FILE__).$path)) {
 				return round(filesize(plugin_dir_path(__FILE__).$path) / 1024, 2).' KB';
 			}
 		}
-
 		function _checkbox($name) {
-			global $library;
+			global $lib;
 			$settings = get_option('additional_libraries');
-
-			if (property_exists($library, $name)) {
-				$obj = $library->$name; $id = $obj->name; ?>
+			if (!empty($name)) { ?>
 					<label>
-						<input name="additional_libraries[<?php echo $id; ?>]" type="checkbox" value="1" <?php (!empty($settings[$id]) ? checked('1', $settings[$id]) : false); ?> />
-						<strong><?php echo $obj->title;?></strong>
-						<small>(<?php if (property_exists($obj, 'src')) { ?>+<?php echo _builtin_size($obj->src); } ?>, <?php if (property_exists($obj, 'ver')) { ?>v <?php echo $obj->ver; } ?>)</small>
+						<input name="additional_libraries[<?php echo $lib[$name]['name']; ?>]" type="checkbox" value="1" <?php (!empty($settings[$lib[$name]['name']]) ? checked('1', $settings[$lib[$name]['name']]) : false); ?> />
+						<strong><?php echo $lib[$name]['title']; ?></strong>
+						<small>(<?php if (!empty($lib[$name]['src'])) { ?>+<?php echo _builtin_size($lib[$name]['src']); } ?>, <?php if (!empty($lib[$name]['ver'])) { ?>v <?php echo $lib[$name]['ver']; } ?>)</small>
 					
-						<?php if (property_exists($obj, 'description')) { ?>
+						<?php if (!empty($lib[$name]['description'])) { ?>
 							<p class="description">
-								<?php echo $obj->description; ?>
-								<?php if (property_exists($obj, 'link')) { ?>
-									<a href="<?php echo $obj->link; ?>" class="dashicons dashicons-editor-help" target="_blank"></a>
+								<?php echo $lib[$name]['description']; ?>
+								<?php if (!empty($lib[$name]['link'])) { ?>
+									<a href="<?php echo $lib[$name]['link']; ?>" class="dashicons dashicons-editor-help" target="_blank"></a>
 								<?php  }  ?>
 							</p>
 						<?php  }  ?>
@@ -39,7 +33,13 @@ if (!defined('ABSPATH')) {
 				<?php 
 			}
 		}
-
+		
+		global $lib;
+	
+		wp_enqueue_script('jquery');
+	
+		$settings = get_option('additional_libraries');
+	
 		function _custom_checkbox($key, $title = '', $description = '', $link = '') {
 			$settings = get_option('additional_libraries');
 			?>
@@ -81,6 +81,8 @@ if (!defined('ABSPATH')) {
 			<?php settings_fields('libraries'); ?>
 			
 			<?php $settings = get_option('additional_libraries'); ?>
+			
+			
 			
 			<table class="form-table">
 				<tr>

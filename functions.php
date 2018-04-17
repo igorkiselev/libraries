@@ -6,14 +6,14 @@ if (!defined('ABSPATH')) {
 
 $settings = get_option('additional_libraries');
 
-// imagesloaded
+
 if (!empty($settings['imagesloaded'])) {
 	add_action('wp_enqueue_scripts', function () {
 		wp_enqueue_script('imagesloaded');
 	});
 }
 
-// Google map
+
 if (!empty($settings['google-map'])) {
 	add_action('wp_enqueue_scripts', function () {
 		global $settings;
@@ -36,7 +36,7 @@ if (!empty($settings['google-map'])) {
 	});
 }
 
-// Google map key for acf
+
 if (!empty($settings['google-map-key']) && class_exists('acf')) {
 	add_action('acf/init', function () {
 		global $settings;
@@ -53,15 +53,15 @@ if (!empty($settings['google-map-key']) && class_exists('acf')) {
 	});
 }
 
-// Just Be Nice Analytics
+
 if (!empty($settings['justbenice-editor'])) {
 	add_action('after_setup_theme', function () {
-		global $library;
-		add_editor_style(plugin_dir_url(__FILE__).$library->justbenice->src);
+		global $lib;
+		add_editor_style(plugin_dir_url(__FILE__).$lib['justbenice']['src']);
 	});
 }
 
-// Google  Analytics
+
 if (!empty($settings['google-analytics']) && !empty($settings['google-analytics-key'])) {
 	
 	add_action('wp_footer', function () {
@@ -86,7 +86,8 @@ if (!empty($settings['google-analytics']) && !empty($settings['google-analytics-
 		
 	});
 }
-// Yandex Metrics
+
+
 if (!empty($settings['yandex-metrics']) && !empty($settings['yandex-metrics-key'])) {
 	add_action('wp_footer', function () {
 		global $settings;
@@ -513,6 +514,7 @@ if (!empty($settings['disable-emoji'])) {
 	});
 	
 }
+
 if (!empty($settings['disable-adminbar'])) {
 	
 	add_filter('show_admin_bar', '__return_false');
@@ -723,8 +725,8 @@ if (!empty($settings['functions-escapekey'])) {
 if (!empty($settings['editor-css-normalize'])) {
 	
 	add_action('after_setup_theme', function () {
-		
-		add_editor_style(plugin_dir_url(__FILE__).'stylesheets/normalize.css');
+		global $lib;
+		add_editor_style(plugin_dir_url(__FILE__).$lib['normalize']['src']);
 		
 	});
 	
