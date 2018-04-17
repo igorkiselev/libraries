@@ -33,13 +33,6 @@ if (!defined('ABSPATH')) {
 				<?php 
 			}
 		}
-		
-		global $lib;
-	
-		wp_enqueue_script('jquery');
-	
-		$settings = get_option('additional_libraries');
-	
 		function _custom_checkbox($key, $title = '', $description = '', $link = '') {
 			$settings = get_option('additional_libraries');
 			?>
@@ -60,7 +53,15 @@ if (!defined('ABSPATH')) {
 			</label>
 		<?php } ?>
 		
+		<?php
 		
+		global $lib;
+		
+		wp_enqueue_script('jquery');
+		
+		$settings = get_option('additional_libraries');
+		
+		?>
 		
 		<div class="wrap">
 		
@@ -136,6 +137,10 @@ if (!defined('ABSPATH')) {
 				<tr>
 					<th scope="row"><?php _e('Libraries based on jQuery', 'libraries'); ?></th>
 					<td><?php _checkbox('maskedinput'); ?></td>
+				</tr>
+				<tr>
+					<th scope="row"></th>
+					<td><?php _checkbox('jquerymask'); ?></td>
 				</tr>
 				<tr>
 					<th scope="row"></th>
