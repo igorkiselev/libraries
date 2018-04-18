@@ -376,7 +376,7 @@ msgstr "КБ"
 #. Name of the plugin
 #: index.php:83
 msgid "Custom libraries"
-msgstr "Библиотеки"
+msgstr "Доп. библиотеки"
 
 #: index.php:85
 msgid "You do not have sufficient permissions to access this page."

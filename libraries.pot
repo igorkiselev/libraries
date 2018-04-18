@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-15 14:26+0000\n"
+"POT-Creation-Date: 2018-04-18 20:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -14,96 +14,485 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/"
 
-#: functions.php:398
+#: _backup for translate.php:14 options.php:14
+msgid "Additional libraries"
+msgstr ""
+
+#: _backup for translate.php:25 options.php:25
+msgid "Styles"
+msgstr ""
+
+#: _backup for translate.php:39 options.php:39
+msgid "Load normalize.css styles in WYSIWYG-editor"
+msgstr ""
+
+#: _backup for translate.php:42 options.php:42
+msgid "Load justbenice.css styles in WYSIWYG-editor"
+msgstr ""
+
+#: _backup for translate.php:49 options.php:49
+msgid "JS Libraries"
+msgstr ""
+
+#: _backup for translate.php:66 options.php:66
+msgid ""
+"Allows you to check the loading of the image in the specified places. Now "
+"included in the list of basic wordpress scripts."
+msgstr ""
+
+#: _backup for translate.php:72 options.php:72
+msgid "Libraries based on jQuery"
+msgstr ""
+
+#: _backup for translate.php:83 options.php:83
+msgid ".lazy js library"
+msgstr ""
+
+#: _backup for translate.php:89 options.php:89
+msgid ""
+"Adding data- to srcset & sizes in image attributes. Allows Lazy.js to load "
+"images responsive."
+msgstr ""
+
+#: _backup for translate.php:97 options.php:97
+msgid "Add custom set of sizes to srcset in images."
+msgstr ""
+
+#: _backup for translate.php:105 options.php:105
+msgid "Sizes divided by comma"
+msgstr ""
+
+#: _backup for translate.php:105 options.php:105
+msgid "Add image sizes you want to be generated and displayed in srcset."
+msgstr ""
+
+#: _backup for translate.php:107
+msgid "Currently egistered sizes:"
+msgstr ""
+
+#: _backup for translate.php:118 options.php:118
+msgid "Fullpage scroller"
+msgstr ""
+
+#: _backup for translate.php:125 options.php:125
+msgid "Isotope block builder"
+msgstr ""
+
+#: _backup for translate.php:146 options.php:146
+msgid "owlCarousel slider"
+msgstr ""
+
+#: _backup for translate.php:151 options.php:151
+msgid "Change default gallery to owl"
+msgstr ""
+
+#: _backup for translate.php:151 options.php:151
+msgid ""
+"Function that changes the default wordpress gallery layout to owlcarousel."
+msgstr ""
+
+#: _backup for translate.php:161 options.php:161
+msgid "Beta libraries by Just Be Nice"
+msgstr ""
+
+#: _backup for translate.php:174 options.php:174
+msgid "Code example"
+msgstr ""
+
+#: _backup for translate.php:191 options.php:191
+msgid "Google Libraries"
+msgstr ""
+
+#: _backup for translate.php:194 options.php:194
+msgid "Google Maps"
+msgstr ""
+
+#: _backup for translate.php:194 options.php:194
+msgid "Loads remote API, so you can create google maps on your website."
+msgstr ""
+
+#: _backup for translate.php:202 options.php:202
+msgid "API Key"
+msgstr ""
+
+#: _backup for translate.php:202 options.php:202
+msgid "Get key"
+msgstr ""
+
+#: _backup for translate.php:209 options.php:209
+msgid "Page IDs divided by comma"
+msgstr ""
+
+#: _backup for translate.php:209 options.php:209
+msgid "Limit pages where to load the remote library. Leave empty if not needed"
+msgstr ""
+
+#: _backup for translate.php:230 options.php:230
+msgid "Google Analytics"
+msgstr ""
+
+#: _backup for translate.php:230 options.php:230
+msgid "A script to track visitor statistics in Google Analytics."
+msgstr ""
+
+#: _backup for translate.php:236 options.php:236
+msgid "UA-#######-##"
+msgstr ""
+
+#: _backup for translate.php:242 options.php:242
+msgid "Yandex"
+msgstr ""
+
+#: _backup for translate.php:244 options.php:244
+msgid "Yandex Metrics"
+msgstr ""
+
+#: _backup for translate.php:244 options.php:244
+msgid "A script to track visitor statistics in Yandex Metrics."
+msgstr ""
+
+#: _backup for translate.php:250 options.php:250
+msgid "########"
+msgstr ""
+
+#: _backup for translate.php:258 options.php:258
+msgid "Filename prefix"
+msgstr ""
+
+#: _backup for translate.php:258 options.php:258
+msgid "Set prefix for filenames that are uploaded to wordpress."
+msgstr ""
+
+#: _backup for translate.php:271 options.php:271
+msgid "Убираем из &#60;head&#47;&#62;"
+msgstr ""
+
+#: _backup for translate.php:274 options.php:274
+msgid "Remove emoji support"
+msgstr ""
+
+#: _backup for translate.php:274
+msgid ""
+"Убирать из &#60;head&#47;&#62; стили и скрипты для обработки emoji на сайте."
+msgstr ""
+
+#: _backup for translate.php:277 options.php:277
+msgid "Remove generator meta"
+msgstr ""
+
+#: _backup for translate.php:277
+msgid ""
+"Убирать из &#60;head&#47;&#62; информацию про систему администрирования и "
+"версию."
+msgstr ""
+
+#: _backup for translate.php:285
+msgid "RSS фиды"
+msgstr ""
+
+#: _backup for translate.php:285
+msgid ""
+"Убирать из &#60;head&#47;&#62; ссылки на RSS фиды сайта (будут продажлать "
+"работать если просто дописать /feed), а также xml для блог-клиентов."
+msgstr ""
+
+#: _backup for translate.php:288
+msgid "REL ссылки"
+msgstr ""
+
+#: _backup for translate.php:288
+msgid ""
+"Убирать из &#60;head&#47;&#62; ссылки на главную страницу, на первую запись, "
+"на предыдущую и следующую запись, связь с родительской записью и короткую "
+"ссылку к текущей странице."
+msgstr ""
+
+#: _backup for translate.php:295 options.php:295
+msgid "Интерфейс вордпресса"
+msgstr ""
+
+#: _backup for translate.php:298 options.php:298
+msgid "Remove administrator bar"
+msgstr ""
+
+#: _backup for translate.php:298
+msgid "Скрывать панель администратора на сайте."
+msgstr ""
+
+#: _backup for translate.php:301
+msgid "Переместить пункт меню в основное меню"
+msgstr ""
+
+#: _backup for translate.php:308 options.php:308
+msgid "Content parser"
+msgstr ""
+
+#: _backup for translate.php:311
+msgid "«Нет заголовка»"
+msgstr ""
+
+#: _backup for translate.php:311
+msgid ""
+"Отображать фразу «Нет заголовка» в the_title, когда заголовок у поста или "
+"страницы пуст."
+msgstr ""
+
+#: _backup for translate.php:314
+msgid "Название сайта в заголовке"
+msgstr ""
+
+#: _backup for translate.php:314
+msgid ""
+"Отображать название сайта (компании) в заголовке после назнваия страницы "
+"(wp_title)."
+msgstr ""
+
+#: _backup for translate.php:321 options.php:321
+msgid "RSS feed"
+msgstr ""
+
+#: _backup for translate.php:324 options.php:324
+msgid "Featured to RSS"
+msgstr ""
+
+#: _backup for translate.php:324
+msgid "Добавить в начале каждой записи RSS потока изображение поста"
+msgstr ""
+
+#: _backup for translate.php:331 options.php:331
+msgid "Theme support"
+msgstr ""
+
+#: _backup for translate.php:334
+msgid "HTML5 разметка"
+msgstr ""
+
+#: _backup for translate.php:334
+msgid ""
+"Включает поддержку html5 разметки для списка комментариев, формы "
+"комментариев, формы поиска, галереи и т.д."
+msgstr ""
+
+#: _backup for translate.php:337
+msgid "Миниатюра к посту"
+msgstr ""
+
+#: _backup for translate.php:337
+msgid "Позволяет устанавливать миниатюру посту."
+msgstr ""
+
+#: _backup for translate.php:344 options.php:344
+msgid "Helper functions"
+msgstr ""
+
+#: _backup for translate.php:347
+msgid "Функция is_child()"
+msgstr ""
+
+#: _backup for translate.php:347
+msgid "Дополнительная сверка является ли страница, подстраницей кого-то."
+msgstr ""
+
+#: _backup for translate.php:350
+msgid "Класс в &#60;body&#47;&#62;"
+msgstr ""
+
+#: _backup for translate.php:350
+msgid "Указывать в классах страницы ее название (slug)."
+msgstr ""
+
+#: _backup for translate.php:358
+msgid "Описание пункта меню"
+msgstr ""
+
+#: _backup for translate.php:358
+msgid "Показывать в параграфе описание ссылки в wp_nav_menu."
+msgstr ""
+
+#: _backup for translate.php:361
+msgid "Редактор при нажатии ESC"
+msgstr ""
+
+#: _backup for translate.php:361
+msgid "Открывать редактирование страницы при нажатии ESC."
+msgstr ""
+
+#: _backup for translate.php:368 options.php:368
+msgid "jQuery UI"
+msgstr ""
+
+#: _backup for translate.php:378 options.php:378
+msgid "Interactions"
+msgstr ""
+
+#: _backup for translate.php:409 library.php:335 options.php:409
+msgid "Widget"
+msgstr ""
+
+#: _backup for translate.php:462 options.php:462
+msgid "Utilities"
+msgstr ""
+
+#: _backup for translate.php:482 options.php:482
+msgid "jQuery Effects"
+msgstr ""
+
+#: _backup for translate.php:561 options.php:561
+msgid ""
+"Plugin to make work easier. Developed by Igor Kiselev in <a href=\"//www."
+"justbenice.ru/\">Just Be Nice</a>"
+msgstr ""
+
+#: functions.php:360
 msgid "No images set in the gallery"
 msgstr ""
 
-#: functions.php:409
+#: functions.php:370
 msgid "Autoplay"
 msgstr ""
 
-#: functions.php:413
+#: functions.php:374
 msgid "Pause autoplay on hover"
 msgstr ""
 
-#: functions.php:417
+#: functions.php:378
 msgid "Loop"
 msgstr ""
 
-#: functions.php:421
+#: functions.php:382
 msgid "Autoplay timeout"
 msgstr ""
 
-#. Name of the plugin
-#: index.php:127
-msgid "Libraries"
+#: functions.php:669 functions.php:677
+msgid "KB"
 msgstr ""
 
-#: index.php:131
+#. Name of the plugin
+#: index.php:83
+msgid "Custom libraries"
+msgstr ""
+
+#: index.php:85
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: index.php:143
+#: index.php:93
 msgid "Settings"
 msgstr ""
 
-#: library.php:21
+#: library.php:10
+msgid "Normalize.css"
+msgstr ""
+
+#: library.php:17
+msgid "Justbenice.css"
+msgstr ""
+
+#: library.php:18
 msgid "CSS grid from bootstrap 4 + styles needed for owlCarousel."
 msgstr ""
 
-#: library.php:31
+#: library.php:25
+msgid "Modernizr.js"
+msgstr ""
+
+#: library.php:26
 msgid "Let's learn that HTML5 and CSS3 are user-friendly"
 msgstr ""
 
-#: library.php:41
+#: library.php:34
+msgid "Prefixfree.js"
+msgstr ""
+
+#: library.php:35
 msgid "Eliminating the need to specify prefixes in styles."
 msgstr ""
 
-#: library.php:51
+#: library.php:43
+msgid "Pace.js"
+msgstr ""
+
+#: library.php:44
 msgid ""
 "Automatic page loading indicator for the site with tracking of ajax-requests "
 "and the status of page loading (readyState)."
 msgstr ""
 
-#: library.php:61
-msgid "Allows you to do input fields with a mask."
+#: library.php:52
+msgid "jQueryMask.js"
 msgstr ""
 
-#: library.php:71
+#: library.php:53
+msgid "Allows masking text input field."
+msgstr ""
+
+#: library.php:61
+msgid "Lazy.js"
+msgstr ""
+
+#: library.php:62
 msgid "Library for progressive loading of images."
 msgstr ""
 
-#: library.php:81
+#: library.php:70
+msgid "Isotope.js"
+msgstr ""
+
+#: library.php:71
 msgid ""
 "A library for building blocks of different sizes one after another both "
 "horizontally and vertically with no spaces."
 msgstr ""
 
-#: library.php:94
+#: library.php:79
+msgid "Masonry layout for isotope"
+msgstr ""
+
+#: library.php:80
 msgid "Additional library to Isotope.js with the system of objects location."
 msgstr ""
 
-#: library.php:105
+#: library.php:88
+msgid "cellsByRows"
+msgstr ""
+
+#: library.php:89
 msgid "cellsByRows layout mode for Isotope"
 msgstr ""
 
-#: library.php:115
+#: library.php:97
+msgid "cellsByColumns"
+msgstr ""
+
+#: library.php:98
 msgid "cellsByColumn layout mode for Isotope"
 msgstr ""
 
-#: library.php:125
+#: library.php:106
+msgid "fitColumns"
+msgstr ""
+
+#: library.php:107
 msgid "fitColumns layout mode for Isotope"
 msgstr ""
 
-#: library.php:136
+#: library.php:115
+msgid "horizontal"
+msgstr ""
+
+#: library.php:116
 msgid "horizontal layout mode for Isotope"
 msgstr ""
 
-#: library.php:161
-msgid "Alpha version of the library to preserve the aspect ratio for objects."
+#: library.php:124
+msgid "packery"
 msgstr ""
 
-#: library.php:170
+#: library.php:132
+msgid "stretchClass.js"
+msgstr ""
+
+#: library.php:133
 msgid ""
 "Alpha version of the library, which sets the width of the images to 100%, "
 "and the height of the auto. <br/> It takes into account the maximum width of "
@@ -111,194 +500,439 @@ msgid ""
 "with ImagesLoaded.js"
 msgstr ""
 
-#: library.php:179
+#: library.php:140
+msgid "fullScreenClass.js "
+msgstr ""
+
+#: library.php:141
 msgid ""
 "The Alpha version of the library, operates by opening windows on top of "
 "everything based on styles and allows an additional function of the window's "
 "properties."
 msgstr ""
 
-#: library.php:188
+#: library.php:148
+msgid "owlCarousel.js"
+msgstr ""
+
+#: library.php:149
 msgid "Slider for images."
 msgstr ""
 
-#: library.php:198
+#: library.php:157
+msgid "animate.css"
+msgstr ""
+
+#: library.php:158
 msgid "The animation styles used by owlCarousel (can be used separately)."
 msgstr ""
 
-#: library.php:208
+#: library.php:166
+msgid "GoogleClusterMarkers.js"
+msgstr ""
+
+#: library.php:167
 msgid "A library that allows you to group markers on a map."
 msgstr ""
 
-#: library.php:219
+#: library.php:176
+msgid "GoogleInfoBubble.js"
+msgstr ""
+
+#: library.php:177
 msgid "Pop-ups when clicking on the marker."
 msgstr ""
 
-#: library.php:229
+#: library.php:185
+msgid "Fullpage.js"
+msgstr ""
+
+#: library.php:186
 msgid "Allows you to scroll page."
 msgstr ""
 
-#: library.php:240
+#: library.php:194
+msgid "Scrolloverflow.min.js"
+msgstr ""
+
+#: library.php:195
 msgid "Scrolls everything that overflows in fullPage"
 msgstr ""
 
-#: library.php:249
+#: library.php:202
+msgid "jQuery UI Touch Punch"
+msgstr ""
+
+#: library.php:203
 msgid "Allows to drag manipulate elements on touch screens"
 msgstr ""
 
+#: library.php:210
+msgid "UI core"
+msgstr ""
+
+#: library.php:211
+msgid ""
+"jQuery UI is a curated set of user interface interactions, effects, widgets, "
+"and themes built on top of the jQuery JavaScript Library."
+msgstr ""
+
+#: library.php:217
+msgid "Draggable"
+msgstr ""
+
+#: library.php:218
+msgid "Allow elements to be moved using the mouse."
+msgstr ""
+
+#: library.php:224
+msgid "Droppable"
+msgstr ""
+
+#: library.php:225
+msgid "Create targets for draggable elements"
+msgstr ""
+
+#: library.php:231
+msgid "Resizable"
+msgstr ""
+
+#: library.php:232
+msgid "Change the size of an element using the mouse."
+msgstr ""
+
+#: library.php:238
+msgid "Selectable"
+msgstr ""
+
+#: library.php:239
+msgid "Use the mouse to select elements, individually or in a group."
+msgstr ""
+
+#: library.php:245
+msgid "Sortable"
+msgstr ""
+
+#: library.php:246
+msgid "Reorder elements in a list or grid using the mouse."
+msgstr ""
+
+#: library.php:252
+msgid "Accordion"
+msgstr ""
+
+#: library.php:253
+msgid ""
+"Displays collapsible content panels for presenting information in a limited "
+"amount of space."
+msgstr ""
+
+#: library.php:259
+msgid "Autocomplete"
+msgstr ""
+
+#: library.php:260
+msgid ""
+"Enables users to quickly find and select from a pre-populated list of values "
+"as they type, leveraging searching and filtering."
+msgstr ""
+
+#: library.php:266
+msgid "Button"
+msgstr ""
+
+#: library.php:267
+msgid ""
+"Enhances standard form elements like buttons, inputs and anchors to "
+"themeable buttons with appropriate hover and active styles."
+msgstr ""
+
+#: library.php:273
+msgid "Datepicker"
+msgstr ""
+
+#: library.php:274
+msgid "Select a date from a popup or inline calendar"
+msgstr ""
+
+#: library.php:280
+msgid "Dialog"
+msgstr ""
+
+#: library.php:281
+msgid "Open content in an interactive overlay."
+msgstr ""
+
+#: library.php:287
+msgid "Menu"
+msgstr ""
+
+#: library.php:288
+msgid "Themeable menu with mouse and keyboard interactions for navigation."
+msgstr ""
+
+#: library.php:294
+msgid "Progressbar"
+msgstr ""
+
+#: library.php:295
+msgid "Display status of a determinate or indeterminate process."
+msgstr ""
+
+#: library.php:301
+msgid "Selectmenu"
+msgstr ""
+
+#: library.php:302
+msgid ""
+"Duplicates and extends the functionality of a native HTML select element to "
+"overcome the limitations of the native control."
+msgstr ""
+
+#: library.php:308
+msgid "Slider"
+msgstr ""
+
+#: library.php:309
+msgid "Drag a handle to select a numeric value."
+msgstr ""
+
+#: library.php:315
+msgid "Spinner"
+msgstr ""
+
+#: library.php:316
+msgid ""
+"Enhance a text input for entering numeric values, with up/down buttons and "
+"arrow key handling."
+msgstr ""
+
+#: library.php:322
+msgid "Tabs"
+msgstr ""
+
+#: library.php:323
+msgid ""
+"A single content area with multiple panels, each associated with a header in "
+"a list."
+msgstr ""
+
+#: library.php:329
+msgid "Tooltips"
+msgstr ""
+
+#: library.php:330
+msgid "Customizable, themeable tooltips, replacing native tooltips."
+msgstr ""
+
+#: library.php:336
+msgid ""
+"Create stateful jQuery plugins using the same abstraction as all jQuery UI "
+"widgets."
+msgstr ""
+
+#: library.php:342
+msgid "Position"
+msgstr ""
+
+#: library.php:343
+msgid ""
+"Position an element relative to the window, document, another element, or "
+"the cursor/mouse."
+msgstr ""
+
+#: library.php:349
+msgid "Mouse"
+msgstr ""
+
+#: library.php:350
+msgid "Mouse Interaction"
+msgstr ""
+
+#: library.php:355
+msgid "Effects core"
+msgstr ""
+
+#: library.php:356
+msgid "Apply an animation effect to an element."
+msgstr ""
+
+#: library.php:361
+msgid "Blind"
+msgstr ""
+
+#: library.php:366
+msgid "Bounce"
+msgstr ""
+
+#: library.php:371
+msgid "Clip"
+msgstr ""
+
+#: library.php:376
+msgid "Drop"
+msgstr ""
+
+#: library.php:381
+msgid "Explode"
+msgstr ""
+
+#: library.php:386
+msgid "Fade"
+msgstr ""
+
+#: library.php:391
+msgid "Fold"
+msgstr ""
+
+#: library.php:396
+msgid "Highlight"
+msgstr ""
+
+#: library.php:401
+msgid "Pulsate"
+msgstr ""
+
+#: library.php:406
+msgid "Scale"
+msgstr ""
+
+#: library.php:411
+msgid "Shake"
+msgstr ""
+
+#: library.php:416
+msgid "Slide"
+msgstr ""
+
+#: library.php:421
+msgid "Transfer"
+msgstr ""
+
 #: options.php:107
-msgid "Additional libraries"
+msgid "Currently registered sizes:"
 msgstr ""
 
-#: options.php:116
-msgid "Styles"
-msgstr ""
-
-#: options.php:131
-msgid "Load justbenice.css styles, in WYSIWYG-editor."
-msgstr ""
-
-#: options.php:138
-msgid "JS Libraries"
-msgstr ""
-
-#: options.php:152
+#: options.php:274
 msgid ""
-"Allows you to check the loading of the image in the specified places. Now "
-"included in the list of basic wordpress scripts."
+"Remove styles and scripts to process emoji on the website from &#60;head&#47;"
+"&#62;"
 msgstr ""
 
-#: options.php:158
-msgid "Libraries based on jQuery"
+#: options.php:277
+msgid "Remove information about the administration system and version"
 msgstr ""
 
-#: options.php:168
-msgid ".lazy js library"
+#: options.php:285
+msgid "RSS feeds"
 msgstr ""
 
-#: options.php:172 options.php:286
-msgid "Code example"
-msgstr ""
-
-#: options.php:187
+#: options.php:285
 msgid ""
-"Adding data- to srcset & sizes in image attributes. Allows Lazy.js to load "
-"images responsive."
+"Remove links to the RSS feeds of the website from &#60;head&#47;&#62; ссылки "
+"(will still to work if you just add /feed after adress), as well as xml for "
+"blog clients"
 msgstr ""
 
-#: options.php:191
-msgid "Add custom set of sizes to srcset in images."
+#: options.php:288
+msgid "REL links"
 msgstr ""
 
-#: options.php:196
-msgid "Sizes divided by comma"
-msgstr ""
-
-#: options.php:198
-msgid "Add image sizes you want to be generated and displayed in srcset."
-msgstr ""
-
-#: options.php:200
-msgid "Currently egistered sizes:"
-msgstr ""
-
-#: options.php:213
-msgid "Fullpage scroller"
-msgstr ""
-
-#: options.php:223
-msgid "Isotope block builder"
-msgstr ""
-
-#: options.php:253
-msgid "owlCarousel slider"
-msgstr ""
-
-#: options.php:263
-msgid "Change default gallery to owl"
-msgstr ""
-
-#: options.php:263
+#: options.php:288
 msgid ""
-"Function that changes the default wordpress gallery layout to owlcarousel."
+"Remove links to the main page, to the first record, to the previous and next "
+"record, the link to the parent record and a short link to the current page "
+"from &#60;head&#47;&#62; ссылки"
 msgstr ""
 
-#: options.php:269
-msgid "Beta libraries by Just Be Nice"
+#: options.php:298
+msgid "Hide admin panel on the website"
 msgstr ""
 
-#: options.php:303
-msgid "Google Libraries"
+#: options.php:301
+msgid "Menu in nav"
 msgstr ""
 
-#: options.php:306
-msgid "Google Maps"
+#: options.php:301
+msgid "Move the menu item to the main navigation bar"
 msgstr ""
 
-#: options.php:306
-msgid "Loads remote API, so you can create google maps on your website."
+#: options.php:311
+msgid "No title"
 msgstr ""
 
-#: options.php:312
-msgid "API Key"
-msgstr ""
-
-#: options.php:313
-msgid "Get key"
-msgstr ""
-
-#: options.php:319
-msgid "Page IDs divided by comma"
-msgstr ""
-
-#: options.php:321
-msgid "Limit pages where to load the remote library. Leave empty if not needed"
-msgstr ""
-
-#: options.php:345
-msgid "Google Analytics"
-msgstr ""
-
-#: options.php:345
-msgid "A script to track visitor statistics in Google Analytics."
-msgstr ""
-
-#: options.php:351
-msgid "UA-#######-##"
-msgstr ""
-
-#: options.php:357
-msgid "Yandex"
-msgstr ""
-
-#: options.php:359
-msgid "Yandex Metrics"
-msgstr ""
-
-#: options.php:359
-msgid "A script to track visitor statistics in Yandex Metrics."
-msgstr ""
-
-#: options.php:365
-msgid "########"
-msgstr ""
-
-#: options.php:373
-msgid "Filename prefix"
-msgstr ""
-
-#: options.php:373
-msgid "Set prefix for filenames that are uploaded to wordpress."
-msgstr ""
-
-#: options.php:388
+#: options.php:311
 msgid ""
-"Plugin to make work easier. Developed by Igor Kiselev in <a href=\"//www."
-"justbenice.ru/\">Just Be Nice</a>"
+"Display the phrase \"No title\" in the_title when the title of the post or "
+"page is empty."
+msgstr ""
+
+#: options.php:314
+msgid "Site name in title"
+msgstr ""
+
+#: options.php:314
+msgid ""
+"Display the name of the website (company) in the header after the page name "
+"(wp_title)"
+msgstr ""
+
+#: options.php:324
+msgid "Add at the beginning of each RSS feed an image of the post"
+msgstr ""
+
+#: options.php:334
+msgid "HTML5 markup"
+msgstr ""
+
+#: options.php:334
+msgid ""
+"Includes support for html5 markup for a list of comments, comment form, "
+"search form, gallery, etc."
+msgstr ""
+
+#: options.php:337
+msgid "Post thumbnail"
+msgstr ""
+
+#: options.php:337
+msgid "Allows you to set a thumbnail post"
+msgstr ""
+
+#: options.php:347
+msgid "is_child()"
+msgstr ""
+
+#: options.php:347
+msgid "Additional reconciliation is whether the page is a subpage of someone"
+msgstr ""
+
+#: options.php:350
+msgid "Class in &#60;body&#47;&#62;"
+msgstr ""
+
+#: options.php:350
+msgid "Specify slug class in body tag"
+msgstr ""
+
+#: options.php:358
+msgid "Menu item description"
+msgstr ""
+
+#: options.php:358
+msgid "Show the menu item description in wp_nav_menu"
+msgstr ""
+
+#: options.php:361
+msgid "Editor on ESC"
+msgstr ""
+
+#: options.php:361
+msgid "Open the editing page by pressing ESC button"
 msgstr ""
 
 #. Name of the plugin
-msgid "Custom libraries"
+msgid "Libraries"
 msgstr ""
 
 #. Description of the plugin

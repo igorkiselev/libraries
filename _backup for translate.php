@@ -104,7 +104,7 @@
 				<td colspan="2">
 					<?php _custom_input('lazy-brakepoints-sizes', 'lazy-brakepoints', __('Sizes divided by comma', 'libraries'), __('Add image sizes you want to be generated and displayed in srcset.', 'libraries'), ''); ?>
 					<p class="description">
-						<small><strong><?php _e('Currently registered sizes:', 'libraries'); ?></strong> 
+						<small><strong><?php _e('Currently egistered sizes:', 'libraries'); ?></strong> 
 							<?php foreach (get_intermediate_image_sizes() as $size) {
     echo '<span>'.$size.'</span> ';
 } ?>
@@ -271,10 +271,10 @@
 					<?php _e('Убираем из &#60;head&#47;&#62;', 'libraries'); ?>
 				</th>
 				<td width="42%">
-					<?php _custom_checkbox('disable-emoji', __('Remove emoji support', 'libraries'), __('Remove styles and scripts to process emoji on the website from &#60;head&#47;&#62;', 'libraries')); ?>
+					<?php _custom_checkbox('disable-emoji', __('Remove emoji support', 'libraries'), __('Убирать из &#60;head&#47;&#62; стили и скрипты для обработки emoji на сайте.', 'libraries')); ?>
 				</td>
 				<td width="42%">
-					<?php _custom_checkbox('disable-generator', __('Remove generator meta', 'libraries'), __('Remove information about the administration system and version', 'libraries')); ?>
+					<?php _custom_checkbox('disable-generator', __('Remove generator meta', 'libraries'), __('Убирать из &#60;head&#47;&#62; информацию про систему администрирования и версию.', 'libraries')); ?>
 				</td>
 			</tr>
 			<tr>
@@ -282,10 +282,10 @@
 					&nbsp;
 				</th>
 				<td width="42%">
-					<?php _custom_checkbox('disable-rsslinks', __('RSS feeds', 'libraries'), __('Remove links to the RSS feeds of the website from &#60;head&#47;&#62; ссылки (will still to work if you just add /feed after adress), as well as xml for blog clients', 'libraries')); ?>
+					<?php _custom_checkbox('disable-rsslinks', __('RSS фиды', 'libraries'), __('Убирать из &#60;head&#47;&#62; ссылки на RSS фиды сайта (будут продажлать работать если просто дописать /feed), а также xml для блог-клиентов.', 'libraries')); ?>
 				</td>
 				<td width="42%">
-					<?php _custom_checkbox('disable-rellinks', __('REL links', 'libraries'), __('Remove links to the main page, to the first record, to the previous and next record, the link to the parent record and a short link to the current page from &#60;head&#47;&#62; ссылки', 'libraries')); ?>
+					<?php _custom_checkbox('disable-rellinks', __('REL ссылки', 'libraries'), __('Убирать из &#60;head&#47;&#62; ссылки на главную страницу, на первую запись, на предыдущую и следующую запись, связь с родительской записью и короткую ссылку к текущей странице.', 'libraries')); ?>
 				</td>
 			</tr>
 		</table>
@@ -295,10 +295,10 @@
 					<?php _e('Интерфейс вордпресса', 'libraries'); ?>
 				</th>
 				<td width="42%">
-					<?php _custom_checkbox('disable-adminbar', __('Remove administrator bar', 'libraries'), __('Hide admin panel on the website', 'libraries')); ?>
+					<?php _custom_checkbox('disable-adminbar', __('Remove administrator bar', 'libraries'), __('Скрывать панель администратора на сайте.', 'libraries')); ?>
 				</td>
 				<td width="42%">
-					<?php _custom_checkbox('enable-navmenus', __('Menu in nav', 'libraries'), __('Move the menu item to the main navigation bar', 'libraries')); ?>
+					<?php _custom_checkbox('enable-navmenus', __('Переместить пункт меню в основное меню', 'libraries'), __('', 'libraries')); ?>
 				</td>
 			</tr>
 		</table>
@@ -308,10 +308,10 @@
 					<?php _e('Content parser', 'libraries'); ?>
 				</th>
 				<td width="42%">
-					<?php _custom_checkbox('content-the_title', __('No title', 'libraries'), __('Display the phrase "No title" in the_title when the title of the post or page is empty.', 'libraries')); ?>
+					<?php _custom_checkbox('content-the_title', __('«Нет заголовка»', 'libraries'), __('Отображать фразу «Нет заголовка» в the_title, когда заголовок у поста или страницы пуст.', 'libraries')); ?>
 				</td>
 				<td width="42%">
-					<?php _custom_checkbox('header-wp_title', __('Site name in title', 'libraries'), __('Display the name of the website (company) in the header after the page name (wp_title)', 'libraries')); ?>
+					<?php _custom_checkbox('header-wp_title', __('Название сайта в заголовке', 'libraries'), __('Отображать название сайта (компании) в заголовке после назнваия страницы (wp_title).', 'libraries')); ?>
 				</td>
 			</tr>
 		</table>
@@ -321,7 +321,7 @@
 					<?php _e('RSS feed', 'libraries'); ?>
 				</th>
 				<td>
-					<?php _custom_checkbox('featured-rss', __('Featured to RSS', 'libraries'), __('Add at the beginning of each RSS feed an image of the post', 'libraries')); ?>
+					<?php _custom_checkbox('featured-rss', __('Featured to RSS', 'libraries'), __('Добавить в начале каждой записи RSS потока изображение поста', 'libraries')); ?>
 				</td>
 			</tr>
 		</table>
@@ -331,10 +331,10 @@
 					<?php _e('Theme support', 'libraries'); ?>
 				</th>
 				<td width="42%">
-					<?php _custom_checkbox('functions-html5', __('HTML5 markup', 'libraries'), __('Includes support for html5 markup for a list of comments, comment form, search form, gallery, etc.', 'libraries')); ?>
+					<?php _custom_checkbox('functions-html5', __('HTML5 разметка', 'libraries'), __('Включает поддержку html5 разметки для списка комментариев, формы комментариев, формы поиска, галереи и т.д.', 'libraries')); ?>
 				</td>
 				<td width="42%">
-					<?php _custom_checkbox('functions-post-thumbnails', __('Post thumbnail', 'libraries'), __('Allows you to set a thumbnail post', 'libraries')); ?>
+					<?php _custom_checkbox('functions-post-thumbnails', __('Миниатюра к посту', 'libraries'), __('Позволяет устанавливать миниатюру посту.', 'libraries')); ?>
 				</td>
 			</tr>
 		</table>
@@ -344,10 +344,10 @@
 					<?php _e('Helper functions', 'libraries'); ?>
 				</th>
 				<td width="42%">
-					<?php _custom_checkbox('functions-ischild', __('is_child()', 'libraries'), __('Additional reconciliation is whether the page is a subpage of someone', 'libraries')); ?>
+					<?php _custom_checkbox('functions-ischild', __('Функция is_child()', 'libraries'), __('Дополнительная сверка является ли страница, подстраницей кого-то.', 'libraries')); ?>
 				</td>
 				<td width="42%">
-					<?php _custom_checkbox('functions-bodyclass', __('Class in &#60;body&#47;&#62;', 'libraries'), __('Specify slug class in body tag', 'libraries')); ?>
+					<?php _custom_checkbox('functions-bodyclass', __('Класс в &#60;body&#47;&#62;', 'libraries'), __('Указывать в классах страницы ее название (slug).', 'libraries')); ?>
 				</td>
 			</tr>
 			<tr>
@@ -355,10 +355,10 @@
 					&nbsp;
 				</th>
 				<td width="42%">
-					<?php _custom_checkbox('functions-nav-description', __('Menu item description', 'libraries'), __('Show the menu item description in wp_nav_menu', 'libraries')); ?>
+					<?php _custom_checkbox('functions-nav-description', __('Описание пункта меню', 'libraries'), __('Показывать в параграфе описание ссылки в wp_nav_menu.', 'libraries')); ?>
 				</td>
 				<td width="42%">
-					<?php _custom_checkbox('functions-escapekey', __('Editor on ESC', 'libraries'), __('Open the editing page by pressing ESC button', 'libraries')); ?>
+					<?php _custom_checkbox('functions-escapekey', __('Редактор при нажатии ESC', 'libraries'), __('Открывать редактирование страницы при нажатии ESC.', 'libraries')); ?>
 				</td>
 			</tr>
 		</table>

@@ -1,14 +1,14 @@
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Libraries\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-18 20:44+0000\n"
-"PO-Revision-Date: 2018-04-18 20:45+0000\n"
-"Last-Translator: Игорь Киселев <igor@justbenice.ru>\n"
-"Language-Team: Русский\n"
-"Language: ru_RU\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
-"n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
+"POT-Creation-Date: 2018-04-18 20:40+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,39 +16,37 @@ msgstr ""
 
 #: _backup for translate.php:14 options.php:14
 msgid "Additional libraries"
-msgstr "Библиотеки"
+msgstr ""
 
 #: _backup for translate.php:25 options.php:25
 msgid "Styles"
-msgstr "Стили"
+msgstr ""
 
 #: _backup for translate.php:39 options.php:39
 msgid "Load normalize.css styles in WYSIWYG-editor"
-msgstr "Подгружать normalize.css в визуальный редактор сайта"
+msgstr ""
 
 #: _backup for translate.php:42 options.php:42
 msgid "Load justbenice.css styles in WYSIWYG-editor"
-msgstr "Подгружать justbenice.css в визуальный редактор сайта"
+msgstr ""
 
 #: _backup for translate.php:49 options.php:49
 msgid "JS Libraries"
-msgstr "JS Библиотеки"
+msgstr ""
 
 #: _backup for translate.php:66 options.php:66
 msgid ""
 "Allows you to check the loading of the image in the specified places. Now "
 "included in the list of basic wordpress scripts."
 msgstr ""
-"Позволяет проверять загрузку изображения в указанных местах. Теперь включен "
-"в список базовых скриптов wordpress."
 
 #: _backup for translate.php:72 options.php:72
 msgid "Libraries based on jQuery"
-msgstr "Библиотеки использующие jQuery"
+msgstr ""
 
 #: _backup for translate.php:83 options.php:83
 msgid ".lazy js library"
-msgstr "Библиотека lazy.js"
+msgstr ""
 
 #: _backup for translate.php:89 options.php:89
 msgid ""
@@ -62,13 +60,13 @@ msgstr ""
 
 #: _backup for translate.php:105 options.php:105
 msgid "Sizes divided by comma"
-msgstr "Размеры разделаны запятой"
+msgstr ""
 
 #: _backup for translate.php:105 options.php:105
 msgid "Add image sizes you want to be generated and displayed in srcset."
 msgstr ""
 
-#: _backup for translate.php:107
+#: _backup for translate.php:107 options.php:107
 msgid "Currently egistered sizes:"
 msgstr ""
 
@@ -82,7 +80,7 @@ msgstr ""
 
 #: _backup for translate.php:146 options.php:146
 msgid "owlCarousel slider"
-msgstr "Слайдер owlCarousel"
+msgstr ""
 
 #: _backup for translate.php:151 options.php:151
 msgid "Change default gallery to owl"
@@ -99,47 +97,43 @@ msgstr ""
 
 #: _backup for translate.php:174 options.php:174
 msgid "Code example"
-msgstr "Пример кода"
+msgstr ""
 
 #: _backup for translate.php:191 options.php:191
 msgid "Google Libraries"
-msgstr "Библиотеки Google"
+msgstr ""
 
 #: _backup for translate.php:194 options.php:194
 msgid "Google Maps"
-msgstr "Карты Google"
+msgstr ""
 
 #: _backup for translate.php:194 options.php:194
 msgid "Loads remote API, so you can create google maps on your website."
 msgstr ""
-"Загружает удаленный API, с которым можно создавать карты Google на своем веб-"
-"сайте."
 
 #: _backup for translate.php:202 options.php:202
 msgid "API Key"
-msgstr "Ключ для API"
+msgstr ""
 
 #: _backup for translate.php:202 options.php:202
 msgid "Get key"
-msgstr "Получить ключ"
+msgstr ""
 
 #: _backup for translate.php:209 options.php:209
 msgid "Page IDs divided by comma"
-msgstr "ID страниц, разделенные запятой"
+msgstr ""
 
 #: _backup for translate.php:209 options.php:209
 msgid "Limit pages where to load the remote library. Leave empty if not needed"
 msgstr ""
-"Ограничьте страницы, на которых загружается удаленная библиотека. Оставьте "
-"пустым, если не нужно."
 
 #: _backup for translate.php:230 options.php:230
 msgid "Google Analytics"
-msgstr "Аналитика Google"
+msgstr ""
 
 #: _backup for translate.php:230 options.php:230
 msgid "A script to track visitor statistics in Google Analytics."
-msgstr "Скрипт для отслеживания статистики посещения в Google Analytics."
+msgstr ""
 
 #: _backup for translate.php:236 options.php:236
 msgid "UA-#######-##"
@@ -331,7 +325,7 @@ msgstr ""
 msgid "Interactions"
 msgstr ""
 
-#: _backup for translate.php:409 library.php:335 options.php:409
+#: _backup for translate.php:409 options.php:409
 msgid "Widget"
 msgstr ""
 
@@ -371,51 +365,31 @@ msgstr ""
 
 #: functions.php:669 functions.php:677
 msgid "KB"
-msgstr "КБ"
+msgstr ""
 
 #. Name of the plugin
 #: index.php:83
 msgid "Custom libraries"
-msgstr "Библиотеки"
+msgstr ""
 
 #: index.php:85
 msgid "You do not have sufficient permissions to access this page."
-msgstr "У вас недостаточно прав для доступа к этой странице."
+msgstr ""
 
 #: index.php:93
 msgid "Settings"
-msgstr "Настройки"
-
-#: library.php:10
-msgid "Normalize.css"
-msgstr ""
-
-#: library.php:17
-msgid "Justbenice.css"
 msgstr ""
 
 #: library.php:18
 msgid "CSS grid from bootstrap 4 + styles needed for owlCarousel."
-msgstr "CSS сетка от bootstrap 4 + стили необходимые для owlCarousel."
-
-#: library.php:25
-msgid "Modernizr.js"
 msgstr ""
 
 #: library.php:26
 msgid "Let's learn that HTML5 and CSS3 are user-friendly"
-msgstr "Узнаём, что из HTML5 и CSS3 умеет браузер пользователя."
-
-#: library.php:34
-msgid "Prefixfree.js"
 msgstr ""
 
 #: library.php:35
 msgid "Eliminating the need to specify prefixes in styles."
-msgstr "Избавляющий от необходимости указывать префиксы в стилях."
-
-#: library.php:43
-msgid "Pace.js"
 msgstr ""
 
 #: library.php:44
@@ -423,27 +397,13 @@ msgid ""
 "Automatic page loading indicator for the site with tracking of ajax-requests "
 "and the status of page loading (readyState)."
 msgstr ""
-"Автоматический индикатор загрузки страницы для сайта с отслеживанием ajax-"
-"запросов и состояния загрузки страницы (readyState)."
-
-#: library.php:52
-msgid "jQueryMask.js"
-msgstr ""
 
 #: library.php:53
 msgid "Allows masking text input field."
 msgstr ""
 
-#: library.php:61
-msgid "Lazy.js"
-msgstr ""
-
 #: library.php:62
 msgid "Library for progressive loading of images."
-msgstr "Библиотека для прогрессивной загрузки изображений."
-
-#: library.php:70
-msgid "Isotope.js"
 msgstr ""
 
 #: library.php:71
@@ -451,56 +411,25 @@ msgid ""
 "A library for building blocks of different sizes one after another both "
 "horizontally and vertically with no spaces."
 msgstr ""
-"Библиотека для постройки блоков разных размеров друг за другом как "
-"горизонтально так и вертикально без пробелов."
-
-#: library.php:79
-msgid "Masonry layout for isotope"
-msgstr ""
 
 #: library.php:80
 msgid "Additional library to Isotope.js with the system of objects location."
-msgstr ""
-"Дополнительная библиотека к Isotope.js c системой расположения объектов."
-
-#: library.php:88
-msgid "cellsByRows"
 msgstr ""
 
 #: library.php:89
 msgid "cellsByRows layout mode for Isotope"
 msgstr ""
 
-#: library.php:97
-msgid "cellsByColumns"
-msgstr ""
-
 #: library.php:98
 msgid "cellsByColumn layout mode for Isotope"
-msgstr ""
-
-#: library.php:106
-msgid "fitColumns"
 msgstr ""
 
 #: library.php:107
 msgid "fitColumns layout mode for Isotope"
 msgstr ""
 
-#: library.php:115
-msgid "horizontal"
-msgstr ""
-
 #: library.php:116
 msgid "horizontal layout mode for Isotope"
-msgstr ""
-
-#: library.php:124
-msgid "packery"
-msgstr ""
-
-#: library.php:132
-msgid "stretchClass.js"
 msgstr ""
 
 #: library.php:133
@@ -510,14 +439,6 @@ msgid ""
 "the image from the width attribute, and if it is not set loads naturalWidth "
 "with ImagesLoaded.js"
 msgstr ""
-"Альфа версия библиотеки, которая проставляет у&nbsp;картинок ширину 100%, "
-"а&nbsp;высоту &laquo;auto&raquo;. <br/>Учитывает максимальную ширину "
-"изображения из&nbsp;атрибута width, и&nbsp;если он&nbsp;не&nbsp;задан "
-"то&nbsp;прогружает naturalWidth при помощи ImagesLoaded.js"
-
-#: library.php:140
-msgid "fullScreenClass.js "
-msgstr ""
 
 #: library.php:141
 msgid ""
@@ -525,310 +446,33 @@ msgid ""
 "everything based on styles and allows an additional function of the window's "
 "properties."
 msgstr ""
-"Альфа версия библиотеки, оперирует открытием окон поверх всего на основании "
-"стилей и позволяет дополнительной функцией меня свойства окна."
-
-#: library.php:148
-msgid "owlCarousel.js"
-msgstr ""
 
 #: library.php:149
 msgid "Slider for images."
-msgstr "Слайдер для изображений."
-
-#: library.php:157
-msgid "animate.css"
 msgstr ""
 
 #: library.php:158
 msgid "The animation styles used by owlCarousel (can be used separately)."
 msgstr ""
-"Стили для анимации используемые owlCarousel (можно искользовать отдельно)"
-
-#: library.php:166
-msgid "GoogleClusterMarkers.js"
-msgstr ""
 
 #: library.php:167
 msgid "A library that allows you to group markers on a map."
-msgstr "Библиотека, которая позволяет объеденять в группы маркеры на карте."
-
-#: library.php:176
-msgid "GoogleInfoBubble.js"
 msgstr ""
 
 #: library.php:177
 msgid "Pop-ups when clicking on the marker."
-msgstr "Всплывающие окна при нажатии на маркер."
-
-#: library.php:185
-msgid "Fullpage.js"
 msgstr ""
 
 #: library.php:186
 msgid "Allows you to scroll page."
 msgstr ""
 
-#: library.php:194
-msgid "Scrolloverflow.min.js"
-msgstr ""
-
 #: library.php:195
 msgid "Scrolls everything that overflows in fullPage"
 msgstr ""
 
-#: library.php:202
-msgid "jQuery UI Touch Punch"
-msgstr ""
-
 #: library.php:203
 msgid "Allows to drag manipulate elements on touch screens"
-msgstr ""
-
-#: library.php:210
-msgid "UI core"
-msgstr ""
-
-#: library.php:211
-msgid ""
-"jQuery UI is a curated set of user interface interactions, effects, widgets, "
-"and themes built on top of the jQuery JavaScript Library."
-msgstr ""
-
-#: library.php:217
-msgid "Draggable"
-msgstr ""
-
-#: library.php:218
-msgid "Allow elements to be moved using the mouse."
-msgstr ""
-
-#: library.php:224
-msgid "Droppable"
-msgstr ""
-
-#: library.php:225
-msgid "Create targets for draggable elements"
-msgstr ""
-
-#: library.php:231
-msgid "Resizable"
-msgstr ""
-
-#: library.php:232
-msgid "Change the size of an element using the mouse."
-msgstr ""
-
-#: library.php:238
-msgid "Selectable"
-msgstr ""
-
-#: library.php:239
-msgid "Use the mouse to select elements, individually or in a group."
-msgstr ""
-
-#: library.php:245
-msgid "Sortable"
-msgstr ""
-
-#: library.php:246
-msgid "Reorder elements in a list or grid using the mouse."
-msgstr ""
-
-#: library.php:252
-msgid "Accordion"
-msgstr ""
-
-#: library.php:253
-msgid ""
-"Displays collapsible content panels for presenting information in a limited "
-"amount of space."
-msgstr ""
-
-#: library.php:259
-msgid "Autocomplete"
-msgstr ""
-
-#: library.php:260
-msgid ""
-"Enables users to quickly find and select from a pre-populated list of values "
-"as they type, leveraging searching and filtering."
-msgstr ""
-
-#: library.php:266
-msgid "Button"
-msgstr ""
-
-#: library.php:267
-msgid ""
-"Enhances standard form elements like buttons, inputs and anchors to "
-"themeable buttons with appropriate hover and active styles."
-msgstr ""
-
-#: library.php:273
-msgid "Datepicker"
-msgstr ""
-
-#: library.php:274
-msgid "Select a date from a popup or inline calendar"
-msgstr ""
-
-#: library.php:280
-msgid "Dialog"
-msgstr ""
-
-#: library.php:281
-msgid "Open content in an interactive overlay."
-msgstr ""
-
-#: library.php:287
-msgid "Menu"
-msgstr ""
-
-#: library.php:288
-msgid "Themeable menu with mouse and keyboard interactions for navigation."
-msgstr ""
-
-#: library.php:294
-msgid "Progressbar"
-msgstr ""
-
-#: library.php:295
-msgid "Display status of a determinate or indeterminate process."
-msgstr ""
-
-#: library.php:301
-msgid "Selectmenu"
-msgstr ""
-
-#: library.php:302
-msgid ""
-"Duplicates and extends the functionality of a native HTML select element to "
-"overcome the limitations of the native control."
-msgstr ""
-
-#: library.php:308
-msgid "Slider"
-msgstr ""
-
-#: library.php:309
-msgid "Drag a handle to select a numeric value."
-msgstr ""
-
-#: library.php:315
-msgid "Spinner"
-msgstr ""
-
-#: library.php:316
-msgid ""
-"Enhance a text input for entering numeric values, with up/down buttons and "
-"arrow key handling."
-msgstr ""
-
-#: library.php:322
-msgid "Tabs"
-msgstr ""
-
-#: library.php:323
-msgid ""
-"A single content area with multiple panels, each associated with a header in "
-"a list."
-msgstr ""
-
-#: library.php:329
-msgid "Tooltips"
-msgstr ""
-
-#: library.php:330
-msgid "Customizable, themeable tooltips, replacing native tooltips."
-msgstr ""
-
-#: library.php:336
-msgid ""
-"Create stateful jQuery plugins using the same abstraction as all jQuery UI "
-"widgets."
-msgstr ""
-
-#: library.php:342
-msgid "Position"
-msgstr ""
-
-#: library.php:343
-msgid ""
-"Position an element relative to the window, document, another element, or "
-"the cursor/mouse."
-msgstr ""
-
-#: library.php:349
-msgid "Mouse"
-msgstr ""
-
-#: library.php:350
-msgid "Mouse Interaction"
-msgstr ""
-
-#: library.php:355
-msgid "Effects core"
-msgstr ""
-
-#: library.php:356
-msgid "Apply an animation effect to an element."
-msgstr ""
-
-#: library.php:361
-msgid "Blind"
-msgstr ""
-
-#: library.php:366
-msgid "Bounce"
-msgstr ""
-
-#: library.php:371
-msgid "Clip"
-msgstr ""
-
-#: library.php:376
-msgid "Drop"
-msgstr ""
-
-#: library.php:381
-msgid "Explode"
-msgstr ""
-
-#: library.php:386
-msgid "Fade"
-msgstr ""
-
-#: library.php:391
-msgid "Fold"
-msgstr ""
-
-#: library.php:396
-msgid "Highlight"
-msgstr ""
-
-#: library.php:401
-msgid "Pulsate"
-msgstr ""
-
-#: library.php:406
-msgid "Scale"
-msgstr ""
-
-#: library.php:411
-msgid "Shake"
-msgstr ""
-
-#: library.php:416
-msgid "Slide"
-msgstr ""
-
-#: library.php:421
-msgid "Transfer"
-msgstr ""
-
-#: options.php:107
-msgid "Currently registered sizes:"
 msgstr ""
 
 #: options.php:274
@@ -951,7 +595,7 @@ msgstr ""
 
 #. Name of the plugin
 msgid "Libraries"
-msgstr "Библиотеки"
+msgstr ""
 
 #. Description of the plugin
 msgid "Plugin for using different js and css libraries"
