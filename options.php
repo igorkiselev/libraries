@@ -51,6 +51,24 @@ if (!defined('ABSPATH')) {
 			</label>
 		<?php } 
 		
+		function _custom_input($key, $title = '', $description = '', $link = '') {
+			$settings = get_option('additional_libraries');
+			?>
+			<input type="text" class="regular-text code" name="additional_libraries[lazy-brakepoints-sizes]"
+			<?php disabled(1, empty($settings['lazy-brakepoints']), true); ?>
+			<?php if (!empty($settings['lazy-brakepoints-sizes'])) { ?>value="<?php echo $settings['lazy-brakepoints-sizes']; ?>"<?php } ?>
+			placeholder="<?php _e('Sizes divided by comma', 'libraries'); ?>" />
+			<p class="description">
+				<?php _e('Add image sizes you want to be generated and displayed in srcset.', 'libraries'); ?>
+			</p>
+			<p class="description"><small> <b><?php _e('Currently egistered sizes:', 'libraries'); ?></b> 
+					<?php foreach (get_intermediate_image_sizes() as $key) { echo '<span>'.$key.'</span> '; } ?>
+				</small>
+			</p>
+			
+		<?php 
+		
+		}
 		
 		global $lib;
 		
@@ -288,25 +306,21 @@ if (!defined('ABSPATH')) {
 					<th scope="row">
 						<span style="padding-left:20px"><?php _e('Google Libraries', 'libraries'); ?></span>
 					</th>
-					<td>
+					<td colspan="2">
 						<?php _custom_checkbox('google-map', __('Google Maps', 'libraries'), __('Loads remote API, so you can create google maps on your website.', 'libraries'), ''); ?>
 					</td>
 				</tr>
 				<tr<?php if (empty($settings['google-map'])) { ?> class="disabled"<?php } ?>>
-					<th scope="row">&nbsp;</th>
-					<td>
-						<input type="text" class="regular-text code"
-							name="additional_libraries[google-map-key]"
-							
-							<?php disabled(1, empty($settings['google-map']), true); ?>
-							<?php if (!empty($settings['google-map-key'])) { ?>value="<?php echo $settings['google-map-key']; ?>"<?php } ?>
-							placeholder="<?php _e('API Key', 'libraries'); ?>" />
-						<span class="description"><a href="https://developers.google.com/maps/documentation/javascript/"><?php _e('Get key', 'libraries'); ?></a></span>
-					</td>
+					<th scope="row">
+							&nbsp;
+						</th>
+						<td colspan="2">
+							<input type="text" class="regular-text code" name="additional_libraries[google-map-key]" <?php disabled(1, empty($settings['google-map']), true); ?> <?php if (!empty($settings['google-map-key'])) { ?> value="<?php echo $settings['google-map-key']; ?>" <?php } ?> placeholder="<?php _e('API Key', 'libraries'); ?>"> <span class="description"><a href="https://developers.google.com/maps/documentation/javascript/"><?php _e('Get key', 'libraries'); ?></a></span>
+						</td>
 				</tr>
 				<tr<?php if (empty($settings['google-map'])) { ?> class="disabled"<?php } ?>>
 					<th scope="row">&nbsp;</th>
-					<td>
+					<td colspan="2">
 						<input type="text" class="regular-text code"
 							name="additional_libraries[google-map-limit]"
 							<?php disabled(1, empty($settings['google-map']), true); ?>
@@ -318,31 +332,29 @@ if (!defined('ABSPATH')) {
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2" style="padding:0px"><hr /></td>
+					<td colspan="3" style="padding:0px"><hr /></td>
 				</tr>
 				<tr>
 					<th scope="row">&nbsp;</th>
-					<td style="padding:0px">
-						<table width="100%">
-							<tr>
-								<td width="50%"><?php _checkbox('google_clustermarkers'); ?></td>
-								<td width="50%"><?php _checkbox('google_infobubble'); ?></td>
-							</tr>
-						</table>
+					<td width="42%">
+						<?php _checkbox('google_clustermarkers'); ?>
+					</td>
+					<td width="42%">
+						<?php _checkbox('google_infobubble'); ?>
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2" style="padding:0px"><hr /></td>
+					<td colspan="3" style="padding:0px"><hr /></td>
 				</tr>
 				<tr>
 					<th scope="row">&nbsp;</th>
-					<td>
+					<td colspan="2">
 						<?php _custom_checkbox('google-analytics', __('Google Analytics', 'libraries'), __('A script to track visitor statistics in Google Analytics.', 'libraries'), 'http://analytics.google.com'); ?>
 				</td>
 				</tr>
 				<tr>
 					<th scope="row">&nbsp;</th>
-					<td>
+					<td colspan="2">
 						<input type="text" class="regular-text code" name="additional_libraries[google-analytics-key]"
 						<?php disabled(1, empty($settings['google-analytics']), true); ?>
 						<?php if (!empty($settings['google-analytics-key'])) { ?> value="<?php echo $settings['google-analytics-key']; ?>"<?php } ?>
