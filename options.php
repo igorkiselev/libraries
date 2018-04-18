@@ -16,17 +16,18 @@ if (!defined('ABSPATH')) {
 						<input name="additional_libraries[<?php echo $lib[$name]['name']; ?>]" type="checkbox" value="1" <?php (!empty($settings[$lib[$name]['name']]) ? checked('1', $settings[$lib[$name]['name']]) : false); ?> />
 						<strong><?php echo $lib[$name]['title']; ?></strong>
 						<small>(<?php if (!empty($lib[$name]['src'])) { ?>+<?php echo _builtin_size($lib[$name]['src']); } ?>, <?php if (!empty($lib[$name]['ver'])) { ?>v <?php echo $lib[$name]['ver']; } ?>)</small>
-					
-						<?php if (!empty($lib[$name]['description'])) { ?>
-							<p class="description">
-								<?php echo $lib[$name]['description']; ?>
-								<?php if (!empty($lib[$name]['link'])) { ?>
-									<a href="<?php echo $lib[$name]['link']; ?>" class="dashicons dashicons-editor-help" target="_blank"></a>
-								<?php  }  ?>
-							</p>
-						<?php  }  ?>
-					
 					</label>
+					
+					<?php if (!empty($lib[$name]['description'])) { ?>
+						<p class="description">
+							<?php echo $lib[$name]['description']; ?>
+							<?php if (!empty($lib[$name]['link'])) { ?>
+								<a href="<?php echo $lib[$name]['link']; ?>" class="dashicons dashicons-editor-help" target="_blank"></a>
+							<?php  }  ?>
+						</p>
+					<?php  }  ?>
+				
+					
 				
 				<?php 
 			}
@@ -34,11 +35,10 @@ if (!defined('ABSPATH')) {
 		function _custom_checkbox($key, $title = '', $description = '', $link = '') {
 			$settings = get_option('additional_libraries');
 			?>
-			
 			<label>
 				<input name="additional_libraries[<?php echo $key; ?>]" type="checkbox" value="1" <?php (!empty($settings[$key]) ? checked('1', $settings[$key]) : false); ?> />
 				<strong><?php echo $title; ?></strong> 
-				
+			</label>
 				<?php if ($description) { ?>	
 				<p class="description">
 					<?php echo $description; ?>
@@ -48,26 +48,24 @@ if (!defined('ABSPATH')) {
 				</p>
 				<?php  } ?>
 				
-			</label>
+			
 		<?php } 
 		
-		function _custom_input($key, $title = '', $description = '', $link = '') {
-			$settings = get_option('additional_libraries');
-			?>
-			<input type="text" class="regular-text code" name="additional_libraries[lazy-brakepoints-sizes]"
-			<?php disabled(1, empty($settings['lazy-brakepoints']), true); ?>
-			<?php if (!empty($settings['lazy-brakepoints-sizes'])) { ?>value="<?php echo $settings['lazy-brakepoints-sizes']; ?>"<?php } ?>
-			placeholder="<?php _e('Sizes divided by comma', 'libraries'); ?>" />
-			<p class="description">
-				<?php _e('Add image sizes you want to be generated and displayed in srcset.', 'libraries'); ?>
-			</p>
-			<p class="description"><small> <b><?php _e('Currently egistered sizes:', 'libraries'); ?></b> 
-					<?php foreach (get_intermediate_image_sizes() as $key) { echo '<span>'.$key.'</span> '; } ?>
-				</small>
-			</p>
+		function _custom_input($key, $depent = '', $placeholder='', $description = '', $link = '') {
 			
-		<?php 
-		
+			$settings = get_option('additional_libraries');
+			
+			?><input type="text" class="regular-text code" name="additional_libraries[<?php echo $key; ?>]"<?php
+			
+			if ($depend) { disabled(1, empty($settings[$depend]), true); }
+			
+			if (!empty($settings[$key])) { ?> value="<?php echo $settings[$key]; ?>"<?php } 
+			
+			if ($placeholder) { ?> placeholder="<?php echo $placeholder; ?>"<?php } ?> /><?php
+			
+			if ($link) { ?><span class="description"><?php echo $link; ?></span><?php  }
+			
+			if ($description) { ?><p class="description"><?php echo $description; ?></p><?php } 
 		}
 		
 		global $lib;
@@ -89,6 +87,8 @@ if (!defined('ABSPATH')) {
 					opacity: 0.3;
 				}
 				.form-table th{width:15%;}
+				
+				p.description{width:80%;}
 			</style>
 	
 			<h2><?php _e('Additional libraries', 'libraries'); ?></h2>
@@ -104,47 +104,43 @@ if (!defined('ABSPATH')) {
 					<th scope="row">
 						<?php _e('Styles', 'libraries'); ?>
 					</th>
-					<td><?php _checkbox('normalize'); ?></td>
-				</tr>
-				<tr>
-					<th scope="row">&nbsp;</th>
-					<td>
-						<?php _custom_checkbox('editor-css-normalize', __('Normalize.css, в WYSIWYG-редактор', 'libraries'), __('', 'libraries')); ?>
+					<td width="42%">
+						<?php _checkbox('normalize'); ?>
+					</td>
+					<td width="42%">
+						<?php _checkbox('justbenice'); ?>
+						
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
 						&nbsp;
 					</th>
-					<td><?php _checkbox('justbenice'); ?></td>
-				</tr>
-				<tr>
-					<th scope="row">&nbsp;</th>
-					<td>
+					<td width="42%">
+						<?php _custom_checkbox('editor-css-normalize', __('Normalize.css, в WYSIWYG-редактор', 'libraries'), __('', 'libraries')); ?>
+					</td>
+					<td width="42%">
 						<?php _custom_checkbox('justbenice-editor', __('Load justbenice.css styles, in WYSIWYG-editor', 'libraries'), __('', 'libraries')); ?>
 					</td>
 				</tr>
 			</table>
+
 			
 			<table class="form-table form-table-border">
 				<tr>
 					<th scope="row"><?php _e('JS Libraries', 'libraries'); ?></th>
-					<td><?php _checkbox('modernizr'); ?></td>
+					<td width="42%"><?php _checkbox('modernizr'); ?></td>
+					<td width="42%"><?php _checkbox('prefixfree'); ?></td>
 				</tr>
+				
 				<tr>
 					<th scope="row">&nbsp;</th>
-					<td><?php _checkbox('prefixfree'); ?></td>
-				</tr>
-				<tr>
-					<th scope="row">&nbsp;</th>
-					<td><?php _checkbox('pace'); ?></td>
-				</tr>
-				<tr>
-					<th scope="row">&nbsp;</th>
-					<td>
+					<td width="42%"><?php _checkbox('pace'); ?></td>
+					<td width="42%">
 						<?php _custom_checkbox('imagesloaded', 'ImagesLoaded.js ', __('Allows you to check the loading of the image in the specified places. Now included in the list of basic wordpress scripts.', 'libraries'), 'http://imagesloaded.desandro.com'); ?>
 					</td>
 				</tr>
+				
 			</table>
 			
 			<table class="form-table form-table-border">
