@@ -61,10 +61,11 @@ add_action('wp_enqueue_scripts', function () {
 					$position = false;
 			
 					if (!empty($value['depend'])) {
+						
 						$position = true;
+						
 					}
 					
-			
 					$version = rand(0,5000);
 					
 					wp_enqueue_script( $value['name'], plugin_dir_url( __FILE__ ).$value['src'], $value['depend'], $value['ver'], $position);

@@ -33,25 +33,15 @@ if (!defined('ABSPATH')) {
 			}
 		}
 		function _custom_checkbox($key, $title = '', $description = '', $link = '') {
-			$settings = get_option('additional_libraries');
-			?>
-			<label>
-				<input name="additional_libraries[<?php echo $key; ?>]" type="checkbox" value="1" <?php (!empty($settings[$key]) ? checked('1', $settings[$key]) : false); ?> />
-				<strong><?php echo $title; ?></strong> 
-			</label>
-				<?php if ($description) { ?>	
-				<p class="description">
-					<?php echo $description; ?>
-					<?php if ($link) { ?>
-						<a href="<?php echo $link; ?>" class="dashicons dashicons-editor-help" target="_blank"></a>
-					<?php  } ?>
-				</p>
-				<?php  } ?>
-				
 			
-		<?php } 
+			$settings = get_option('additional_libraries');
+			
+			?><label><input name="additional_libraries[<?php echo $key; ?>]" type="checkbox" value="1" <?php (isset($settings[$key]) ? checked('1', $settings[$key]) : false); ?> /> <strong><?php echo $title; ?></strong></label><?php
+			
+			if ($description) { ?><p class="description"><?php echo $description; ?><?php if ($link) { ?> <a href="<?php echo $link; ?>" class="dashicons dashicons-editor-help" target="_blank"></a><?php } ?></p><?php }
+			} 
 		
-		function _custom_input($key, $depent = '', $placeholder='', $description = '', $link = '') {
+		function _custom_input($key, $depend = '', $placeholder='', $description = '', $link = '') {
 			
 			$settings = get_option('additional_libraries');
 			
@@ -74,7 +64,9 @@ if (!defined('ABSPATH')) {
 		?>
 		
 		<div class="wrap">
-		
+			
+			<pre><?php //var_dump($wp_scripts); ?></pre>
+			
 			<style>
 				.form-table.form-table-border{
 					border-top:1px Solid #fff;
@@ -86,12 +78,13 @@ if (!defined('ABSPATH')) {
 				.disabled{
 					opacity: 0.3;
 				}
+				.form-table td{ vertical-align:top}
 				.form-table th{width:15%;}
 				
 				p.description{width:80%;}
 			</style>
 	
-			<h2><?php _e('Additional libraries', 'libraries'); ?></h2>
+			<h1><?php _e('Additional libraries', 'libraries'); ?></h1>
 			
 			<form method="post" action="options.php">
 				
@@ -109,7 +102,6 @@ if (!defined('ABSPATH')) {
 					</td>
 					<td width="42%">
 						<?php _checkbox('justbenice'); ?>
-						
 					</td>
 				</tr>
 				<tr>
@@ -117,51 +109,56 @@ if (!defined('ABSPATH')) {
 						&nbsp;
 					</th>
 					<td width="42%">
-						<?php _custom_checkbox('editor-css-normalize', __('Normalize.css, в WYSIWYG-редактор', 'libraries'), __('', 'libraries')); ?>
+						<?php _custom_checkbox('editor-css-normalize', __('Load normalize.css styles in WYSIWYG-editor', 'libraries'), __('', 'libraries')); ?>
 					</td>
 					<td width="42%">
-						<?php _custom_checkbox('justbenice-editor', __('Load justbenice.css styles, in WYSIWYG-editor', 'libraries'), __('', 'libraries')); ?>
+						<?php _custom_checkbox('justbenice-editor', __('Load justbenice.css styles in WYSIWYG-editor', 'libraries'), __('', 'libraries')); ?>
 					</td>
 				</tr>
 			</table>
-
 			
 			<table class="form-table form-table-border">
 				<tr>
-					<th scope="row"><?php _e('JS Libraries', 'libraries'); ?></th>
-					<td width="42%"><?php _checkbox('modernizr'); ?></td>
-					<td width="42%"><?php _checkbox('prefixfree'); ?></td>
+					<th scope="row">
+						<?php _e('JS Libraries', 'libraries'); ?>
+					</th>
+					<td width="42%">
+						<?php _checkbox('modernizr'); ?>
+					</td>
+					<td width="42%">
+						<?php _checkbox('prefixfree'); ?>
+					</td>
 				</tr>
-				
 				<tr>
-					<th scope="row">&nbsp;</th>
-					<td width="42%"><?php _checkbox('pace'); ?></td>
+					<th scope="row">
+						&nbsp;
+					</th>
+					<td width="42%">
+						<?php _checkbox('pace'); ?>
+					</td>
 					<td width="42%">
 						<?php _custom_checkbox('imagesloaded', 'ImagesLoaded.js ', __('Allows you to check the loading of the image in the specified places. Now included in the list of basic wordpress scripts.', 'libraries'), 'http://imagesloaded.desandro.com'); ?>
 					</td>
 				</tr>
-				
 			</table>
 			
 			<table class="form-table form-table-border">
 				<tr>
 					<th scope="row"><?php _e('Libraries based on jQuery', 'libraries'); ?></th>
-					<td><?php _checkbox('maskedinput'); ?></td>
-				</tr>
-				<tr>
-					<th scope="row"></th>
 					<td><?php _checkbox('jquerymask'); ?></td>
 				</tr>
 				<tr>
-					<th scope="row"></th>
+					<th scope="row">&nbsp;</th>
 					<td><?php _checkbox('jquery_ui_touch_punch'); ?></td>
 				</tr>
 			</table>
 			
 			<table class="form-table form-table-border">
 				<tr>
-					<th scope="row"><?php _e('.lazy js library', 'libraries'); ?></th>
-					<td>
+					<th scope="row">
+						<?php _e('.lazy js library', 'libraries'); ?>
+					</th>
+					<td width="42%">
 						<?php _checkbox('lazy'); ?>
 						<p>
 							<details>
@@ -177,27 +174,27 @@ if (!defined('ABSPATH')) {
 							</details>
 						</p>
 					</td>
+					<td width="42%">
+						<?php _custom_checkbox('lazy-srcset', 'Change image attributes for Lazy.js', __('Adding data- to srcset & sizes in image attributes. Allows Lazy.js to load images responsive.', 'libraries')); ?>
+					</td>
 				</tr>
 				<tr>
-					<th scope="row">&nbsp;</th>
-					<td><?php _custom_checkbox('lazy-srcset', 'Change image attributes for Lazy.js', __('Adding data- to srcset & sizes in image attributes. Allows Lazy.js to load images responsive.', 'libraries')); ?></td>
-				</tr>
-				<tr>
-					<th scope="row">&nbsp;</th>
-					<td><?php _custom_checkbox('lazy-brakepoints', 'Additional brakepoints', __('Add custom set of sizes to srcset in images.', 'libraries')); ?></td>
+					<th scope="row">
+						&nbsp;
+					</th>
+					<td colspan="2">
+						<?php _custom_checkbox('lazy-brakepoints', 'Additional brakepoints', __('Add custom set of sizes to srcset in images.', 'libraries')); ?>
+					</td>
 				</tr>
 				<tr<?php if (empty($settings['lazy-brakepoints'])) { ?> class="disabled"<?php } ?>>
-					<th scope="row">&nbsp;</th>
-					<td>
-						<input type="text" class="regular-text code" name="additional_libraries[lazy-brakepoints-sizes]"
-						<?php disabled(1, empty($settings['lazy-brakepoints']), true); ?>
-						<?php if (!empty($settings['lazy-brakepoints-sizes'])) { ?>value="<?php echo $settings['lazy-brakepoints-sizes']; ?>"<?php } ?>
-						placeholder="<?php _e('Sizes divided by comma', 'libraries'); ?>" />
+					<th scope="row">
+						&nbsp;
+					</th>
+					<td colspan="2">
+						<?php _custom_input('lazy-brakepoints-sizes', 'lazy-brakepoints', __('Sizes divided by comma', 'libraries'), __('Add image sizes you want to be generated and displayed in srcset.', 'libraries'), ''); ?>
 						<p class="description">
-							<?php _e('Add image sizes you want to be generated and displayed in srcset.', 'libraries'); ?>
-						</p>
-						<p class="description"><small> <b><?php _e('Currently egistered sizes:', 'libraries'); ?></b> 
-								<?php foreach (get_intermediate_image_sizes() as $key) { echo '<span>'.$key.'</span> '; } ?>
+							<small><strong><?php _e('Currently egistered sizes:', 'libraries'); ?></strong> 
+								<?php foreach (get_intermediate_image_sizes() as $size) { echo '<span>'.$size.'</span> '; } ?>
 							</small>
 						</p>
 					</td>
@@ -207,59 +204,46 @@ if (!defined('ABSPATH')) {
 			<table class="form-table form-table-border">
 				<tr>
 					<th scope="row"><?php _e('Fullpage scroller', 'libraries'); ?></th>
-					<td><?php _checkbox('fullpage'); ?></td>
-				</tr>
-				<tr>
-					<th scope="row">&nbsp;</th>
-					<td><?php _checkbox('fullpage_scrolloverflow'); ?></td>
+					<td width="42%"><?php _checkbox('fullpage'); ?></td>
+					<td width="42%"><?php _checkbox('fullpage_scrolloverflow'); ?></td>
 				</tr>
 			</table>
 			
 			<table class="form-table form-table-border">
 				<tr>
 					<th scope="row"><?php _e('Isotope block builder', 'libraries'); ?></th>
-					<td><?php _checkbox('isotope'); ?></td>
+					<td colspan="2"><?php _checkbox('isotope'); ?></td>
 				</tr>
 				<tr>
 					<th scope="row">&nbsp;</th>
-					<td><?php _checkbox('isotope_masonry'); ?></td>
+					<td width="42%"><?php _checkbox('isotope_masonry'); ?></td>
+					<td width="42%"><?php _checkbox('isotope_fitcolumns'); ?></td>
 				</tr>
 				<tr>
 					<th scope="row">&nbsp;</th>
-					<td><?php _checkbox('isotope_cellsbyrow'); ?></td>
+					<td width="42%"><?php _checkbox('isotope_cellsbyrow'); ?></td>
+					<td width="42%"><?php _checkbox('isotope_cellsbycolumn'); ?></td>
 				</tr>
 				<tr>
 					<th scope="row">&nbsp;</th>
-					<td><?php _checkbox('isotope_cellsbycolumn'); ?></td>
-				</tr>
-				<tr>
-					<th scope="row">&nbsp;</th>
-					<td><?php _checkbox('isotope_fitcolumns'); ?></td>
-				</tr>
-				<tr>
-					<th scope="row">&nbsp;</th>
-					<td><?php _checkbox('isotope_horizontal'); ?></td>
-				</tr>
-				<tr>
-					<th scope="row">&nbsp;</th>
-					<td><?php _checkbox('isotope_packery'); ?></td>
+					<td width="42%"><?php _checkbox('isotope_horizontal'); ?></td>
+					<td width="42%"><?php _checkbox('isotope_packery'); ?></td>
 				</tr>
 			</table>
 			
 			<table class="form-table form-table-border">
 				<tr>
 					<th scope="row"><?php _e('owlCarousel slider', 'libraries'); ?></th>
-					<td><?php _checkbox('owlcarousel'); ?></td>
-				</tr>
-				<tr>
-					<th scope="row">&nbsp;</th>
-					<td><?php _checkbox('animate'); ?></td>
-				</tr>
-				<tr>
-					<th scope="row">&nbsp;</th>
-					<td>
+					<td width="42%">
+						<?php _checkbox('owlcarousel'); ?>
+					</td>
+					<td width="42%">
 						<?php _custom_checkbox('owlcarousel-gallery', __('Change default gallery to owl', 'libraries'), __('Function that changes the default wordpress gallery layout to owlcarousel.', 'libraries')); ?>
-				</td>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">&nbsp;</th>
+					<td colspan="2"><?php _checkbox('animate'); ?></td>
 				</tr>
 			</table>
 			
@@ -311,20 +295,14 @@ if (!defined('ABSPATH')) {
 							&nbsp;
 						</th>
 						<td colspan="2">
-							<input type="text" class="regular-text code" name="additional_libraries[google-map-key]" <?php disabled(1, empty($settings['google-map']), true); ?> <?php if (!empty($settings['google-map-key'])) { ?> value="<?php echo $settings['google-map-key']; ?>" <?php } ?> placeholder="<?php _e('API Key', 'libraries'); ?>"> <span class="description"><a href="https://developers.google.com/maps/documentation/javascript/"><?php _e('Get key', 'libraries'); ?></a></span>
+							<?php _custom_input('google-map-key', 'google-map', __('API Key', 'libraries'), '', '<a href="https://developers.google.com/maps/documentation/javascript/">'.__('Get key', 'libraries').'</a>'); ?>
+							
 						</td>
 				</tr>
 				<tr<?php if (empty($settings['google-map'])) { ?> class="disabled"<?php } ?>>
 					<th scope="row">&nbsp;</th>
 					<td colspan="2">
-						<input type="text" class="regular-text code"
-							name="additional_libraries[google-map-limit]"
-							<?php disabled(1, empty($settings['google-map']), true); ?>
-							<?php if (!empty($settings['google-map-limit'])) { ?>value="<?php echo $settings['google-map-limit']; ?>"<?php } ?>
-							placeholder="<?php _e('Page IDs divided by comma', 'libraries'); ?>" />
-						<p class="description">
-							<?php _e('Limit pages where to load the remote library. Leave empty if not needed', 'libraries'); ?>
-						</p>
+						<?php _custom_input('google-map-limit', 'google-map', __('Page IDs divided by comma', 'libraries'), __('Limit pages where to load the remote library. Leave empty if not needed', 'libraries'), ''); ?>
 					</td>
 				</tr>
 				<tr>
@@ -351,10 +329,7 @@ if (!defined('ABSPATH')) {
 				<tr>
 					<th scope="row">&nbsp;</th>
 					<td colspan="2">
-						<input type="text" class="regular-text code" name="additional_libraries[google-analytics-key]"
-						<?php disabled(1, empty($settings['google-analytics']), true); ?>
-						<?php if (!empty($settings['google-analytics-key'])) { ?> value="<?php echo $settings['google-analytics-key']; ?>"<?php } ?>
-						placeholder="<?php _e('UA-#######-##', 'libraries'); ?>"  />
+						<?php _custom_input('google-analytics-key', 'google-analytics', __('UA-#######-##', 'libraries'), '', ''); ?>
 					</td>
 				</tr>
 			</table>
@@ -369,10 +344,7 @@ if (!defined('ABSPATH')) {
 				<tr>
 					<th scope="row">&nbsp;</th>
 					<td>
-						<input type="text" class="regular-text code" name="additional_libraries[yandex-metrics-key]"
-						<?php disabled(1, empty($settings['yandex-metrics']), true); ?>
-						<?php if (!empty($settings['yandex-metrics-key'])) { ?> value="<?php echo $settings['yandex-metrics-key']; ?>"<?php } ?>
-						placeholder="<?php _e('########', 'libraries'); ?>"  />
+						<?php _custom_input('yandex-metrics-key', 'yandex-metrics', __('########', 'libraries'), '', ''); ?>
 					</td>
 				</tr>
 			</table>
@@ -387,10 +359,7 @@ if (!defined('ABSPATH')) {
 				<tr>
 					<th scope="row">&nbsp;</th>
 					<td>
-						<input type="text" class="regular-text code" name="additional_libraries[filenames-slug]"
-						<?php disabled(1, empty($settings['filenames']), true); ?>
-						<?php if (!empty($settings['filenames-slug'])) { ?>value="<?php echo $settings['filenames-slug']; ?>"<?php } ?>
-						placeholder="" />
+						<?php _custom_input('filenames-slug', 'filenames', '', '', ''); ?>
 					</td>
 				</tr>
 			</table>
