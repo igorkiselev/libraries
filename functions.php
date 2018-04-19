@@ -660,6 +660,39 @@ if (!empty($settings['editor-css-normalize'])) {
     });
 }
 
+if (!empty($settings['settings-privateprefix'])) {
+    add_filter('private_title_format', function($content){
+        return '%s';
+    });
+}
+
+if (!empty($settings['opengraph'])) {
+	
+	add_action( 'after_setup_theme', function(){
+		add_image_size( 'facebook', 1200, 630, true );
+	});
+	
+	add_filter('language_attributes', function($og){
+		return $og . ' '.'xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
+	});
+
+	add_action('wp_head', function(){
+		if (is_single()) {
+			global $post;
+			
+			echo '<meta property="og:title" content="JBNCC, '. get_the_title().'" />'."\n",
+				'<meta property="og:type" content="article" />'."\n",
+				'<meta property="og:image" content="'.get_the_post_thumbnail_url($post->ID, 'facebook').'" />'."\n",
+				'<meta property="og:url" content="'.get_permalink().'" />'."\n",
+				'<meta property="og:description" content="'.get_the_excerpt().'" />'."\n",
+				'<meta property="og:site_name" content="'.get_bloginfo('name').'" />'."\n";
+		}
+	});
+}
+
+
+
+
 function _builtinsize($slug)
 {
     $wp_scripts = wp_scripts();

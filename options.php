@@ -268,7 +268,7 @@
 		<table class="form-table form-table-border">
 			<tr>
 				<th scope="row">
-					<?php _e('Убираем из &#60;head&#47;&#62;', 'libraries'); ?>
+					<?php _e('Remove from &#60;head&#47;&#62;', 'libraries'); ?>
 				</th>
 				<td width="42%">
 					<?php _custom_checkbox('disable-emoji', __('Remove emoji support', 'libraries'), __('Remove styles and scripts to process emoji on the website from &#60;head&#47;&#62;', 'libraries')); ?>
@@ -282,17 +282,17 @@
 					&nbsp;
 				</th>
 				<td width="42%">
-					<?php _custom_checkbox('disable-rsslinks', __('RSS feeds', 'libraries'), __('Remove links to the RSS feeds of the website from &#60;head&#47;&#62; ссылки (will still to work if you just add /feed after adress), as well as xml for blog clients', 'libraries')); ?>
+					<?php _custom_checkbox('disable-rsslinks', __('RSS feeds', 'libraries'), __('Remove links to the RSS feeds of the website from &#60;head&#47;&#62; (will still to work if you just add /feed after adress), as well as xml for blog clients', 'libraries')); ?>
 				</td>
 				<td width="42%">
-					<?php _custom_checkbox('disable-rellinks', __('REL links', 'libraries'), __('Remove links to the main page, to the first record, to the previous and next record, the link to the parent record and a short link to the current page from &#60;head&#47;&#62; ссылки', 'libraries')); ?>
+					<?php _custom_checkbox('disable-rellinks', __('REL links', 'libraries'), __('Remove links to the main page, to the first record, to the previous and next record, the link to the parent record and a short link to the current page from &#60;head&#47;&#62;', 'libraries')); ?>
 				</td>
 			</tr>
 		</table>
 		<table class="form-table form-table-border">
 			<tr>
 				<th scope="row">
-					<?php _e('Интерфейс вордпресса', 'libraries'); ?>
+					<?php _e('Wordpress interface', 'libraries'); ?>
 				</th>
 				<td width="42%">
 					<?php _custom_checkbox('disable-adminbar', __('Remove administrator bar', 'libraries'), __('Hide admin panel on the website', 'libraries')); ?>
@@ -308,10 +308,21 @@
 					<?php _e('Content parser', 'libraries'); ?>
 				</th>
 				<td width="42%">
-					<?php _custom_checkbox('content-the_title', __('No title', 'libraries'), __('Display the phrase "No title" in the_title when the title of the post or page is empty.', 'libraries')); ?>
+					<?php _custom_checkbox('content-the_title', __('No title', 'libraries'), __('Display the phrase "No title" in the_title when the title of the post or page is empty', 'libraries')); ?>
 				</td>
 				<td width="42%">
 					<?php _custom_checkbox('header-wp_title', __('Site name in title', 'libraries'), __('Display the name of the website (company) in the header after the page name (wp_title)', 'libraries')); ?>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					&nbsp;
+				</th>
+				<td width="42%">
+					<?php _custom_checkbox('settings-privateprefix', __('Remove "private"', 'libraries'), __('Remove "private" prefix from posts in loop', 'libraries')); ?>
+				</td>
+				<td width="42%">
+					<?php _custom_checkbox('opengraph', __('Opengraph meta', 'libraries'), __('Opengraph meta fields in  &#60;head&#47;&#62;', 'libraries')); ?>
 				</td>
 			</tr>
 		</table>
