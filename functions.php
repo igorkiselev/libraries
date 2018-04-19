@@ -130,7 +130,7 @@ if (!empty($settings['yandex-metrics']) && !empty($settings['yandex-metrics-key'
 
 if (!empty($settings['filenames']) && !empty($settings['filenames-slug'])) {
     add_filter('sanitize_file_name', function ($filename) {
-        $slug = !empty($settings['filenames-slug']);
+        $slug = $settings['filenames-slug'];
         $info = pathinfo($filename);
         $ext = empty($info['extension']) ? '' : '.'.$info['extension'];
         $name = basename($filename, $ext);
