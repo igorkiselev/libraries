@@ -3,7 +3,7 @@
  * Plugin Name: Libraries
  * Plugin URI: http://www.igorkiselev.com/wp-plugin/libraries/
  * Description: Plugin for using different js and css libraries
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: Igor Kiselev
  * Author URI: http://www.igorkiselev.com/
  * License: A "JustBeNice" license name e.g. GPL2.
