@@ -130,7 +130,9 @@ if (!empty($settings['yandex-metrics']) && !empty($settings['yandex-metrics-key'
 
 if (!empty($settings['filenames']) && !empty($settings['filenames-slug'])) {
     add_filter('sanitize_file_name', function ($filename) {
-        $slug = $settings['filenames-slug'];
+        global $settings;
+		 
+		$slug = $settings['filenames-slug'];
         $info = pathinfo($filename);
         $ext = empty($info['extension']) ? '' : '.'.$info['extension'];
         $name = basename($filename, $ext);
@@ -155,7 +157,8 @@ if (!empty($settings['lazy-srcset'])) {
 if (!empty($settings['lazy-brakepoints'])) {
     if (!empty($settings['lazy-brakepoints-sizes'])) {
         add_action('after_setup_theme', function () {
-            $array = explode(',', !empty($settings['lazy-brakepoints-sizes']));
+			 global $settings;
+            $array = explode(',', $settings['lazy-brakepoints-sizes']);
             if (!empty($array)) {
                 foreach ($array as &$value) {
                     add_image_size($value.'w', $value, $value, false);
