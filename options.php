@@ -35,10 +35,10 @@
 				<th scope="row">
 					&nbsp;
 				</th>
-				<td width="42%">
+				<td width="42%"<?php _disabled('normalize'); ?>>
 					<?php _custom_checkbox('editor-css-normalize', __('Load normalize.css styles in WYSIWYG-editor', 'libraries'), __('', 'libraries')); ?>
 				</td>
-				<td width="42%">
+				<td width="42%"<?php _disabled('justbenice'); ?>>
 					<?php _custom_checkbox('justbenice-editor', __('Load justbenice.css styles in WYSIWYG-editor', 'libraries'), __('', 'libraries')); ?>
 				</td>
 			</tr>
@@ -85,7 +85,7 @@
 				<td width="42%">
 					<?php _checkbox('lazy'); ?>
 				</td>
-				<td width="42%">
+				<td width="42%"<?php _disabled('lazy'); ?>>
 					<?php _custom_checkbox('lazy-srcset', 'Change image attributes for Lazy.js', __('Adding data- to srcset & sizes in image attributes. Allows Lazy.js to load images responsive.', 'libraries')); ?>
 				</td>
 			</tr>
@@ -117,7 +117,7 @@
 			<tr>
 				<th scope="row"><?php _e('Fullpage scroller', 'libraries'); ?></th>
 				<td width="42%"><?php _checkbox('fullpage'); ?></td>
-				<td width="42%"><?php _checkbox('fullpage_scrolloverflow'); ?></td>
+				<td width="42%"<?php _disabled('fullpage'); ?>><?php _checkbox('fullpage_scrolloverflow','fullpage'); ?></td>
 			</tr>
 		</table>
 		<table class="form-table form-table-border">
@@ -125,20 +125,20 @@
 				<th scope="row"><?php _e('Isotope block builder', 'libraries'); ?></th>
 				<td colspan="2"><?php _checkbox('isotope'); ?></td>
 			</tr>
-			<tr>
+			<tr<?php _disabled('isotope'); ?>>
 				<th scope="row">&nbsp;</th>
-				<td width="42%"><?php _checkbox('isotope_masonry'); ?></td>
-				<td width="42%"><?php _checkbox('isotope_fitcolumns'); ?></td>
+				<td width="42%"><?php _checkbox('isotope_masonry','isotope'); ?></td>
+				<td width="42%"><?php _checkbox('isotope_fitcolumns','isotope'); ?></td>
 			</tr>
-			<tr>
+			<tr<?php _disabled('isotope'); ?>>
 				<th scope="row">&nbsp;</th>
-				<td width="42%"><?php _checkbox('isotope_cellsbyrow'); ?></td>
-				<td width="42%"><?php _checkbox('isotope_cellsbycolumn'); ?></td>
+				<td width="42%"><?php _checkbox('isotope_cellsbyrow','isotope'); ?></td>
+				<td width="42%"><?php _checkbox('isotope_cellsbycolumn','isotope'); ?></td>
 			</tr>
-			<tr>
+			<tr<?php _disabled('isotope'); ?>>
 				<th scope="row">&nbsp;</th>
-				<td width="42%"><?php _checkbox('isotope_horizontal'); ?></td>
-				<td width="42%"><?php _checkbox('isotope_packery'); ?></td>
+				<td width="42%"><?php _checkbox('isotope_horizontal','isotope'); ?></td>
+				<td width="42%"><?php _checkbox('isotope_packery','isotope'); ?></td>
 			</tr>
 		</table>
 		<table class="form-table form-table-border">
@@ -147,7 +147,7 @@
 				<td width="42%">
 					<?php _checkbox('owlcarousel'); ?>
 				</td>
-				<td width="42%">
+				<td width="42%"<?php _disabled('owlcarousel'); ?>>
 					<?php _custom_checkbox('owlcarousel-gallery', __('Change default gallery to owl', 'libraries'), __('Function that changes the default wordpress gallery layout to owlcarousel.', 'libraries')); ?>
 				</td>
 			</tr>
