@@ -89,7 +89,7 @@ if (!empty($settings['yandex-metrics']) && !empty($settings['yandex-metrics-key'
     add_action('wp_footer', function () {
         global $settings;
         
-        echo	"<!-- Yandex.Metrika counter -->".
+        echo    "<!-- Yandex.Metrika counter -->".
                     "<script type='text/javascript'>".
                     "(function(d, w, c) {".
                         "(w[c] = w[c] || []).push(function() {".
@@ -131,8 +131,8 @@ if (!empty($settings['yandex-metrics']) && !empty($settings['yandex-metrics-key'
 if (!empty($settings['filenames']) && !empty($settings['filenames-slug'])) {
     add_filter('sanitize_file_name', function ($filename) {
         global $settings;
-		 
-		$slug = $settings['filenames-slug'];
+         
+        $slug = $settings['filenames-slug'];
         $info = pathinfo($filename);
         $ext = empty($info['extension']) ? '' : '.'.$info['extension'];
         $name = basename($filename, $ext);
@@ -157,7 +157,7 @@ if (!empty($settings['lazy-srcset'])) {
 if (!empty($settings['lazy-brakepoints'])) {
     if (!empty($settings['lazy-brakepoints-sizes'])) {
         add_action('after_setup_theme', function () {
-			 global $settings;
+            global $settings;
             $array = explode(',', $settings['lazy-brakepoints-sizes']);
             if (!empty($array)) {
                 foreach ($array as &$value) {
@@ -188,8 +188,8 @@ if (!empty($settings['owlcarousel-gallery'])) {
             'order' => 'ASC',
             'orderby' => 'menu_order ID',
             'id' => $post ? $post->ID : 0,
-            'itemtag' => $html5 ? 'figure'	 : 'dl',
-            'icontag' => $html5 ? 'div'		: 'dt',
+            'itemtag' => $html5 ? 'figure'     : 'dl',
+            'icontag' => $html5 ? 'div'        : 'dt',
             'captiontag' => $html5 ? 'figcaption' : 'dd',
             'columns' => 3,
             'size' => 'large',
@@ -334,12 +334,12 @@ if (!empty($settings['owlcarousel-gallery'])) {
 
             if ($captiontag && trim($attachment->post_excerpt)) {
                 $output .= "
-			
-					<{$captiontag} class='wp-caption-text gallery-caption' id='$selector-$id'>
-			
-					".wptexturize($attachment->post_excerpt)."
-			
-					</{$captiontag}>";
+            
+                    <{$captiontag} class='wp-caption-text gallery-caption' id='$selector-$id'>
+            
+                    ".wptexturize($attachment->post_excerpt)."
+            
+                    </{$captiontag}>";
             }
 
             $output .= "</{$itemtag}>";
@@ -367,125 +367,66 @@ if (!empty($settings['owlcarousel-gallery'])) {
 
     add_action('print_media_templates', function () {
         ?>
-		<script type="text/html" id="tmpl-custom-gallery-setting">
-			<div style="padding-top:15px">
-				<label class="setting">
-					<span><?php _e('Autoplay', 'libraries'); ?></span>
-					<input type="checkbox" data-setting="autoplay">
-				</label>
-				<label class="setting">
-					<span><?php _e('Pause autoplay on hover', 'libraries'); ?></span>
-					<input type="checkbox" data-setting="autoplayHoverPause">
-				</label>
-				<label class="setting">
-					<span><?php _e('Loop', 'libraries'); ?></span>
-					<input type="checkbox" data-setting="loop">
-				</label>
-				<label class="setting">
-					<span><?php _e('Autoplay timeout', 'libraries'); ?></span>
-					<input type="number" value="" data-setting="autoplayTimeout" style="float:left;" min="1000" max="10000">
-				</label>
-			</div>
-		</script>
+        <script type="text/html" id="tmpl-custom-gallery-setting">
+            <div style="padding-top:15px">
+                <label class="setting">
+                    <span><?php _e('Autoplay', 'libraries'); ?></span>
+                    <input type="checkbox" data-setting="autoplay">
+                </label>
+                <label class="setting">
+                    <span><?php _e('Pause autoplay on hover', 'libraries'); ?></span>
+                    <input type="checkbox" data-setting="autoplayHoverPause">
+                </label>
+                <label class="setting">
+                    <span><?php _e('Loop', 'libraries'); ?></span>
+                    <input type="checkbox" data-setting="loop">
+                </label>
+                <label class="setting">
+                    <span><?php _e('Autoplay timeout', 'libraries'); ?></span>
+                    <input type="number" value="" data-setting="autoplayTimeout" style="float:left;" min="1000" max="10000">
+                </label>
+            </div>
+        </script>
 
-		<script>
-			jQuery(document).ready(function(){
-		
-				_.extend(wp.media.gallery.defaults, {
-					autoplayTimeout: "5000",
-					autoplay: false,
-					autoplayHoverPause: false,
-					loop: false,
-				});
+        <script>
+            jQuery(document).ready(function(){
+        
+                _.extend(wp.media.gallery.defaults, {
+                    autoplayTimeout: "5000",
+                    autoplay: false,
+                    autoplayHoverPause: false,
+                    loop: false,
+                });
 
-				wp.media.view.Settings.Gallery = wp.media.view.Settings.Gallery.extend({
-					template: function(view){
-						return wp.media.template('gallery-settings')(view)
-						+ wp.media.template('custom-gallery-setting')(view);
-					},
-			
-					update: function( key ) {
-						var value = this.model.get( key ),
-						$setting = this.$('[data-setting="' + key + '"]'),
-						$buttons, $value;
+                wp.media.view.Settings.Gallery = wp.media.view.Settings.Gallery.extend({
+                    template: function(view){
+                        return wp.media.template('gallery-settings')(view)
+                        + wp.media.template('custom-gallery-setting')(view);
+                    },
+            
+                    update: function( key ) {
+                        var value = this.model.get( key ),
+                        $setting = this.$('[data-setting="' + key + '"]'),
+                        $buttons, $value;
 
-				
-						if ( ! $setting.length ) {
-							return;
-						}
+                
+                        if ( ! $setting.length ) {
+                            return;
+                        }
 
-						if ( $setting.is('input[type="text"], textarea') ) {
-							if ( ! $setting.is(':focus') ) {
-								$setting.val( value );
-							}
-						} else if ( $setting.is('input[type="checkbox"]') ) {
-							$setting.prop( 'checked', !! value && 'false' !== value );
-						} else {
-							$setting.val( value ); // treat any other input type same as text inputs
-						}
-					},
-				});
-			});
-		</script><?php
-    });
-}
-
-if (!empty($settings['opengraph'])) {
-    function my_excerpt($text, $excerpt)
-    {
-        if ($excerpt) {
-            return $excerpt;
-        }
-        $text = strip_shortcodes($text);
-        $text = apply_filters('the_content', $text);
-        $text = str_replace(']]>', ']]&gt;', $text);
-        $text = strip_tags($text);
-        $excerpt_length = apply_filters('excerpt_length', 55);
-        $excerpt_more = apply_filters('excerpt_more', ' '.'[...]');
-        $words = preg_split("/[\n
-		 ]+/", $text, $excerpt_length + 1, PREG_SPLIT_NO_EMPTY);
-        if (count($words) > $excerpt_length) {
-            array_pop($words);
-            $text = implode(' ', $words);
-            $text = $text.$excerpt_more;
-        } else {
-            $text = implode(' ', $words);
-        }
-
-        return apply_filters('wp_trim_excerpt', $text, $excerpt);
-    }
-
-    add_filter('language_attributes', function ($og) {
-        return $og.' '.'xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
-    });
-
-    add_action('wp_head', function () {
-        if (is_single()) {
-            global $post;
-            if (get_the_post_thumbnail($post->ID, 'large')) {
-                $thumbnail_id = get_post_thumbnail_id($post->ID);
-                $thumbnail_object = get_post($thumbnail_id);
-                $image = $thumbnail_object->guid;
-            } else {
-                // default open graph image
-                 // $image = '';
-            }
-
-            $description = my_excerpt($post->post_content, $post->post_excerpt);
-            $description = strip_tags($description);
-            $description = str_replace('"', "'", $description);
-
-            echo '<meta property="og:title" content="'.get_the_title().'" />'."\n",
-                    '<meta property="og:type" content="article" />'."\n",
-                    '<meta property="og:image" content="';
-            if (function_exists('wp_get_attachment_thumb_url')) {
-                echo wp_get_attachment_thumb_url(get_post_thumbnail_id($post->ID));
-            }
-            echo '" />'."\n",
-                    '<meta property="og:url" content="'.get_permalink().'" />'."\n",
-                    '<meta property="og:description" content="'.$description.'" />'."\n",
-                    '<meta property="og:site_name" content="'.get_bloginfo('name').'" />'."\n";
-        }
+                        if ( $setting.is('input[type="text"], textarea') ) {
+                            if ( ! $setting.is(':focus') ) {
+                                $setting.val( value );
+                            }
+                        } else if ( $setting.is('input[type="checkbox"]') ) {
+                            $setting.prop( 'checked', !! value && 'false' !== value );
+                        } else {
+                            $setting.val( value ); // treat any other input type same as text inputs
+                        }
+                    },
+                });
+            });
+        </script><?php
     });
 }
 
@@ -541,6 +482,23 @@ if (!empty($settings['disable-rellinks'])) {
     remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
 }
 
+if (!empty($settings['disable-attachment-pages'])) {
+    add_action('template_redirect', function () {
+        if (is_attachment()) {
+            global $post;
+            if ($post && $post->post_parent) {
+                wp_redirect(esc_url(get_permalink($post->post_parent)), 301);
+                exit;
+            } else {
+                wp_redirect(esc_url(home_url('/')), 301);
+                exit;
+            }
+        }
+    });
+    
+}
+
+
 if (!empty($settings['enable-navmenus'])) {
     add_action('admin_menu', function () {
         remove_submenu_page('themes.php', 'nav-menus.php');
@@ -562,6 +520,15 @@ if (!empty($settings['content-the_title'])) {
 if (!empty($settings['header-wp_title'])) {
     add_filter('wp_title', function ($title) {
         return $title.esc_attr(get_bloginfo('name'));
+    });
+}
+
+if (!empty($settings['header-wp_title-separator'])) {
+    add_filter('document_title_separator', function ($sep) {
+		global $settings;
+        if (!empty($settings['header-wp_title-separator-character'])) {
+		return " ".$settings['header-wp_title-separator-character']." ";
+		}
     });
 }
 
@@ -670,27 +637,31 @@ if (!empty($settings['settings-privateprefix'])) {
 }
 
 if (!empty($settings['opengraph'])) {
-	
-	add_action( 'after_setup_theme', function(){
-		add_image_size( 'facebook', 1200, 630, true );
-	});
-	
-	add_filter('language_attributes', function($og){
-		return $og . ' '.'xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
-	});
 
-	add_action('wp_head', function(){
-		if (is_single()) {
-			global $post;
+    add_action( 'after_setup_theme', function(){
+        add_image_size( 'facebook', 1200, 630, true );
+    });
+    
+    add_filter('language_attributes', function($og){
+        return $og . ' '.'xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
+    });
+ 
+    add_action('wp_head', function(){
+        if (is_single()) {
 			
-			echo '<meta property="og:title" content="JBNCC, '. get_the_title().'" />'."\n",
-				'<meta property="og:type" content="article" />'."\n",
-				'<meta property="og:image" content="'.get_the_post_thumbnail_url($post->ID, 'facebook').'" />'."\n",
-				'<meta property="og:url" content="'.get_permalink().'" />'."\n",
-				'<meta property="og:description" content="'.get_the_excerpt().'" />'."\n",
-				'<meta property="og:site_name" content="'.get_bloginfo('name').'" />'."\n";
+            global $post;
+            
+		   
+            echo '<meta property="og:title" content="'.esc_attr(get_bloginfo('name')).", ". get_the_title().'" />'."\n",
+                '<meta property="og:type" content="article" />'."\n",
+                '<meta property="og:image" content="'.get_the_post_thumbnail_url($post->ID, 'facebook').'" />'."\n",
+                '<meta property="og:url" content="'.get_permalink().'" />'."\n",
+                '<meta property="og:description" content="'.get_the_excerpt().'" />'."\n",
+                '<meta property="og:site_name" content="'.get_bloginfo('name').'" />'."\n";
+       
 		}
-	});
+    });
+   
 }
 
 

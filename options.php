@@ -95,21 +95,18 @@
 				</th>
 				<td colspan="2">
 					<?php _custom_checkbox('lazy-brakepoints', 'Additional brakepoints', __('Add custom set of sizes to srcset in images.', 'libraries')); ?>
-				</td>
-			</tr>
-			<tr<?php _disabled('lazy-brakepoints'); ?>>
-				<th scope="row">
-					&nbsp;
-				</th>
-				<td colspan="2">
-					<?php _custom_input('lazy-brakepoints-sizes', 'lazy-brakepoints', __('Sizes divided by comma', 'libraries'), __('Add image sizes you want to be generated and displayed in srcset.', 'libraries'), ''); ?>
-					<p class="description">
-						<small><strong><?php _e('Currently registered sizes:', 'libraries'); ?></strong> 
-							<?php foreach (get_intermediate_image_sizes() as $size) {
-    echo '<span>'.$size.'</span> ';
-} ?>
-						</small>
-					</p>
+					<div <?php _disabled('lazy-brakepoints'); ?>>
+						<p>
+							<?php _custom_input('lazy-brakepoints-sizes', 'lazy-brakepoints', __('Sizes divided by comma', 'libraries'), __('Add image sizes you want to be generated and displayed in srcset.', 'libraries'), ''); ?>
+						</p>
+						<p class="description">
+							<small><strong><?php _e('Currently registered sizes:', 'libraries'); ?></strong> 
+								<?php foreach (get_intermediate_image_sizes() as $size) {
+									echo '<span>'.$size.'</span> ';
+								} ?>
+							</small>
+						</p>
+					</div>
 				</td>
 			</tr>
 		</table>
@@ -228,42 +225,29 @@
 				<th scope="row">&nbsp;</th>
 				<td colspan="2">
 					<?php _custom_checkbox('google-analytics', __('Google Analytics', 'libraries'), __('A script to track visitor statistics in Google Analytics.', 'libraries'), 'http://analytics.google.com'); ?>
-			</td>
-			</tr>
-			<tr>
-				<th scope="row">&nbsp;</th>
-				<td colspan="2">
-					<?php _custom_input('google-analytics-key', 'google-analytics', __('UA-#######-##', 'libraries'), '', ''); ?>
+					<p><?php _custom_input('google-analytics-key', 'google-analytics', __('UA-#######-##', 'libraries'), '', ''); ?></p>
 				</td>
 			</tr>
+			
 		</table>
 		<table class="form-table form-table-yandex" >
 			<tr>
 				<th scope="row"><?php _e('Yandex', 'libraries'); ?></th>
 				<td>
 					<?php _custom_checkbox('yandex-metrics', __('Yandex Metrics', 'libraries'), __('A script to track visitor statistics in Yandex Metrics.', 'libraries'), 'http://metrika.yandex.ru'); ?>
+					<p><?php _custom_input('yandex-metrics-key', 'yandex-metrics', __('########', 'libraries'), '', ''); ?></p>
 			</td>
 			</tr>
-			<tr>
-				<th scope="row">&nbsp;</th>
-				<td>
-					<?php _custom_input('yandex-metrics-key', 'yandex-metrics', __('########', 'libraries'), '', ''); ?>
-				</td>
-			</tr>
+			
 		</table>
 		<table class="form-table form-table-border">
 			<tr>
 				<th scope="row">&nbsp;</th>
 				<td>
-					<?php _custom_checkbox('filenames', __('Filename prefix', 'libraries'), __('Set prefix for filenames that are uploaded to wordpress.', 'libraries')); ?>
+					<?php _custom_checkbox('filenames', __('Filename prefix', 'libraries'), __('Set prefix for filenames that are uploaded to wordpress.', 'libraries')); ?><p><?php _custom_input('filenames-slug', 'filenames', '', '', ''); ?></p>
 				</td>
 			</tr>
-			<tr>
-				<th scope="row">&nbsp;</th>
-				<td>
-					<?php _custom_input('filenames-slug', 'filenames', '', '', ''); ?>
-				</td>
-			</tr>
+			
 		</table>
 		<table class="form-table form-table-border">
 			<tr>
@@ -286,6 +270,17 @@
 				</td>
 				<td width="42%">
 					<?php _custom_checkbox('disable-rellinks', __('REL links', 'libraries'), __('Remove links to the main page, to the first record, to the previous and next record, the link to the parent record and a short link to the current page from &#60;head&#47;&#62;', 'libraries')); ?>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					&nbsp;
+				</th>
+				<td width="42%">
+					<?php _custom_checkbox('disable-attachment-pages', __('Attachment pages', 'libraries'), __('Remove attachment pages. If you fill all titles, captions and descriptions on the media file, then maybe keep the pages. Improves SEO of the website.', 'libraries')); ?>
+				</td>
+				<td width="42%">
+					
 				</td>
 			</tr>
 		</table>
@@ -325,6 +320,19 @@
 					<?php _custom_checkbox('opengraph', __('Opengraph meta', 'libraries'), __('Opengraph meta fields in  &#60;head&#47;&#62;', 'libraries')); ?>
 				</td>
 			</tr>
+			<tr>
+				<th scope="row">
+					&nbsp;
+				</th>
+				
+				<td width="42%">
+					<?php _custom_checkbox('header-wp_title-separator', __('Change title separator', 'libraries'), __('Change the title separator', 'libraries')); ?><p><?php _custom_input('header-wp_title-separator-character', 'header-wp_title-separator', '', '', ''); ?></p>
+				</td>
+				<td width="42%">
+					
+				</td>
+			</tr>
+			
 		</table>
 		<table class="form-table form-table-border">
 			<tr>
