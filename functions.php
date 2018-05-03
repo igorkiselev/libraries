@@ -367,66 +367,66 @@ if (!empty($settings['owlcarousel-gallery'])) {
 
     add_action('print_media_templates', function () {
         ?>
-        <script type="text/html" id="tmpl-custom-gallery-setting">
-            <div style="padding-top:15px">
-                <label class="setting">
-                    <span><?php _e('Autoplay', 'libraries'); ?></span>
-                    <input type="checkbox" data-setting="autoplay">
-                </label>
-                <label class="setting">
-                    <span><?php _e('Pause autoplay on hover', 'libraries'); ?></span>
-                    <input type="checkbox" data-setting="autoplayHoverPause">
-                </label>
-                <label class="setting">
-                    <span><?php _e('Loop', 'libraries'); ?></span>
-                    <input type="checkbox" data-setting="loop">
-                </label>
-                <label class="setting">
-                    <span><?php _e('Autoplay timeout', 'libraries'); ?></span>
-                    <input type="number" value="" data-setting="autoplayTimeout" style="float:left;" min="1000" max="10000">
-                </label>
-            </div>
-        </script>
+		<script type="text/html" id="tmpl-custom-gallery-setting">
+			<div style="padding-top:15px">
+				<label class="setting">
+					<span><?php _e('Autoplay', 'libraries'); ?></span>
+					<input type="checkbox" data-setting="autoplay">
+				</label>
+				<label class="setting">
+					<span><?php _e('Pause autoplay on hover', 'libraries'); ?></span>
+					<input type="checkbox" data-setting="autoplayHoverPause">
+				</label>
+				<label class="setting">
+					<span><?php _e('Loop', 'libraries'); ?></span>
+					<input type="checkbox" data-setting="loop">
+				</label>
+				<label class="setting">
+					<span><?php _e('Autoplay timeout', 'libraries'); ?></span>
+					<input type="number" value="" data-setting="autoplayTimeout" style="float:left;" min="1000" max="10000">
+				</label>
+			</div>
+		</script>
 
-        <script>
-            jQuery(document).ready(function(){
-        
-                _.extend(wp.media.gallery.defaults, {
-                    autoplayTimeout: "5000",
-                    autoplay: false,
-                    autoplayHoverPause: false,
-                    loop: false,
-                });
+		<script>
+			jQuery(document).ready(function(){
+		
+				_.extend(wp.media.gallery.defaults, {
+					autoplayTimeout: "5000",
+					autoplay: false,
+					autoplayHoverPause: false,
+					loop: false,
+				});
 
-                wp.media.view.Settings.Gallery = wp.media.view.Settings.Gallery.extend({
-                    template: function(view){
-                        return wp.media.template('gallery-settings')(view)
-                        + wp.media.template('custom-gallery-setting')(view);
-                    },
-            
-                    update: function( key ) {
-                        var value = this.model.get( key ),
-                        $setting = this.$('[data-setting="' + key + '"]'),
-                        $buttons, $value;
+				wp.media.view.Settings.Gallery = wp.media.view.Settings.Gallery.extend({
+					template: function(view){
+						return wp.media.template('gallery-settings')(view)
+						+ wp.media.template('custom-gallery-setting')(view);
+					},
+			
+					update: function( key ) {
+						var value = this.model.get( key ),
+						$setting = this.$('[data-setting="' + key + '"]'),
+						$buttons, $value;
 
-                
-                        if ( ! $setting.length ) {
-                            return;
-                        }
+				
+						if ( ! $setting.length ) {
+							return;
+						}
 
-                        if ( $setting.is('input[type="text"], textarea') ) {
-                            if ( ! $setting.is(':focus') ) {
-                                $setting.val( value );
-                            }
-                        } else if ( $setting.is('input[type="checkbox"]') ) {
-                            $setting.prop( 'checked', !! value && 'false' !== value );
-                        } else {
-                            $setting.val( value ); // treat any other input type same as text inputs
-                        }
-                    },
-                });
-            });
-        </script><?php
+						if ( $setting.is('input[type="text"], textarea') ) {
+							if ( ! $setting.is(':focus') ) {
+								$setting.val( value );
+							}
+						} else if ( $setting.is('input[type="checkbox"]') ) {
+							$setting.prop( 'checked', !! value && 'false' !== value );
+						} else {
+							$setting.val( value ); // treat any other input type same as text inputs
+						}
+					},
+				});
+			});
+		</script><?php
     });
 }
 
