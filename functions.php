@@ -554,6 +554,27 @@ if (!empty($settings['featured-rss'])) {
     });
 }
 
+if (!empty($settings['featured-admin-image'])) {
+    
+	function _add_post_admin_thumbnail_column($col){
+	    $col['_thumb'] = __('Featured Image','libraries');
+	    return $col;
+	}
+	function _show_post_thumbnail_column($col, $id){
+	    switch ($col) {
+	        case '_thumb':
+	        if (function_exists('the_post_thumbnail')):
+	            echo the_post_thumbnail('thumbnail');
+	        endif;
+	        break;
+	    }
+	}
+	add_filter('manage_posts_columns', '_add_post_admin_thumbnail_column', 2);
+	add_filter('manage_pages_columns', '_add_post_admin_thumbnail_column', 2);
+	add_action('manage_posts_custom_column', '_show_post_thumbnail_column', 5, 2);
+	add_action('manage_pages_custom_column', '_show_post_thumbnail_column', 5, 2);
+}
+
 if (!empty($settings['functions-html5'])) {
     add_action('after_setup_theme', function () {
         add_theme_support('html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption'));

@@ -296,6 +296,19 @@
 					<?php _custom_checkbox('enable-navmenus', __('Menu in nav', 'libraries'), __('Move the menu item to the main navigation bar', 'libraries')); ?>
 				</td>
 			</tr>
+			<tr>
+				<th scope="row">
+					<?php _e('Wordpress interface', 'libraries'); ?>
+				</th>
+				<td width="42%">
+					<?php _custom_checkbox('featured-admin-image', __('Feature images', 'libraries'), __('Add feature images in post and page lists', 'libraries')); ?>
+				</td>
+				<td width="42%">
+					
+				</td>
+			</tr>
+			
+			
 		</table>
 		<table class="form-table form-table-border">
 			<tr>
