@@ -70,11 +70,8 @@
 		<table class="form-table form-table-border">
 			<tr>
 				<th scope="row"><?php _e('Libraries based on jQuery', 'libraries'); ?></th>
-				<td><?php _checkbox('jquerymask'); ?></td>
-			</tr>
-			<tr>
-				<th scope="row">&nbsp;</th>
-				<td><?php _checkbox('jquery_ui_touch_punch'); ?></td>
+				<td width="42%"><?php _checkbox('jquerymask'); ?></td>
+				<td width="42%"><?php _checkbox('jquery_ui_touch_punch'); ?></td>
 			</tr>
 		</table>
 		<table class="form-table form-table-border">
