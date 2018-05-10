@@ -1,9 +1,11 @@
 jQuery.fn.extend({
+	
 	stretch: function($debug) {
+		
 		this.each(function() {
 			var $image = jQuery(this);
 			
-			console.log($image);
+			//console.log($image);
 			
 			$image.css({
 				opacity: 0
@@ -27,7 +29,7 @@ jQuery.fn.extend({
 				maxHeight = $image.attr('height');
 				
 				if ($debug) {
-					console.log('stretchClass: ' + $image.attr('src') + ', by width&height in <img> (' + maxWidth + '/' + maxHeight + 'px)');
+					//console.log('stretchClass: ' + $image.attr('src') + ', by width&height in <img> (' + maxWidth + '/' + maxHeight + 'px)');
 				}
 				
 			} else {
@@ -39,7 +41,7 @@ jQuery.fn.extend({
 					maxHeight = i.images[0].img.naturalHeight;
 					
 					if ($debug) {
-						console.log('stretchClass: ' + $image.attr('src') + ', by natural width&height via imageLoad (' + maxWidth + '/' + maxHeight + 'px)');
+						//console.log('stretchClass: ' + $image.attr('src') + ', by natural width&height via imageLoad (' + maxWidth + '/' + maxHeight + 'px)');
 					}
 					
 				});

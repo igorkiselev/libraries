@@ -38,47 +38,66 @@
 //		e.preventDefault();
 //	});
 
+(function($) {
+	$.fn.extend({
 
-jQuery.fn.extend({
-	fullscreen: function ($options) {
-		$this = this;
-		$body = jQuery('body');
-		
+		fullscreen: function(o) {
+
+			var $this = this;
+			
+			$body = jQuery('body');
+			
+			var s = $.extend({
+				notClickable: '.background',
+				escapeKey: false,
+				showClass: 'show',
+				onInit: function(){},
+				onClose: function(){},
+				onOpen: function(){}
+				
+			}, o);
+			
+		}
+
 		$this.click(function(e) {
 			
-			$this.removeClass('show');
+			$this.removeClass(s.showClass);
 			
 			$body.css({'overflow':'auto'});
 			
 			e.preventDefault();
 			
-			$options.onClose.call();
+			s.onClose.call();
 		
 		});
 		
-		if($options.notClickable){
-			jQuery($options.notClickable).click(function(e) {
+		
+		if(s.notClickable){
+			jQuery(s.notClickable).click(function(e) {
 				e.stopPropagation();
-			});
+			});                                                                                                                                                                                                                                                                                                        
 		}
 		
-		if($options.escapeKey){
-			jQuery(document).keyup(function(e) {
+		if(s.escapeKey){
+			jQuery(document).keyup(function(e) {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 				if (e.keyCode == 27) {$this.click();}
 				e.preventDefault();
 			});
 		}
-			
-		if(!$this.hasClass('show')){
+		
+		if(!$this.hasClass(s.showClass)){
 			
 			$body.css({'overflow':'hidden'});
 			
-			$this.addClass('show');
-			
+			$this.addClass(s.showClass);
+	
 		}else{
 			$this.click();
 		}
 		
-		$options.result.call();
-	}
-});
+		s.onOpen.call();
+	});
+	
+}(jQuery));
+
+
