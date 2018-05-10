@@ -39,63 +39,73 @@
 //	});
 
 (function($) {
+	
 	$.fn.extend({
 
 		fullscreen: function(o) {
 
-			var $this = this;
+			var	$this = this,
+				$b = $('body'),
+				s = $.extend({
+					notClickable : '.contentx',
+					escapeKey : false,
+					showClass : 'show',
+					onInit : function(){},
+					onClose : function(){},
+					onOpen : function(){}
+				}, o);
 			
-			$body = jQuery('body');
-			
-			var s = $.extend({
-				notClickable: '.background',
-				escapeKey: false,
-				showClass: 'show',
-				onInit: function(){},
-				onClose: function(){},
-				onOpen: function(){}
-				
-			}, o);
-			
-		}
+		
 
-		$this.click(function(e) {
+			$this.click(function(e) {
 			
-			$this.removeClass(s.showClass);
+				$this.removeClass(s.showClass);
 			
-			$body.css({'overflow':'auto'});
+				$b.css({'overflow':'auto'});
 			
-			e.preventDefault();
-			
-			s.onClose.call();
-		
-		});
-		
-		
-		if(s.notClickable){
-			jQuery(s.notClickable).click(function(e) {
-				e.stopPropagation();
-			});                                                                                                                                                                                                                                                                                                        
-		}
-		
-		if(s.escapeKey){
-			jQuery(document).keyup(function(e) {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-				if (e.keyCode == 27) {$this.click();}
 				e.preventDefault();
+			
+				s.onClose.call();
+		
 			});
-		}
 		
-		if(!$this.hasClass(s.showClass)){
+		
+			if (s.notClickable){
 			
-			$body.css({'overflow':'hidden'});
+				$(s.notClickable).click(function(e) {
+				
+					e.stopPropagation();
+				
+				});
+			}
+		
+			if (s.escapeKey){
 			
-			$this.addClass(s.showClass);
+				$(document).keyup(function(e) {
+				
+					if (e.keyCode == 27) {
+						$this.click();
+					}
+				
+					e.preventDefault();
+				
+				});
+			}
+		
+			if (!$this.hasClass(s.showClass)){
+			
+				$b.css({'overflow':'hidden'});
+			
+				$this.addClass(s.showClass);
 	
-		}else{
-			$this.click();
-		}
+			}else{
+			
+				$this.click();
+			
+			}
 		
-		s.onOpen.call();
+			s.onOpen.call();
+		}
 	});
 	
 }(jQuery));
