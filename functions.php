@@ -6,18 +6,16 @@ if (!defined('ABSPATH')) {
 
 $settings = get_option('additional_libraries');
 
-
 if (!empty($settings['imagesloaded'])) {
     add_action('wp_enqueue_scripts', function () {
         wp_enqueue_script('imagesloaded');
     });
 }
 
-
 if (!empty($settings['google-map'])) {
     add_action('wp_enqueue_scripts', function () {
         global $settings;
-    
+
         $link = 'http://maps.googleapis.com/maps/api/js?v=3.exp&language=ru&libraries=places';
 
         if (!empty($settings['google-map-key'])) {
@@ -36,23 +34,21 @@ if (!empty($settings['google-map'])) {
     });
 }
 
-
 if (!empty($settings['google-map-key']) && class_exists('acf')) {
     add_action('acf/init', function () {
         global $settings;
-        
+
         acf_update_setting('google_api_key', $settings['google-map-key']);
     });
 
     add_filter('acf/fields/google_map/api', function ($api) {
         global $settings;
-        
+
         $api['key'] = $settings['google-map-key'];
 
         return $api;
     });
 }
-
 
 if (!empty($settings['justbenice-editor'])) {
     add_action('after_setup_theme', function () {
@@ -61,22 +57,21 @@ if (!empty($settings['justbenice-editor'])) {
     });
 }
 
-
 if (!empty($settings['google-analytics']) && !empty($settings['google-analytics-key'])) {
     add_action('wp_footer', function () {
         global $settings;
-        
-        echo "<script>".
-             "(function(b, o, i, l, e, r) {".
-                "b.GoogleAnalyticsObject = l;".
-                "b[l] || (b[l] = function() {".
-                    "(b[l].q = b[l].q || []).push(arguments)".
-                "});".
-                "b[l].l = +new Date;".
-                "e = o.createElement(i);".
-                "r = o.getElementsByTagName(i)[0];".
+
+        echo '<script>'.
+             '(function(b, o, i, l, e, r) {'.
+                'b.GoogleAnalyticsObject = l;'.
+                'b[l] || (b[l] = function() {'.
+                    '(b[l].q = b[l].q || []).push(arguments)'.
+                '});'.
+                'b[l].l = +new Date;'.
+                'e = o.createElement(i);'.
+                'r = o.getElementsByTagName(i)[0];'.
                 "e.src = '//www.google-analytics.com/analytics.js';".
-                "r.parentNode.insertBefore(e, r)".
+                'r.parentNode.insertBefore(e, r)'.
             "}(window, document, 'script', 'ga'));".
             "ga('create', '".$settings['google-analytics-key']."');".
             "ga('send', 'pageview');".
@@ -84,58 +79,58 @@ if (!empty($settings['google-analytics']) && !empty($settings['google-analytics-
     });
 }
 
-
 if (!empty($settings['yandex-metrics']) && !empty($settings['yandex-metrics-key'])) {
     add_action('wp_footer', function () {
         global $settings;
-        
-        echo    "<!-- Yandex.Metrika counter -->".
+
+        echo    '<!-- Yandex.Metrika counter -->'.
                     "<script type='text/javascript'>".
-                    "(function(d, w, c) {".
-                        "(w[c] = w[c] || []).push(function() {".
-                            "try {".
-                                "w.yaCounter".$settings['yandex-metrics-key']." = new Ya.Metrika({".
-                                    "id: ".$settings['yandex-metrics-key'].",".
-                                    "clickmap: true,".
-                                    "trackLinks: true,".
-                                    "accurateTrackBounce: true,".
-                                    "webvisor: true,".
-                                    "trackHash: true".
-                                "});".
-                            "} catch (e) {}".
-                        "});".
+                    '(function(d, w, c) {'.
+                        '(w[c] = w[c] || []).push(function() {'.
+                            'try {'.
+                                'w.yaCounter'.$settings['yandex-metrics-key'].' = new Ya.Metrika({'.
+                                    'id: '.$settings['yandex-metrics-key'].','.
+                                    'clickmap: true,'.
+                                    'trackLinks: true,'.
+                                    'accurateTrackBounce: true,'.
+                                    'webvisor: true,'.
+                                    'trackHash: true'.
+                                '});'.
+                            '} catch (e) {}'.
+                        '});'.
                         "var n = d.getElementsByTagName('script')[0],".
                             "s = d.createElement('script'),".
-                            "f = function() {".
-                                "n.parentNode.insertBefore(s, n);".
-                            "};".
+                            'f = function() {'.
+                                'n.parentNode.insertBefore(s, n);'.
+                            '};'.
                         "s.type = 'text/javascript';".
-                        "s.async = true;".
+                        's.async = true;'.
                         "s.src = 'https://mc.yandex.ru/metrika/watch.js';".
                         "if (w.opera == '[object Opera]') {".
                             "d.addEventListener('DOMContentLoaded', f, false);".
-                        "} else {".
-                            "f();".
-                        "}".
+                        '} else {'.
+                            'f();'.
+                        '}'.
                     "})(document, window, 'yandex_metrika_callbacks');".
-                    "</script>".
-                    "<noscript>".
-                    "<div>".
+                    '</script>'.
+                    '<noscript>'.
+                    '<div>'.
                     "<img src='https://mc.yandex.ru/watch/45776769' style='position:absolute; left:-9999px;' alt='' />".
-                    "</div>".
-                    "</noscript>".
-                "<!-- /Yandex.Metrika counter -->";
+                    '</div>'.
+                    '</noscript>'.
+                '<!-- /Yandex.Metrika counter -->';
     });
 }
 
 if (!empty($settings['filenames']) && !empty($settings['filenames-slug'])) {
     add_filter('sanitize_file_name', function ($filename) {
         global $settings;
-         
+
         $slug = $settings['filenames-slug'];
         $info = pathinfo($filename);
         $ext = empty($info['extension']) ? '' : '.'.$info['extension'];
         $name = basename($filename, $ext);
+
         return $slug.'-'.$name.$ext;
     }, 10);
 }
@@ -150,6 +145,7 @@ if (!empty($settings['lazy-srcset'])) {
             $atts['data-srcset'] = $atts['srcset'];
         }
         unset($atts['srcset']);
+
         return $atts;
     }, 10, 2);
 }
@@ -432,22 +428,22 @@ if (!empty($settings['owlcarousel-gallery'])) {
 
 if (!empty($settings['disable-emoji'])) {
     remove_action('wp_head', 'print_emoji_detection_script', 7);
-    
+
     remove_action('admin_print_scripts', 'print_emoji_detection_script');
-    
+
     remove_action('wp_print_styles', 'print_emoji_styles');
-    
+
     remove_action('admin_print_styles', 'print_emoji_styles');
-    
+
     remove_filter('the_content_feed', 'wp_staticize_emoji');
-    
+
     remove_filter('comment_text_rss', 'wp_staticize_emoji');
-    
+
     remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
-    
+
     add_action('widgets_init', function () {
         global $wp_widget_factory;
-        
+
         remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
     });
 }
@@ -462,23 +458,23 @@ if (!empty($settings['disable-generator'])) {
 
 if (!empty($settings['disable-rsslinks'])) {
     remove_action('wp_head', 'feed_links_extra', 3);
-    
+
     remove_action('wp_head', 'feed_links', 2);
-    
+
     remove_action('wp_head', 'rsd_link');
-    
+
     remove_action('wp_head', 'wlwmanifest_link');
 }
 
 if (!empty($settings['disable-rellinks'])) {
     remove_action('wp_head', 'index_rel_link');
-    
+
     remove_action('wp_head', 'parent_post_rel_link', 10, 0);
-    
+
     remove_action('wp_head', 'start_post_rel_link', 10, 0);
-    
+
     remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0);
-    
+
     remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
 }
 
@@ -495,14 +491,12 @@ if (!empty($settings['disable-attachment-pages'])) {
             }
         }
     });
-    
 }
-
 
 if (!empty($settings['enable-navmenus'])) {
     add_action('admin_menu', function () {
         remove_submenu_page('themes.php', 'nav-menus.php');
-        
+
         add_menu_page(__('Menus'), __('Menus'), 'manage_options', 'nav-menus.php', '', 'dashicons-list-view', 20);
     });
 }
@@ -525,10 +519,10 @@ if (!empty($settings['header-wp_title'])) {
 
 if (!empty($settings['header-wp_title-separator'])) {
     add_filter('document_title_separator', function ($sep) {
-		global $settings;
+        global $settings;
         if (!empty($settings['header-wp_title-separator-character'])) {
-		return " ".$settings['header-wp_title-separator-character']." ";
-		}
+            return ' '.$settings['header-wp_title-separator-character'].' ';
+        }
     });
 }
 
@@ -542,7 +536,7 @@ if (!empty($settings['featured-rss'])) {
 
         return $content;
     });
-    
+
     add_filter('the_content_feed', function ($content) {
         global $post;
 
@@ -555,24 +549,26 @@ if (!empty($settings['featured-rss'])) {
 }
 
 if (!empty($settings['featured-admin-image'])) {
-    
-	function _add_post_admin_thumbnail_column($col){
-	    $col['_thumb'] = __('Featured Image','libraries');
-	    return $col;
-	}
-	function _show_post_thumbnail_column($col, $id){
-	    switch ($col) {
-	        case '_thumb':
-	        if (function_exists('the_post_thumbnail')):
-	            echo the_post_thumbnail('thumbnail');
-	        endif;
-	        break;
-	    }
-	}
-	add_filter('manage_posts_columns', '_add_post_admin_thumbnail_column', 2);
-	add_filter('manage_pages_columns', '_add_post_admin_thumbnail_column', 2);
-	add_action('manage_posts_custom_column', '_show_post_thumbnail_column', 5, 2);
-	add_action('manage_pages_custom_column', '_show_post_thumbnail_column', 5, 2);
+    function _add_post_admin_thumbnail_column($col)
+    {
+        $col['_thumb'] = __('Featured Image', 'libraries');
+
+        return $col;
+    }
+    function _show_post_thumbnail_column($col, $id)
+    {
+        switch ($col) {
+            case '_thumb':
+            if (function_exists('the_post_thumbnail')):
+                echo the_post_thumbnail('thumbnail');
+            endif;
+            break;
+        }
+    }
+    add_filter('manage_posts_columns', '_add_post_admin_thumbnail_column', 2);
+    add_filter('manage_pages_columns', '_add_post_admin_thumbnail_column', 2);
+    add_action('manage_posts_custom_column', '_show_post_thumbnail_column', 5, 2);
+    add_action('manage_pages_custom_column', '_show_post_thumbnail_column', 5, 2);
 }
 
 if (!empty($settings['functions-html5'])) {
@@ -591,9 +587,9 @@ if (!empty($settings['functions-ischild'])) {
     function is_child($slug)
     {
         global $post;
-        
+
         $child = get_page_by_path($slug);
-        
+
         if ($child) {
             if (is_page() && ($post->post_parent == $child->ID || is_page($child->ID))) {
                 return true;
@@ -635,7 +631,7 @@ if (!empty($settings['functions-escapekey'])) {
         } else {
             $link = get_edit_post_link($post->ID, '');
         }
-        
+
         if (!is_user_logged_in()) {
             $link = wp_login_url($link);
         }
@@ -652,48 +648,56 @@ if (!empty($settings['editor-css-normalize'])) {
 }
 
 if (!empty($settings['settings-privateprefix'])) {
-    add_filter('private_title_format', function($content){
+    add_filter('private_title_format', function ($content) {
         return '%s';
     });
 }
 
 if (!empty($settings['opengraph'])) {
+    add_action('after_setup_theme', function () {
+        add_image_size('facebook', 1200, 630, true);
+    });
 
-    add_action( 'after_setup_theme', function(){
-        add_image_size( 'facebook', 1200, 630, true );
+    add_filter('language_attributes', function ($og) {
+        return $og.' '.'xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
     });
-    
-    add_filter('language_attributes', function($og){
-        return $og . ' '.'xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
-    });
- 
-    add_action('wp_head', function(){
+
+    add_action('wp_head', function () {
         if (is_single()) {
-			
             global $post;
-            
-		   
-            echo '<meta property="og:title" content="'.esc_attr(get_bloginfo('name')).", ". get_the_title().'" />'."\n",
+
+            echo '<meta property="og:title" content="'.esc_attr(get_bloginfo('name')).', '.get_the_title().'" />'."\n",
                 '<meta property="og:type" content="article" />'."\n",
                 '<meta property="og:image" content="'.get_the_post_thumbnail_url($post->ID, 'facebook').'" />'."\n",
                 '<meta property="og:url" content="'.get_permalink().'" />'."\n",
                 '<meta property="og:description" content="'.get_the_excerpt().'" />'."\n",
                 '<meta property="og:site_name" content="'.get_bloginfo('name').'" />'."\n";
-       
-		}
+        }
     });
-   
 }
 
+if (!empty($settings['custom-filetypes'])) {
+    add_filter('upload_mimes', function ($mime_types) {
+        $mime_types['svg'] = 'image/svg+xml';
 
+        return $mime_types;
+    }, 1, 1);
+}
 
+if (!empty($settings['media_filter  '])) {
+    add_filter('upload_mimes', function ($mime_types) {
+        $mime_types['svg'] = 'image/svg+xml';
+
+        return $mime_types;
+    }, 1, 1);
+}
 
 function _builtinsize($slug)
 {
     $wp_scripts = wp_scripts();
     foreach ($wp_scripts->registered as $key => $value) {
         if (strstr($value->handle, $slug)) {
-            if ($value->handle != "jquery") {
+            if ($value->handle != 'jquery') {
                 return round(filesize('../'.$value->src) / 1024, 2).__('KB', 'libraries');
             }
         }
@@ -702,25 +706,27 @@ function _builtinsize($slug)
 function _size($path)
 {
     if (file_exists(plugin_dir_path(__FILE__).$path)) {
-        return round(filesize(plugin_dir_path(__FILE__).$path) / 1024, 2)." ".__('KB', 'libraries');
+        return round(filesize(plugin_dir_path(__FILE__).$path) / 1024, 2).' '.__('KB', 'libraries');
     }
 }
 function _checkbox($name, $depend = '')
 {
     global $lib;
-    
+
     $settings = get_option('additional_libraries');
-    
+
     if (!empty($name)) {
-        ?><label><input name="additional_libraries[<?php echo $name; ?>]" type="checkbox" value="1"<?php
+        ?><label><input name="additional_libraries[<?php echo $name;
+        ?>]" type="checkbox" value="1"<?php
         if ($depend) {
             disabled(1, empty($settings[$depend]), true);
         }
-        
-        (!empty($settings[$name]) ? checked('1', $settings[$name]) : false); ?> /><strong><?php echo $lib[$name]['title']; ?></strong><?php
 
-        
-        
+        (!empty($settings[$name]) ? checked('1', $settings[$name]) : false);
+        ?> /><strong><?php echo $lib[$name]['title'];
+        ?></strong><?php
+
+
         ?><small> (<?php
         if (!empty($lib[$name]['src'])) {
             ?>+<?php echo _size($lib[$name]['src']);
@@ -729,55 +735,76 @@ function _checkbox($name, $depend = '')
         }
         if (!empty($lib[$name]['ver'])) {
             ?>, v <?php echo $lib[$name]['ver'];
-        } ?>)</small></label><?php
+        }
+        ?>)</small></label><?php
 
         if (!empty($lib[$name]['description'])) {
             ?><p class="description"><?php echo $lib[$name]['description'];
             if (!empty($lib[$name]['link'])) {
-                ?><a href="<?php echo $lib[$name]['link']; ?>" class="dashicons dashicons-editor-help" target="_blank"></a><?php
-            } ?></p><?php
+                ?><a href="<?php echo $lib[$name]['link'];
+                ?>" class="dashicons dashicons-editor-help" target="_blank"></a><?php
+
+            }
+            ?></p><?php
+
         }
     }
 }
-function _custom_checkbox($key, $title = '', $description = '', $link = '')
-{
-    $settings = get_option('additional_libraries'); ?><label><input name="additional_libraries[<?php echo $key; ?>]" type="checkbox" value="1" <?php (isset($settings[$key]) ? checked('1', $settings[$key]) : false); ?> /> <strong><?php echo $title; ?></strong></label><?php
+function _custom_checkbox($key, $title = '', $description = '', $link = ''){
+    $settings = get_option('additional_libraries');
+    ?><label><input name="additional_libraries[<?php echo $key;
+    ?>]" type="checkbox" value="1" <?php (isset($settings[$key]) ? checked('1', $settings[$key]) : false);
+    ?> /> <strong><?php echo $title;
+    ?></strong></label><?php
 
-    if ($description) {
-        ?><p class="description"><?php echo $description; ?><?php if ($link) {
-            ?> <a href="<?php echo $link; ?>" class="dashicons dashicons-editor-help" target="_blank"></a><?php
-        } ?></p><?php
-    }
+    if ($description) :
+    	?><p class="description"><?php echo $description; ?><?php
+		if ($link):
+    		?> <a href="<?php echo $link;
+    		?>" class="dashicons dashicons-editor-help" target="_blank"></a><?php
+		endif; ?></p><?php
+	endif;
 }
-function _custom_input($key, $depend = '', $placeholder='', $description = '', $link = '')
+function _custom_input($key, $depend = '', $placeholder = '', $description = '', $link = '')
 {
-    $settings = get_option('additional_libraries'); ?><input type="text" class="regular-text code" name="additional_libraries[<?php echo $key; ?>]"<?php
+    $settings = get_option('additional_libraries');
+    ?><input type="text" class="regular-text code" name="additional_libraries[<?php echo $key;
+    ?>]"<?php
 
     if ($depend) {
         disabled(1, empty($settings[$depend]), true);
     }
-    
+
     if (!empty($settings[$key])) {
-        ?> value="<?php echo $settings[$key]; ?>"<?php
+        ?> value="<?php echo $settings[$key];
+        ?>"<?php
+
     }
-    
+
     if ($placeholder) {
-        ?> placeholder="<?php echo $placeholder; ?>"<?php
-    } ?> /><?php
+        ?> placeholder="<?php echo $placeholder;
+        ?>"<?php
+
+    }
+    ?> /><?php
 
     if ($link) {
-        ?><span class="description"><?php echo $link; ?></span><?php
+        ?><span class="description"><?php echo $link;
+        ?></span><?php
+
     }
-    
+
     if ($description) {
-        ?><p class="description"><?php echo $description; ?></p><?php
+        ?><p class="description"><?php echo $description;
+        ?></p><?php
+
     }
 }
 function _disabled($depend)
 {
     $settings = get_option('additional_libraries');
     if (empty($settings[$depend])) {
-        echo " class=\"disabled\"";
+        echo ' class="disabled"';
     }
 }
 

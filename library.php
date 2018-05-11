@@ -135,6 +135,16 @@ $lib = array(
         'ver' => '0.0.2a',
         'depend' => array('jquery','imagesloaded'),
     ),
+    'event_move' => array(
+        'type' => 'script',
+        'title' => __('DOM.event.move','libraries'),
+        'description' => __('Triggers movestart, move and moveend events aftermousemoves following a mousedown cross a distance threshold,
+ similar to the native dragstart, drag and dragend events.', 'libraries'),
+        'link' => '',
+        'src' => 'javascripts/jquery/jquery.event.move.js',
+        'ver' => '2.0.0',
+        'depend' => array('jquery'),
+    ),
     'fullscreenclass' => array(
         'type' => 'script',
         'title' => __('fullScreenClass.js ','libraries'),
