@@ -684,12 +684,68 @@ if (!empty($settings['custom-filetypes'])) {
     }, 1, 1);
 }
 
-if (!empty($settings['media_filter  '])) {
-    add_filter('upload_mimes', function ($mime_types) {
-        $mime_types['svg'] = 'image/svg+xml';
+if (!empty($settings['media_oembed_filter'])) {
+    function remove_controls($code)
+    {
+        if (strpos($code, 'youtu.be') !== false || strpos($code, 'youtube.com') !== false):
 
-        return $mime_types;
-    }, 1, 1);
+            $args = [
+                'controls' => 0,
+                'hd' => 1,
+                'autohide' => 1,
+                'rel' => 0,
+                'showinfo' => 0,
+                'modestbranding' => 1,
+            ];
+
+        $params = '&version=3';
+
+        foreach ($args as $arg => $value) {
+            $params .= '&'.$arg.'='.$value;
+        }
+
+        $return = preg_replace("/([\w]+\:\/\/[\w-?&;#~=\.\/\@]+[\w\/])/", '$1'.$params, $code);
+
+        return $return; elseif (strpos($code, 'vimeo.com') !== false):
+
+            $args = [
+                'title' => 0,
+                'byline' => 0,
+                'portrait' => 0,
+            ];
+
+        $params = '?';
+
+        foreach ($args as $arg => $value) {
+            $params .= $arg.'='.$value.'&';
+        }
+
+        $return = preg_replace("/([\w]+\:\/\/[\w-?&;#~=\.\/\@]+[\w\/])/", '$1'.$params, $code);
+
+        return $return; elseif (strpos($code, 'mixcloud.com') !== false):
+
+                $args = [
+                    'hide_cover' => 1,
+                    'mini' => 1,
+                    'hide_artwork' => 1,
+                ];
+
+        $params = '?';
+
+        foreach ($args as $arg => $value) {
+            $params .= $arg.'='.$value.'&';
+        }
+
+        $return = preg_replace("/([\w]+\:\/\/[\w-?&;#~=\.\/\@]+[\w\/])/", '$1'.$params, $code);
+
+        return $return;
+        endif;
+
+        return $code;
+    }
+
+    add_filter('embed_handler_html', 'remove_controls');
+    add_filter('embed_oembed_html', 'remove_controls');
 }
 
 function _builtinsize($slug)

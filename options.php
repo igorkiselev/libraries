@@ -300,13 +300,13 @@
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e('Wordpress interface', 'libraries'); ?>
+					
 				</th>
 				<td width="42%">
 					<?php _custom_checkbox('featured-admin-image', __('Feature images', 'libraries'), __('Add feature images in post and page lists', 'libraries')); ?>
 				</td>
 				<td width="42%">
-					
+					<?php _custom_checkbox('custom-filetypes', __('Custom filetypes', 'libraries'), __('Add support for custom filetypes (SVG)', 'libraries')); ?>
 				</td>
 			</tr>
 			
@@ -344,7 +344,7 @@
 					<?php _custom_checkbox('header-wp_title-separator', __('Change title separator', 'libraries'), __('Change the title separator', 'libraries')); ?><p><?php _custom_input('header-wp_title-separator-character', 'header-wp_title-separator', '', '', ''); ?></p>
 				</td>
 				<td width="42%">
-					
+					<?php _custom_checkbox('media_oembed_filter', __('oEmbed contols', 'libraries'), __('Remove controls from youtube, mixcloud and vimeo interface', 'libraries')); ?>
 				</td>
 			</tr>
 			
