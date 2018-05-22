@@ -221,6 +221,15 @@
 				</td>
 			</tr>
 			<tr>
+				<th scope="row">&nbsp;</th>
+				<td width="42%">
+					<?php _checkbox('google_geocomplete'); ?>
+				</td>
+				<td width="42%">
+					
+				</td>
+			</tr>
+			<tr>
 				<td colspan="3" style="padding:0px"><hr /></td>
 			</tr>
 			<tr>

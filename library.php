@@ -190,7 +190,16 @@ $lib = array(
         'ver' => '0.8.0',
         'depend' => array('jquery','google-map'),
     ),
-    'fullpage' => array(
+	'google_geocomplete' => array(
+        'type' => 'script',
+        'title' => __('$.geocomplete()','libraries'),
+        'description' => __('jQuery Geocoding and Places Autocomplete Plugin.', 'libraries'),
+        'link' => 'https://github.com/ubilabs/geocomplete/',
+        'src' => 'javascripts/jquery/jquery.geocomplete.min.js',
+        'ver' => '1.7.0',
+        'depend' => array('jquery','google-map'),
+    ),
+	'fullpage' => array(
         'type' => 'script',
         'title' => __('Fullpage.js','libraries'),
         'description' => __('Allows you to scroll page.', 'libraries'),
