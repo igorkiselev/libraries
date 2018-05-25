@@ -24,7 +24,7 @@ add_action('admin_init', function () {
     register_setting('libraries', 'additional_libraries');
     
     
-    function change_option($a, $b)
+    function change_option_libraries($a, $b)
     {
         $var = get_option($a);
         
@@ -33,9 +33,9 @@ add_action('admin_init', function () {
         }
     }
     
-    change_option('image_default_link_type', 'none');
+    change_option_libraries('image_default_link_type', 'none');
     
-    change_option('image_default_size', 'full');
+    change_option_libraries('image_default_size', 'full');
 });
 
 
