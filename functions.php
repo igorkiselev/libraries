@@ -292,7 +292,7 @@ if (!empty($settings['owlcarousel-gallery'])) {
 
         $size_class = sanitize_html_class($atts['size']);
 
-        $gallery_div = "<div id='$selector' data-items='{$columns}' data-autoplay='{$autoplay}' data-autoplaytimeout='{$autoplaytimeout}' data-autoplayhoverpause='{$autoplayhoverpause}' data-loop='{$loop}' class='content_gallery carousel carouselid-{$id} carousel-columns-{$columns} carousel-size-{$size_class}'>";
+        $gallery_div = "<div id='$selector' data-items='{$columns}' data-autoplay='{$autoplay}' data-autoplaytimeout='{$autoplaytimeout}' data-autoplayhoverpause='{$autoplayhoverpause}' data-loop='{$loop}' class='content_gallery__carousel carousel carouselid-{$id} carousel-columns-{$columns} carousel-size-{$size_class}'>";
 
         $output = apply_filters('gallery_style', $gallery_div);
 
