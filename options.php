@@ -71,7 +71,7 @@
 			<tr>
 				<th scope="row"><?php _e('Libraries based on jQuery', 'libraries'); ?></th>
 				<td width="42%"><?php _checkbox('jquerymask'); ?></td>
-				<td width="42%"></td>
+				<td width="42%"><?php _checkbox('paralax'); ?></td>
 			</tr>
 			<tr>
 				<th scope="row"></th>

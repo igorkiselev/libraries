@@ -216,6 +216,15 @@ $lib = array(
         'ver' => '5.2.0',
         'depend' => array('jquery'),
     ),
+	'paralax' => array(
+        'type' => 'script',
+        'title' => __('jQuery.paralax.js','libraries'),
+        'description' => __('Paralax effects for different items.', 'libraries'),
+        'link' => 'http://pixelcog.github.io/parallax.js/',
+        'src' => 'javascripts/jquery/jquery.parallax.min.js',
+        'ver' => '2.0.0',
+        'depend' => array('jquery'),
+    ),
     'jquery_ui_touch_punch' => array(
         'type' => 'script',
         'title' => __('jQuery UI Touch Punch','libraries'),
