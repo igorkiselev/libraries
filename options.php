@@ -66,17 +66,36 @@
 					<?php _custom_checkbox('imagesloaded', 'ImagesLoaded.js ', __('Allows you to check the loading of the image in the specified places. Now included in the list of basic wordpress scripts.', 'libraries'), 'http://imagesloaded.desandro.com'); ?>
 				</td>
 			</tr>
+			<tr>
+				<th scope="row">
+					&nbsp;
+				</th>
+				<td width="42%">
+					<?php _checkbox('paralax'); ?>
+				</td>
+				<td width="42%">
+					
+				</td>
+			</tr>
+			
+			
+			
 		</table>
 		<table class="form-table form-table-border">
 			<tr>
 				<th scope="row"><?php _e('Libraries based on jQuery', 'libraries'); ?></th>
 				<td width="42%"><?php _checkbox('jquerymask'); ?></td>
-				<td width="42%"><?php _checkbox('paralax'); ?></td>
+				<td width="42%"></td>
 			</tr>
 			<tr>
 				<th scope="row"></th>
 				<td width="42%"><?php _checkbox('event_move'); ?></td>
 				<td width="42%"><?php _checkbox('jquery_ui_touch_punch'); ?></td>
+			</tr>
+			<tr>
+				<th scope="row"></th>
+				<td width="42%"><?php _checkbox('parroler'); ?></td>
+				<td width="42%"></td>
 			</tr>
 		</table>
 		<table class="form-table form-table-border">
