@@ -47,7 +47,7 @@
 			var	$this = this,
 				$b = $('body'),
 				s = $.extend({
-					notClickable : '.contentx',
+					notClickable : '.content',
 					escapeKey : false,
 					showClass : 'show',
 					onInit : function(){},

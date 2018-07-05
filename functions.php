@@ -688,7 +688,6 @@ if (!empty($settings['media_oembed_filter'])) {
     function remove_controls($code)
     {
         if (strpos($code, 'youtu.be') !== false || strpos($code, 'youtube.com') !== false):
-
             $args = [
                 'controls' => 0,
                 'hd' => 1,
@@ -696,6 +695,7 @@ if (!empty($settings['media_oembed_filter'])) {
                 'rel' => 0,
                 'showinfo' => 0,
                 'modestbranding' => 1,
+				'enablejsapi' => 1,
             ];
 
         $params = '&version=3';
@@ -712,6 +712,7 @@ if (!empty($settings['media_oembed_filter'])) {
                 'title' => 0,
                 'byline' => 0,
                 'portrait' => 0,
+				'api' => 1,
             ];
 
         $params = '?';
