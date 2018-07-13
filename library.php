@@ -5,20 +5,13 @@ if (!defined('ABSPATH')) {
 }
 
 $lib = array(
-    'normalize' => array(
-        'type' => 'style',
-        'title' => __('Normalize.css','libraries'),
-        'src' => 'stylesheets/normalize.css',
-        'ver' => '4.1.1c',
-        'depend' => array(),
-    ),
     'justbenice' => array(
         'type' => 'style',
         'title' => __('Justbenice.css','libraries'),
         'description' => __('CSS grid from bootstrap 4 + styles needed for owlCarousel.', 'libraries'),
         'src' => 'stylesheets/justbenice.css',
-        'ver' => '1.0.1',
-        'depend' => array('normalize'),
+        'ver' => '2.0',
+        'depend' => array(),
     ),
     'modernizr' => array(
         'type' => 'script',
@@ -127,14 +120,7 @@ $lib = array(
         'ver' => '2.0.0',
         'depend' => array('jquery','isotope'),
     ),
-    'stretchclass' => array(
-        'type' => 'script',
-        'title' => __('stretchClass.js','libraries'),
-        'description' => __('Alpha version of the library, which sets the width of the images to 100%, and the height of the auto. <br/> It takes into account the maximum width of the image from the width attribute, and if it is not set loads naturalWidth with ImagesLoaded.js', 'libraries'),
-        'src' => 'javascripts/jquery/jquery.stretchclass.js',
-        'ver' => '0.0.2a',
-        'depend' => array('jquery','imagesloaded'),
-    ),
+    
     'event_move' => array(
         'type' => 'script',
         'title' => __('DOM.event.move','libraries'),
@@ -159,7 +145,7 @@ $lib = array(
         'description' => __('Slider for images.', 'libraries'),
         'link' => 'https://owlcarousel2.github.io/OwlCarousel2/',
         'src' => 'javascripts/jquery/owl.carousel.min.js',
-        'ver' => 'v2.0.0-beta.2.4',
+        'ver' => 'v2.3.4',
         'depend' => array('jquery'),
     ),
     'animate' => array(
@@ -214,24 +200,6 @@ $lib = array(
         'description' => __('Scrolls everything that overflows in fullPage', 'libraries'),
         'src' => 'javascripts/jquery/scrolloverflow.min.js',
         'ver' => '5.2.0',
-        'depend' => array('jquery'),
-    ),
-	'paralax' => array(
-        'type' => 'script',
-        'title' => __('paralax.js','libraries'),
-        'description' => __('Parallax Engine that reacts to the orientation of a smart device.', 'libraries'),
-        'link' => 'http://wagerfield.github.io/parallax/',
-        'src' => 'javascripts/parallax.min.js',
-        'ver' => '3.1.0',
-        'depend' => array(''),
-    ),
-    'parroler' => array(
-        'type' => 'script',
-        'title' => __('Paroller.min.js','libraries'),
-        'description' => __('Paroller.js is a lightweight jQuery plugin that enables parallax scrolling effect on selected elements.', 'libraries'),
-        'link' => 'https://tgomilar.github.io/paroller.js/',
-		'src' => 'javascripts/jquery/jquery.paroller.min.js',
-        'ver' => '1.2.9',
         'depend' => array('jquery'),
     ),
     'jquery_ui_touch_punch' => array(

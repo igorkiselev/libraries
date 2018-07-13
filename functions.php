@@ -640,12 +640,6 @@ if (!empty($settings['functions-escapekey'])) {
     });
 }
 
-if (!empty($settings['editor-css-normalize'])) {
-    add_action('after_setup_theme', function () {
-        global $lib;
-        add_editor_style(plugin_dir_url(__FILE__).$lib['normalize']['src']);
-    });
-}
 
 if (!empty($settings['settings-privateprefix'])) {
     add_filter('private_title_format', function ($content) {
@@ -749,120 +743,118 @@ if (!empty($settings['media_oembed_filter'])) {
     add_filter('embed_oembed_html', 'remove_controls');
 }
 
-function _builtinsize($slug)
-{
-    $wp_scripts = wp_scripts();
-    foreach ($wp_scripts->registered as $key => $value) {
-        if (strstr($value->handle, $slug)) {
-            if ($value->handle != 'jquery') {
-                return round(filesize('../'.$value->src) / 1024, 2).__('KB', 'libraries');
-            }
-        }
-    }
-}
-function _size($path)
-{
-    if (file_exists(plugin_dir_path(__FILE__).$path)) {
-        return round(filesize(plugin_dir_path(__FILE__).$path) / 1024, 2).' '.__('KB', 'libraries');
-    }
-}
-function _checkbox($name, $depend = '')
-{
-    global $lib;
+class IgorKiselev {
 
-    $settings = get_option('additional_libraries');
+	private function check_file_size($path = null, $namespace = null, $buildin = true){
+		
+		$result = "";
+		
+		if ($buildin):
+			
+			$wp_scripts = wp_scripts();
+			
+			foreach ($wp_scripts->registered as $key => $value):
+				
+				if (strstr($value->handle, $namespace)):
+					
+					if ($value->handle != 'jquery'):
+						
+						$result = round( filesize('../'.$value->src) / 1024, 2);
+					
+					endif;
+					
+				endif;
+				
+			endforeach;
+			
+		else:
+			
+			if (!empty($path) && file_exists(plugin_dir_path(__FILE__).$path) ):
+				
+				$result = round( filesize(plugin_dir_path(__FILE__).$path) / 1024, 2);
+			
+			endif;
+			
+		endif;
+		
+		return $result . __('KB', 'libraries');
+		
+	}
+	
+	public function checkbox($name = null, $depend = ''){
+		
+		global $lib;
 
-    if (!empty($name)) {
-        ?><label><input name="additional_libraries[<?php echo $name;
-        ?>]" type="checkbox" value="1"<?php
-        if ($depend) {
-            disabled(1, empty($settings[$depend]), true);
-        }
+		$settings = get_option('additional_libraries');
 
-        (!empty($settings[$name]) ? checked('1', $settings[$name]) : false);
-        ?> /><strong><?php echo $lib[$name]['title'];
-        ?></strong><?php
+		if (!empty($name)):
+			
+			$return = "";
+			
+			$return .= "<label>";
+			
+			$return .= " <input name=\"additional_libraries[$name]\" type=\"checkbox\" value=\"1\" ".( ($depend) ? disabled(1, empty($settings[$depend]), false) : false )." ".( (!empty($settings[$name]) ) ? checked('1', $settings[$name], false) : false)." />";
+			
+			$return .= " <strong>".$lib[$name]['title']."</strong>";
+			
+			$return .= " <small>(".( !empty($lib[$name]['src']) ? '+'.$this->check_file_size($lib[$name]['src'], '' ,false) : $this->check_file_size('', $name ,true))." ".( !empty($lib[$name]['ver']) ? ", v".$lib[$name]['ver'] : false).")</small>";
+			
+			$return .= "</label>";
+			
+			$return .= (!empty($lib[$name]['description'])) ? "<p class=\"description\">".$lib[$name]['description'].(!empty($lib[$name]['link']) ? "<a href=\"".$lib[$name]['link']."\" class=\"dashicons dashicons-editor-help\" target=\"_blank\"></a>" : false)."</p>" : false;
+			
+			echo $return;
+			
+		endif;
+		
+	}
+	public function customcheckbox($key, $title = '', $description = '', $link = ''){
+		
+		$settings = get_option('additional_libraries');
+		
+		if (!empty($key)):
+			
+			$return = "";
+			
+			$return .= "<label>";
+			
+			$return .= " <input name=\"additional_libraries[$key]\" type=\"checkbox\" value=\"1\" ".( (!empty($settings[$key]) ) ? checked('1', $settings[$key], false) : false)." />";
+			
+			$return .= " <strong>".$title."</strong>";
+			
+			$return .= "</label>";
+			
+			$link = ($link) ? "<a href=\"".$link."\" class=\"dashicons dashicons-editor-help\" target=\"_blank\"></a>" : false;
+			
+			$return .= ($description) ? "<p class=\"description\">".$description . $link ."</p>" : false;
+			
+			echo $return;
+			
+			
+		endif;
+	}
+	
+	public function custominput($key, $depend = '', $placeholder = '', $description = '', $link = ''){
+		
+	    $settings = get_option('additional_libraries');
+		
+		$return = "";
+		
+		$return .= "<input type=\"text\" class=\"regular-text code\" name=\"additional_libraries[$key]\" ".( ($depend) ? disabled(1, empty($settings[$depend]),false) : false )." ".( (!empty($settings[$key])) ? "value=\"$settings[$key]\"" : false )." ".( ($placeholder) ? "placeholder=\"$placeholder\"" : false )."/>";
+		
+		$return .= ($link) ? " <span class=\"description\">".$link ."</span>" : false;
+		
+		$return .= ($description) ? "<p class=\"description\">".$description ."</p>" : false;
+		
+		echo $return;
 
+	}
+	public function disabled($depend){
+		
+	    $settings = get_option('additional_libraries');
+	    echo (empty($settings[$depend])) ? ' class="disabled"' : false;
 
-        ?><small> (<?php
-        if (!empty($lib[$name]['src'])) {
-            ?>+<?php echo _size($lib[$name]['src']);
-        } else {
-            echo _builtinsize($name);
-        }
-        if (!empty($lib[$name]['ver'])) {
-            ?>, v <?php echo $lib[$name]['ver'];
-        }
-        ?>)</small></label><?php
-
-        if (!empty($lib[$name]['description'])) {
-            ?><p class="description"><?php echo $lib[$name]['description'];
-            if (!empty($lib[$name]['link'])) {
-                ?><a href="<?php echo $lib[$name]['link'];
-                ?>" class="dashicons dashicons-editor-help" target="_blank"></a><?php
-
-            }
-            ?></p><?php
-
-        }
-    }
-}
-function _custom_checkbox($key, $title = '', $description = '', $link = ''){
-    $settings = get_option('additional_libraries');
-    ?><label><input name="additional_libraries[<?php echo $key;
-    ?>]" type="checkbox" value="1" <?php (isset($settings[$key]) ? checked('1', $settings[$key]) : false);
-    ?> /> <strong><?php echo $title;
-    ?></strong></label><?php
-
-    if ($description) :
-    	?><p class="description"><?php echo $description; ?><?php
-		if ($link):
-    		?> <a href="<?php echo $link;
-    		?>" class="dashicons dashicons-editor-help" target="_blank"></a><?php
-		endif; ?></p><?php
-	endif;
-}
-function _custom_input($key, $depend = '', $placeholder = '', $description = '', $link = '')
-{
-    $settings = get_option('additional_libraries');
-    ?><input type="text" class="regular-text code" name="additional_libraries[<?php echo $key;
-    ?>]"<?php
-
-    if ($depend) {
-        disabled(1, empty($settings[$depend]), true);
-    }
-
-    if (!empty($settings[$key])) {
-        ?> value="<?php echo $settings[$key];
-        ?>"<?php
-
-    }
-
-    if ($placeholder) {
-        ?> placeholder="<?php echo $placeholder;
-        ?>"<?php
-
-    }
-    ?> /><?php
-
-    if ($link) {
-        ?><span class="description"><?php echo $link;
-        ?></span><?php
-
-    }
-
-    if ($description) {
-        ?><p class="description"><?php echo $description;
-        ?></p><?php
-
-    }
-}
-function _disabled($depend)
-{
-    $settings = get_option('additional_libraries');
-    if (empty($settings[$depend])) {
-        echo ' class="disabled"';
-    }
+	}
 }
 
 ?>
