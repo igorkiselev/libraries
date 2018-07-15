@@ -648,6 +648,174 @@ if (!empty($settings['settings-privateprefix'])) {
 }
 
 if (!empty($settings['opengraph'])) {
+	if (function_exists('acf_add_options_page')) {
+	    acf_add_options_page(
+	        array(
+	            'page_title' => __('Options', 'libraries' ),
+	        )
+	    );
+	}
+	if( function_exists('acf_add_local_field_group') ):
+
+	acf_add_local_field_group(array(
+		'key' => 'group_5b49c254e292f',
+		'title' => 'Пост SEO',
+		'fields' => array(
+			array(
+				'key' => 'field_5b49c254e6e81',
+				'label' => 'Описание страницы',
+				'name' => 'description',
+				'type' => 'textarea',
+				'instructions' => 'Введите описание страницы, которое будет отображаться в поле &#60;meta name&#61;&#34;description&#34;&#62;. Если оставить поле пустым — то будет отображаться текст из цитаты (the_excerpt) к странице / записи.',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => 4,
+				'new_lines' => '',
+			),
+			array(
+				'key' => 'field_5b49c254e6e8f',
+				'label' => 'Ключевые слова',
+				'name' => 'keywords',
+				'type' => 'taxonomy',
+				'instructions' => 'Добавьте ключевые слова к полю &#60;meta name&#61;&#34;keywords&#34;&#62;. Ключевые слова берутся из тэгов к сайту.',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'taxonomy' => 'post_tag',
+				'field_type' => 'multi_select',
+				'allow_null' => 1,
+				'add_term' => 1,
+				'save_terms' => 1,
+				'load_terms' => 1,
+				'return_format' => 'object',
+				'multiple' => 0,
+			),
+		),
+		'location' => array(
+			array(
+				array(
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'post',
+				),
+			),
+		),
+		'menu_order' => 0,
+		'position' => 'normal',
+		'style' => 'default',
+		'label_placement' => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen' => '',
+		'active' => 1,
+		'description' => '',
+	));
+	
+	acf_add_local_field_group(array(
+		'key' => 'group_5b49d728f09fd',
+		'title' => 'Настройки сайта SEO',
+		'fields' => array(
+			array(
+				'key' => 'field_5b49d72900adf',
+				'label' => 'Основное описание сайта',
+				'name' => 'description',
+				'type' => 'textarea',
+				'instructions' => 'Эта информация будет отображаться в &#60;meta name&#61;&#34;description&#34;&#62; на главной страницу.',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => 2,
+				'new_lines' => '',
+			),
+			array(
+				'key' => 'field_5b49d72900aff',
+				'label' => 'Основные ключевые слова',
+				'name' => 'keywords',
+				'type' => 'textarea',
+				'instructions' => 'Ключевые слова будут отображаться на всех страницах в &#60;meta name&#61;&#34;keywords&#34;&#62; после персональных. Подряд через запятую с пробелом.',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => 2,
+				'new_lines' => '',
+			),
+		),
+		'location' => array(
+			array(
+				array(
+					'param' => 'options_page',
+					'operator' => '==',
+					'value' => 'acf-options-options',
+				),
+			),
+		),
+		'menu_order' => 0,
+		'position' => 'normal',
+		'style' => 'default',
+		'label_placement' => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen' => '',
+		'active' => 1,
+		'description' => '',
+	));
+	
+	endif;
+	
+	add_action('wp_head', function(){
+	
+		if (get_field('description') || get_field('description', 'option')) :
+			
+			?><meta name="description" content="<?php the_field('description', ( (is_front_page() ) ? 'option' : '') ); ?>"><?php
+			
+		endif;
+		
+		if (get_field('keywords') || get_field('keywords', 'option')) :
+			
+			?><meta name="keywords" content="<?php
+	
+				if(!is_front_page() && get_field('keywords')):
+			
+					foreach ( get_field('keywords') as $keyword ):
+				
+						echo $keyword->name.', ';
+					
+					endforeach;
+				
+				endif;
+			
+			the_field('keywords', 'option');
+	
+			?>"><?php
+			
+		endif; 
+	
+	});
+	
     add_action('after_setup_theme', function () {
         add_image_size('facebook', 1200, 630, true);
     });
